@@ -1,0 +1,2691 @@
+// ── _has_ verb key renames ────────────────────────────────────────
+    {
+      from: 'persona_has_desired_outcome',
+      to: 'persona_aspires_to_desired_outcome',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'persona_has_switching_cost',
+      to: 'persona_incurs_switching_cost',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'job_has_desired_outcome',
+      to: 'job_motivates_desired_outcome',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'job_has_job_step',
+      to: 'job_decomposes_into_job_step',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'opportunity_has_design_concept',
+      to: 'opportunity_explores_via_design_concept',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'opportunity_has_feasibility_study',
+      to: 'opportunity_assessed_by_feasibility_study',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'opportunity_has_design_sprint',
+      to: 'opportunity_investigated_via_design_sprint',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'opportunity_relates_to_job',
+      to: 'opportunity_contextualises_job',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'solution_has_prototype',
+      to: 'solution_materialises_as_prototype',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'hypothesis_has_test_plan',
+      to: 'hypothesis_planned_via_test_plan',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'hypothesis_has_research_plan',
+      to: 'hypothesis_investigated_via_research_plan',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'experiment_has_ab_test',
+      to: 'experiment_tested_via_experiment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'study_has_participant',
+      to: 'research_study_enrolls_participant',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'study_has_observation',
+      to: 'research_study_captures_observation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'study_has_affinity_cluster',
+      to: 'research_study_clusters_into_affinity_cluster',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'study_has_insight',
+      to: 'research_study_produces_insight',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'study_has_research_question',
+      to: 'research_study_investigates_research_question',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'study_has_interview_guide',
+      to: 'research_study_follows_interview_guide',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'study_has_survey_response',
+      to: 'research_study_collects_survey_response',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'observation_has_quote',
+      to: 'observation_evidenced_by_quote',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'cluster_has_insight',
+      to: 'affinity_cluster_synthesises_insight',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'competitor_has_feature',
+      to: 'competitor_offers_competitor_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'competitive_analysis_has_competitor',
+      to: 'competitive_analysis_analyses_competitor',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'competitive_analysis_has_market_trend',
+      to: 'competitive_analysis_identifies_market_trend',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'competitive_analysis_has_market_segment',
+      to: 'competitive_analysis_scopes_market_segment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'trend_influences_outcome',
+      to: 'market_trend_influences_outcome',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'trend_creates_opportunity',
+      to: 'market_trend_creates_opportunity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feedback_program_has_feature_request',
+      to: 'feedback_program_collects_feature_request',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feature_request_has_feedback_vote',
+      to: 'feature_request_voted_on_by_feedback_vote',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feedback_program_has_nps_campaign',
+      to: 'feedback_program_runs_nps_campaign',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feedback_program_has_feedback_theme',
+      to: 'feedback_program_identifies_feedback_theme',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feedback_theme_validates_pain_point',
+      to: 'feedback_theme_validates_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'nps_campaign_tracks_nps_score',
+      to: 'nps_campaign_tracks_nps_campaign',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_outcome',
+      to: 'product_pursues_outcome',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_objective',
+      to: 'product_targets_objective',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_vision',
+      to: 'product_guided_by_vision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_mission',
+      to: 'product_fulfils_mission',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_strategic_theme',
+      to: 'product_organises_around_strategic_theme',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_strategic_pillar',
+      to: 'product_stands_on_strategic_pillar',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_initiative',
+      to: 'product_invests_in_initiative',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_capability',
+      to: 'product_develops_capability',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_value_stream',
+      to: 'product_delivers_through_value_stream',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_assumption',
+      to: 'product_holds_assumption',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_metric',
+      to: 'product_measures_with_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'outcome_has_kpi',
+      to: 'outcome_measured_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'outcome_has_metric',
+      to: 'outcome_tracked_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'objective_has_key_result',
+      to: 'objective_achieved_through_key_result',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'objective_has_metric',
+      to: 'objective_measured_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'key_result_has_metric',
+      to: 'key_result_quantified_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'key_result_has_kpi',
+      to: 'key_result_tracked_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'vision_has_mission',
+      to: 'vision_realised_through_mission',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'mission_has_strategic_pillar',
+      to: 'mission_supported_by_strategic_pillar',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'strategic_pillar_has_strategic_theme',
+      to: 'strategic_pillar_organises_strategic_theme',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'strategic_pillar_has_capability',
+      to: 'strategic_pillar_enables_capability',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'strategic_pillar_has_value_stream',
+      to: 'strategic_pillar_delivers_value_stream',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'strategic_pillar_has_decision',
+      to: 'strategic_pillar_decided_via_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'strategic_theme_has_initiative',
+      to: 'strategic_theme_pursues_initiative',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'initiative_has_assumption',
+      to: 'initiative_assumes_assumption',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'metric_has_metric',
+      to: 'metric_decomposes_into_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_feature_area',
+      to: 'product_organises_into_feature_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_feature',
+      to: 'product_builds_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_release',
+      to: 'product_ships_via_release',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_roadmap',
+      to: 'product_plans_via_roadmap',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_theme',
+      to: 'product_categorises_by_theme',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feature_area_has_feature',
+      to: 'feature_area_contains_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feature_area_has_feature_area',
+      to: 'feature_area_contains_feature_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'outcome_has_feature',
+      to: 'outcome_delivered_by_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'outcome_has_feature_area',
+      to: 'outcome_delivered_via_feature_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feature_has_epic',
+      to: 'feature_decomposed_into_epic',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'epic_has_user_story',
+      to: 'epic_specified_by_user_story',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'story_has_acceptance_criterion',
+      to: 'user_story_verified_by_acceptance_criterion',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'story_has_task',
+      to: 'user_story_broken_into_task',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feature_has_bug',
+      to: 'feature_affected_by_bug',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'release_has_changelog',
+      to: 'release_documented_in_changelog',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'roadmap_has_roadmap_item',
+      to: 'roadmap_contains_roadmap_item',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'roadmap_has_theme',
+      to: 'roadmap_categorised_by_theme',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'roadmap_has_release',
+      to: 'roadmap_schedules_release',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'theme_has_feature',
+      to: 'theme_groups_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'theme_has_feature_area',
+      to: 'theme_spans_feature_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'task_implements_story',
+      to: 'task_implements_user_story',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_legal_entity',
+      to: 'product_owned_by_legal_entity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'legal_entity_has_ip_asset',
+      to: 'legal_entity_protects_ip_asset',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'legal_entity_has_contract',
+      to: 'legal_entity_bound_by_contract',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'contract_has_contract_clause',
+      to: 'contract_contains_contract_clause',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_privacy_policy',
+      to: 'product_governed_by_privacy_policy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_user_journey',
+      to: 'product_maps_experience_via_user_journey',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_user_flow',
+      to: 'product_navigated_via_user_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_wireframe',
+      to: 'product_sketched_in_wireframe',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'journey_has_step',
+      to: 'user_journey_contains_journey_step',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'user_flow_has_screen',
+      to: 'user_flow_routes_through_screen',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'screen_has_screen_state',
+      to: 'screen_renders_as_screen_state',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'need_has_hmw',
+      to: 'need_reframed_as_design_question',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'hmw_has_concept',
+      to: 'design_question_answered_by_design_concept',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'concept_has_prototype',
+      to: 'design_concept_realised_as_prototype',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_concept_has_wireframe',
+      to: 'design_concept_sketched_in_wireframe',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'persona_has_journey',
+      to: 'persona_experiences_user_journey',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'journey_maps_persona',
+      to: 'user_journey_maps_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'journey_addresses_jtbd',
+      to: 'user_journey_addresses_job',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'flow_targets_persona',
+      to: 'user_flow_targets_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'step_reveals_pain_point',
+      to: 'journey_step_reveals_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pain_point_occurs_in_step',
+      to: 'need_occurs_in_journey_step',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'opportunity_improves_journey',
+      to: 'opportunity_improves_user_journey',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_design_system',
+      to: 'product_systematised_in_design_system',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_design_component',
+      to: 'product_built_with_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_design_component',
+      to: 'design_system_contains_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_design_token',
+      to: 'design_system_defines_design_token',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_design_guideline',
+      to: 'design_system_codified_in_design_guideline',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_brand_identity',
+      to: 'design_system_expresses_brand_identity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_user_journey',
+      to: 'design_system_encompasses_user_journey',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_user_flow',
+      to: 'design_system_encompasses_user_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_ux_insight',
+      to: 'design_system_informed_by_insight',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_system_has_decision',
+      to: 'design_system_decided_via_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'component_has_token',
+      to: 'design_component_styled_by_design_token',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'component_has_design_pattern',
+      to: 'design_component_follows_design_pattern',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'component_has_design_guideline',
+      to: 'design_component_governed_by_design_guideline',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'component_has_interaction_spec',
+      to: 'design_component_specified_by_interaction_spec',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'component_has_component',
+      to: 'design_component_composes_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'prototype_has_annotation',
+      to: 'prototype_annotated_with_annotation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'screen_has_component',
+      to: 'screen_renders_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'screen_has_screen',
+      to: 'screen_navigates_to_screen',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'screen_uses_feature',
+      to: 'screen_surfaces_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'screen_has_wireframe',
+      to: 'screen_wireframed_as_wireframe',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_brand_identity',
+      to: 'product_branded_as_brand_identity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'brand_has_colour',
+      to: 'brand_identity_coloured_with_brand_colour',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'brand_has_typography',
+      to: 'brand_identity_typeset_with_brand_typography',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'brand_has_voice',
+      to: 'brand_identity_speaks_with_brand_voice',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'brand_identity_has_brand_asset',
+      to: 'brand_identity_expressed_in_brand_asset',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_bounded_context',
+      to: 'product_bounded_by_bounded_context',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_architecture_decision',
+      to: 'product_decided_via_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_code_repository',
+      to: 'product_stored_in_code_repository',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_integration_pattern',
+      to: 'product_integrates_via_integration_pattern',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_external_api',
+      to: 'product_connects_to_external_api',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_data_flow',
+      to: 'product_flows_through_data_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'context_has_service',
+      to: 'bounded_context_deploys_service',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'context_has_domain_event',
+      to: 'bounded_context_emits_domain_event',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'context_has_architecture_decision',
+      to: 'bounded_context_decided_via_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'context_has_aggregate',
+      to: 'bounded_context_modelled_as_aggregate',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'context_has_read_model',
+      to: 'bounded_context_projected_as_read_model',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'bounded_context_has_data_model',
+      to: 'bounded_context_persisted_in_data_model',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'bounded_context_has_code_repository',
+      to: 'bounded_context_stored_in_code_repository',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'bounded_context_has_integration_pattern',
+      to: 'bounded_context_integrates_via_integration_pattern',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'bounded_context_has_external_api',
+      to: 'bounded_context_connects_to_external_api',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'bounded_context_has_data_flow',
+      to: 'bounded_context_flows_through_data_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'context_contains_feature_area',
+      to: 'bounded_context_contains_feature_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_api_contract',
+      to: 'service_exposes_api_contract',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_technical_debt',
+      to: 'service_carries_technical_debt_item',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_feature_flag',
+      to: 'service_toggles_feature_flag',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_deployment',
+      to: 'service_deployed_as_deployment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_api_endpoint',
+      to: 'service_serves_api_endpoint',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_database_schema',
+      to: 'service_persisted_in_database_schema',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_queue_topic',
+      to: 'service_publishes_to_queue_topic',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_build_artifact',
+      to: 'service_produces_build_artifact',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_library_dependency',
+      to: 'service_depends_on_library_dependency',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'decision_has_technical_debt',
+      to: 'decision_incurs_technical_debt_item',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'aggregate_has_domain_entity',
+      to: 'aggregate_contains_domain_entity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'aggregate_has_value_object',
+      to: 'aggregate_contains_value_object',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'aggregate_has_command',
+      to: 'aggregate_handles_command',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'causes',
+      to: 'root_cause_causes_symptom',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'fix_from_investigation',
+      to: 'fix_derived_from_investigation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'same_root_cause',
+      to: 'root_cause_shares_cause_with_root_cause',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'root_cause_is_debt',
+      to: 'root_cause_manifests_as_technical_debt_item',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_investigation',
+      to: 'service_investigated_via_investigation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_has_root_cause',
+      to: 'service_affected_by_root_cause',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'context_contains_feature',
+      to: 'bounded_context_contains_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'debt_blocks_feature',
+      to: 'technical_debt_item_blocks_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'endpoint_serves_feature',
+      to: 'api_endpoint_serves_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'component_implements_feature',
+      to: 'design_component_implements_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'component_uses_service',
+      to: 'design_component_consumes_service',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'flow_requires_feature',
+      to: 'user_flow_requires_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_commits_to_slo',
+      to: 'product_commits_to_service_level_objective',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'slo_measured_by_sli',
+      to: 'service_level_objective_measured_by_service_level_indicator',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'slo_budgets_errors_as',
+      to: 'service_level_objective_budgets_as_error_budget',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_monitor',
+      to: 'product_monitored_by_monitor',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'monitor_has_alert_rule',
+      to: 'monitor_triggers_via_alert_rule',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_ci_pipeline',
+      to: 'product_built_by_ci_pipeline',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_release_strategy',
+      to: 'product_released_via_release_strategy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_on_call_rotation',
+      to: 'product_covered_by_on_call_rotation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_infrastructure_component',
+      to: 'product_runs_on_infrastructure_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ci_pipeline_has_build_artifact',
+      to: 'ci_pipeline_produces_build_artifact',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'infrastructure_component_has_slo',
+      to: 'infrastructure_component_committed_to_service_level_objective',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'infrastructure_component_has_monitor',
+      to: 'infrastructure_component_monitored_by_monitor',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'infrastructure_component_has_ci_pipeline',
+      to: 'infrastructure_component_built_by_ci_pipeline',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'infrastructure_component_has_incident',
+      to: 'infrastructure_component_experiences_incident',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'infrastructure_component_has_runbook',
+      to: 'infrastructure_component_documented_in_runbook',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'infrastructure_component_has_release_strategy',
+      to: 'infrastructure_component_released_via_release_strategy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'infrastructure_component_has_on_call_rotation',
+      to: 'infrastructure_component_covered_by_on_call_rotation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'slo_tracks_kpi',
+      to: 'service_level_objective_tracks_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'slo_satisfies_sla',
+      to: 'service_level_objective_satisfies_service_level_agreement',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'incident_breaches_slo',
+      to: 'incident_breaches_service_level_objective',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'runbook_mitigates_incident_type',
+      to: 'runbook_mitigates_incident',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_models_threats',
+      to: 'product_models_threats_with_threat_model',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_security_incident',
+      to: 'product_experiences_incident_hierarchy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_classifies_data_with',
+      to: 'product_classifies_data_with_data_classification',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_restricts_access_with',
+      to: 'product_restricts_access_with_access_policy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'security_policy_mandates_control',
+      to: 'security_policy_mandates_security_control',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'security_policy_establishes_classification',
+      to: 'security_policy_establishes_data_classification',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'security_policy_schedules_review',
+      to: 'security_policy_schedules_security_review',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'security_review_commissions_pentest',
+      to: 'security_review_commissions_penetration_test',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'vulnerability_discovered_by_pentest',
+      to: 'vulnerability_discovered_by_penetration_test',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_measured_by_coverage_report',
+      to: 'product_measured_by_test_coverage_report',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_provisioned_in_environment',
+      to: 'product_provisioned_in_test_environment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'test_suite_has_qa_session',
+      to: 'test_suite_tested_via_qa_session',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'test_suite_has_test_coverage_report',
+      to: 'test_suite_measured_by_test_coverage_report',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'test_suite_has_test_environment',
+      to: 'test_suite_deployed_in_test_environment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_a11y_standard',
+      to: 'product_conforms_to_a11y_standard',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'a11y_standard_has_a11y_guideline',
+      to: 'a11y_standard_contains_a11y_guideline',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_a11y_audit',
+      to: 'product_audited_by_a11y_audit',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'a11y_audit_has_a11y_issue',
+      to: 'a11y_audit_discovers_a11y_issue',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_a11y_annotation',
+      to: 'product_annotated_with_a11y_annotation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'a11y_standard_has_a11y_audit',
+      to: 'a11y_standard_verified_by_a11y_audit',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'a11y_standard_has_a11y_annotation',
+      to: 'a11y_standard_annotated_with_a11y_annotation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'a11y_issue_affects_component',
+      to: 'a11y_issue_affects_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_ai_model',
+      to: 'product_powered_by_ai_model',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ai_model_has_prompt_version',
+      to: 'ai_model_prompted_via_prompt_version',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ai_model_has_eval_benchmark',
+      to: 'ai_model_benchmarked_by_eval_benchmark',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'eval_benchmark_has_eval_run',
+      to: 'eval_benchmark_executed_as_eval_run',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ai_model_has_ai_cost_tracker',
+      to: 'ai_model_costed_by_ai_cost_tracker',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ai_model_has_hallucination_report',
+      to: 'ai_model_flagged_by_hallucination_report',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ai_model_has_ai_guardrail',
+      to: 'ai_model_constrained_by_ai_guardrail',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_model_comparison',
+      to: 'product_compared_via_model_comparison',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ai_model_has_model_comparison',
+      to: 'ai_model_compared_in_model_comparison',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_workflow_template',
+      to: 'product_automated_via_workflow_template',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'workflow_template_has_workflow_run',
+      to: 'workflow_template_executed_as_workflow_run',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_agent_definition',
+      to: 'product_assisted_by_agent_definition',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'agent_definition_has_agent_session',
+      to: 'agent_definition_runs_agent_session',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'workflow_template_has_review_gate',
+      to: 'workflow_template_gated_by_review_gate',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'review_gate_has_approval_record',
+      to: 'review_gate_approved_via_approval_record',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'agent_definition_has_agent_skill',
+      to: 'agent_definition_capable_of_agent_skill',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'agent_definition_has_agent_hook',
+      to: 'agent_definition_triggered_via_agent_hook',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'workflow_run_produces_artifact',
+      to: 'workflow_run_produces_workflow_artifact',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'agent_definition_has_workflow_template',
+      to: 'agent_definition_orchestrates_workflow_template',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_funnel',
+      to: 'product_measures_funnel',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_acquisition_channel',
+      to: 'product_acquires_via_acquisition_channel',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_cohort',
+      to: 'product_segments_into_cohort',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_segment',
+      to: 'product_segments_into_segment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_growth_loop',
+      to: 'product_grows_via_growth_loop',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_attribution_model',
+      to: 'product_attributed_via_attribution_model',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_north_star_metric',
+      to: 'product_guided_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'funnel_has_step',
+      to: 'funnel_contains_funnel_step',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'channel_has_campaign',
+      to: 'acquisition_channel_runs_campaign',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'campaign_has_growth_experiment',
+      to: 'campaign_tests_via_experiment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'growth_experiment_has_variant',
+      to: 'experiment_tests_variant',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'nsm_has_input_metric',
+      to: 'metric_decomposed_into_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'input_metric_drives_kpi',
+      to: 'metric_drives_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'funnel_step_reveals_pain',
+      to: 'funnel_step_reveals_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'funnel_step_tracks_event',
+      to: 'funnel_step_tracks_event_schema',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'input_metric_measures_kr',
+      to: 'metric_measures_key_result',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'channel_drives_outcome',
+      to: 'acquisition_channel_drives_outcome',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'growth_loop_drives_nsm',
+      to: 'growth_loop_drives_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'growth_experiment_targets_segment',
+      to: 'experiment_targets_segment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'channel_targets_segment',
+      to: 'acquisition_channel_targets_segment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'channel_reaches_persona',
+      to: 'acquisition_channel_reaches_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_business_model',
+      to: 'product_monetised_via_business_model',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_value_proposition',
+      to: 'business_model_delivers_value_proposition',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_revenue_stream',
+      to: 'business_model_earns_via_revenue_stream',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_cost_structure',
+      to: 'business_model_costs_via_cost_structure',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_unit_economics',
+      to: 'business_model_measured_by_unit_economics',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_partnership',
+      to: 'business_model_partnered_via_partnership',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_key_resource',
+      to: 'business_model_requires_key_resource',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_key_activity',
+      to: 'business_model_performs_key_activity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_customer_segment_bm',
+      to: 'business_model_serves_customer_segment_bm',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_channel_bm',
+      to: 'business_model_reaches_via_channel_bm',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_customer_relationship',
+      to: 'business_model_maintains_customer_relationship',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'business_model_has_distribution_channel',
+      to: 'business_model_distributes_via_distribution_channel',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'revenue_stream_has_pricing_tier',
+      to: 'revenue_stream_tiered_as_pricing_tier',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'revenue_stream_has_metric',
+      to: 'revenue_stream_measured_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'cost_structure_has_metric',
+      to: 'cost_structure_measured_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'vp_addresses_jtbd',
+      to: 'value_proposition_addresses_job',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'vp_solves_pain_point',
+      to: 'value_proposition_solves_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'vp_targets_persona',
+      to: 'value_proposition_targets_persona_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'revenue_stream_drives_nsm',
+      to: 'revenue_stream_drives_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'revenue_stream_measured_by_kpi',
+      to: 'revenue_stream_measured_by_metric_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_gtm_strategy',
+      to: 'product_goes_to_market_via_gtm_strategy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_icp',
+      to: 'gtm_strategy_targets_ideal_customer_profile',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_positioning',
+      to: 'gtm_strategy_positions_via_positioning',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_launch',
+      to: 'gtm_strategy_launches_via_launch',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_content_strategy',
+      to: 'gtm_strategy_educates_via_content_strategy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_sales_motion',
+      to: 'gtm_strategy_sells_via_sales_motion',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_competitive_battle_card',
+      to: 'gtm_strategy_arms_with_competitive_battle_card',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_demand_gen_program',
+      to: 'gtm_strategy_generates_demand_via_demand_gen_program',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'gtm_has_territory',
+      to: 'gtm_strategy_operates_in_territory',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'positioning_has_messaging',
+      to: 'positioning_communicated_via_messaging',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'positioning_has_objection',
+      to: 'positioning_challenged_by_objection',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'positioning_has_proof_point',
+      to: 'positioning_evidenced_by_proof_point',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'value_proposition_has_objection',
+      to: 'value_proposition_challenged_by_objection',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'value_proposition_has_proof_point',
+      to: 'value_proposition_evidenced_by_proof_point',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'competitive_battle_card_has_objection',
+      to: 'competitive_battle_card_addresses_objection',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'objection_has_rebuttal',
+      to: 'objection_countered_by_rebuttal',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'rebuttal_has_proof_point',
+      to: 'rebuttal_evidenced_by_proof_point',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'positioning_resonates_persona',
+      to: 'positioning_resonates_with_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'positioning_differentiates_competitor',
+      to: 'positioning_differentiates_from_competitor',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'icp_maps_to_segment',
+      to: 'ideal_customer_profile_maps_to_segment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'icp_maps_persona',
+      to: 'ideal_customer_profile_maps_to_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'icp_targets_segment',
+      to: 'ideal_customer_profile_targets_segment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'launch_tied_to_release',
+      to: 'launch_ships_with_release',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'launch_tied_to_campaign',
+      to: 'launch_amplified_by_campaign',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_pricing_strategy',
+      to: 'product_priced_via_pricing_strategy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pricing_strategy_has_pricing_experiment',
+      to: 'pricing_strategy_tests_experiment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pricing_strategy_has_package',
+      to: 'pricing_strategy_packages_as_package',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pricing_strategy_has_discount_strategy',
+      to: 'pricing_strategy_discounts_via_discount_strategy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pricing_strategy_has_trial_config',
+      to: 'pricing_strategy_trials_via_trial_config',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pricing_strategy_has_paywall',
+      to: 'pricing_strategy_gates_via_paywall',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pricing_experiment_tests_pricing_tier',
+      to: 'experiment_tests_pricing_tier',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'trial_config_drives_conversion',
+      to: 'trial_config_drives_funnel',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pricing_tier_has_regional_pricing',
+      to: 'pricing_tier_localised_as_regional_pricing',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_pipeline_sales',
+      to: 'product_sold_via_pipeline_sales',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pipeline_sales_has_pipeline_stage',
+      to: 'pipeline_sales_contains_pipeline_stage',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_account',
+      to: 'product_serves_account',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'account_has_contact',
+      to: 'account_contains_contact',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'account_has_deal',
+      to: 'account_negotiates_deal',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_lead',
+      to: 'product_attracts_lead',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'deal_has_quote_document',
+      to: 'deal_quoted_via_quote_document',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_subscription',
+      to: 'product_subscribed_via_subscription',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'subscription_has_invoice',
+      to: 'subscription_billed_via_invoice',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_forecast',
+      to: 'product_forecasted_via_forecast',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pipeline_sales_has_lead',
+      to: 'pipeline_sales_qualifies_lead',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pipeline_sales_has_account',
+      to: 'pipeline_sales_manages_account',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pipeline_sales_has_forecast',
+      to: 'pipeline_sales_projected_via_forecast',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'pipeline_sales_has_subscription',
+      to: 'pipeline_sales_converts_to_subscription',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'deal_references_icp',
+      to: 'deal_references_ideal_customer_profile',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_marketing_strategy',
+      to: 'product_markets_through_marketing_strategy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'marketing_strategy_has_marketing_channel',
+      to: 'marketing_strategy_activates_marketing_channel',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'marketing_strategy_has_seo_keyword',
+      to: 'marketing_strategy_targets_seo_keyword',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'marketing_strategy_has_press_release',
+      to: 'marketing_strategy_publishes_press_release',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'marketing_strategy_has_event',
+      to: 'marketing_strategy_hosts_event',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'marketing_strategy_has_community_initiative',
+      to: 'marketing_strategy_builds_community_via_community_initiative',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'marketing_channel_has_marketing_campaign_plan',
+      to: 'marketing_channel_runs_marketing_campaign_plan',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'campaign_plan_has_email_sequence',
+      to: 'marketing_campaign_plan_sends_email_sequence',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'campaign_plan_has_social_post',
+      to: 'marketing_campaign_plan_publishes_social_post',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'campaign_plan_has_ad_creative',
+      to: 'marketing_campaign_plan_runs_ad_creative',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_press_release',
+      to: 'product_announced_via_press_release',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_event',
+      to: 'product_hosts_event',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_community_initiative',
+      to: 'product_engages_via_community_initiative',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'campaign_plan_targets_segment',
+      to: 'marketing_campaign_plan_targets_segment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'community_initiative_builds_persona_insight',
+      to: 'community_initiative_surfaces_insight_about_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_support_ticket',
+      to: 'product_supports_via_support_ticket',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_customer_feedback',
+      to: 'product_listens_via_customer_feedback',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_churn_reason',
+      to: 'product_loses_because_churn_reason',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_onboarding_flow',
+      to: 'product_onboards_via_user_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_customer_health_score',
+      to: 'product_health_scored_via_customer_health_score',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_playbook',
+      to: 'product_operated_via_playbook',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_sla',
+      to: 'product_guarantees_via_service_level_agreement',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_success_milestone',
+      to: 'product_celebrates_via_success_milestone',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_service_blueprint',
+      to: 'product_blueprinted_via_service_blueprint',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_nps_score',
+      to: 'product_measured_by_nps_campaign',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_blueprint_has_onboarding_flow',
+      to: 'service_blueprint_contains_user_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_blueprint_has_playbook',
+      to: 'service_blueprint_contains_playbook',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_blueprint_has_sla',
+      to: 'service_blueprint_contains_service_level_agreement',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_blueprint_has_customer_health_score',
+      to: 'service_blueprint_contains_customer_health_score',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_blueprint_has_support_ticket',
+      to: 'service_blueprint_contains_support_ticket',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'service_blueprint_has_customer_feedback',
+      to: 'service_blueprint_contains_customer_feedback',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'customer_health_score_has_nps_score',
+      to: 'customer_health_score_tracked_by_nps_campaign',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'customer_health_score_has_success_milestone',
+      to: 'customer_health_score_contains_success_milestone',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'customer_feedback_has_churn_reason',
+      to: 'customer_feedback_reveals_churn_reason',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'onboarding_flow_has_customer_journey_stage',
+      to: 'user_flow_contains_customer_journey_stage',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'customer_journey_stage_has_touchpoint',
+      to: 'customer_journey_stage_contains_touchpoint',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'support_ticket_reveals_pain_point',
+      to: 'support_ticket_reveals_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'onboarding_flow_maps_user_journey',
+      to: 'user_flow_maps_user_journey',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'sla_governs_service',
+      to: 'service_level_agreement_governs_service',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'nps_score_tracks_health_score',
+      to: 'nps_campaign_tracks_customer_health_score',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'playbook_targets_journey_stage',
+      to: 'playbook_targets_customer_journey_stage',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'feedback_becomes_request',
+      to: 'customer_feedback_becomes_feature_request',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ticket_reports_bug',
+      to: 'support_ticket_reports_bug',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ticket_reveals_pain_point',
+      to: 'support_ticket_reveals_need_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'churn_reveals_pain_point',
+      to: 'churn_reason_reveals_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_content_piece',
+      to: 'product_publishes_content_piece',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_knowledge_base_article',
+      to: 'product_documents_in_knowledge_base_article',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_brand_asset',
+      to: 'product_expressed_via_brand_asset',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_internal_doc',
+      to: 'product_documented_in_internal_doc',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_prompt_template',
+      to: 'product_prompted_via_prompt_template',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_documentation_template',
+      to: 'product_templated_via_documentation_template',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_document',
+      to: 'product_records_in_document',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_strategy_has_content_calendar',
+      to: 'content_strategy_scheduled_in_content_calendar',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_strategy_has_content_theme',
+      to: 'content_strategy_themed_by_content_theme',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_calendar_has_content_theme',
+      to: 'content_calendar_contains_content_theme',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_calendar_has_content_piece',
+      to: 'content_calendar_schedules_content_piece',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_calendar_has_knowledge_base_article',
+      to: 'content_calendar_schedules_knowledge_base_article',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_calendar_has_brand_asset',
+      to: 'content_calendar_schedules_brand_asset',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_calendar_has_internal_doc',
+      to: 'content_calendar_schedules_internal_doc',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_calendar_has_prompt_template',
+      to: 'content_calendar_schedules_prompt_template',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'content_calendar_has_documentation_template',
+      to: 'content_calendar_schedules_documentation_template',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'kb_article_documents_feature',
+      to: 'knowledge_base_article_documents_feature',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'changelog_tied_to_release',
+      to: 'changelog_documents_release',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'document_describes_architecture_decision',
+      to: 'document_describes_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'document_has_research_insight',
+      to: 'document_contains_insight',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_education_program',
+      to: 'product_educates_via_education_program',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'education_program_has_tutorial',
+      to: 'education_program_teaches_via_tutorial',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'education_program_has_walkthrough',
+      to: 'education_program_guides_via_walkthrough',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'education_program_has_webinar',
+      to: 'education_program_presents_via_webinar',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'education_program_has_certification',
+      to: 'education_program_certifies_via_certification',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'education_program_has_help_video',
+      to: 'education_program_demonstrates_via_help_video',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'education_program_has_learning_path',
+      to: 'education_program_structures_via_learning_path',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'learning_path_has_tutorial',
+      to: 'learning_path_contains_tutorial',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'walkthrough_maps_onboarding_flow',
+      to: 'walkthrough_maps_user_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'tutorial_references_kb_article',
+      to: 'tutorial_references_knowledge_base_article',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_team',
+      to: 'product_staffed_by_team',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_stakeholder',
+      to: 'product_influenced_by_stakeholder',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_product_decision',
+      to: 'product_decided_via_decision_hierarchy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_department',
+      to: 'product_organised_into_department',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'department_has_team',
+      to: 'department_contains_team',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'department_has_stakeholder',
+      to: 'department_includes_stakeholder',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_role',
+      to: 'team_staffed_with_role',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_team_okr',
+      to: 'team_targets_team_okr',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_retrospective',
+      to: 'team_reflects_in_retrospective',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_dependency',
+      to: 'team_depends_on_dependency',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_skill',
+      to: 'team_skilled_in_skill',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_ceremony',
+      to: 'team_practices_ceremony',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_capacity_plan',
+      to: 'team_planned_via_capacity_plan',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_has_product_decision',
+      to: 'team_decides_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_decision_references_adr',
+      to: 'decision_references_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_okr_aligns_objective',
+      to: 'team_okr_aligns_with_objective',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'team_okr_aligns_key_result',
+      to: 'team_okr_aligns_with_key_result',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_program',
+      to: 'product_managed_via_program',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'program_has_project',
+      to: 'program_contains_project',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'project_has_milestone',
+      to: 'project_targets_milestone',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'project_has_deliverable',
+      to: 'project_produces_deliverable',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'program_has_risk_register',
+      to: 'program_tracked_via_risk_register',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'risk_register_has_risk_item',
+      to: 'risk_register_contains_risk',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'program_has_change_request',
+      to: 'program_changed_via_change_request',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'program_has_resource_allocation',
+      to: 'program_resourced_via_resource_allocation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'program_has_status_report',
+      to: 'program_reported_via_status_report',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_compliance_requirement',
+      to: 'product_constrained_by_compliance_requirement',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_risk',
+      to: 'product_exposed_to_risk',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_data_contract',
+      to: 'product_bound_by_data_contract',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_audit_log_policy',
+      to: 'product_audited_via_audit_log_policy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_compliance_framework',
+      to: 'product_governed_by_compliance_framework',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_has_compliance_requirement',
+      to: 'compliance_framework_mandates_compliance_requirement',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_has_security_audit',
+      to: 'compliance_framework_verified_by_security_audit',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_has_privacy_policy',
+      to: 'compliance_framework_requires_privacy_policy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_has_audit_log_policy',
+      to: 'compliance_framework_requires_audit_log_policy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_has_risk',
+      to: 'compliance_framework_identifies_risk',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_has_data_contract',
+      to: 'compliance_framework_governs_data_contract',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_has_legal_entity',
+      to: 'compliance_framework_applies_to_legal_entity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_requirement_constrains_adr',
+      to: 'compliance_requirement_constrains_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'risk_linked_to_tech_debt',
+      to: 'risk_manifests_as_technical_debt_item',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'compliance_framework_requires_control',
+      to: 'compliance_framework_requires_security_control',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'security_audit_validates_framework',
+      to: 'security_audit_validates_compliance_framework',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_locale',
+      to: 'product_localised_in_locale',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_locale_config',
+      to: 'product_configured_via_locale_config',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'locale_has_translation_bundle',
+      to: 'locale_translated_via_translation_bundle',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'locale_has_cultural_adaptation',
+      to: 'locale_adapted_via_cultural_adaptation',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'locale_has_regional_pricing',
+      to: 'locale_priced_in_regional_pricing',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'locale_has_locale_config',
+      to: 'locale_configured_via_locale_config',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'translation_bundle_has_translation_key',
+      to: 'translation_bundle_contains_translation_key',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'screen_has_translation_bundle',
+      to: 'screen_translated_via_translation_bundle',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_partner_program',
+      to: 'product_partnered_via_partner_program',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'partner_program_has_partner_tier',
+      to: 'partner_program_tiers_as_partner_tier',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_api_ecosystem',
+      to: 'product_exposed_via_api_ecosystem',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'api_ecosystem_has_marketplace_listing',
+      to: 'api_ecosystem_lists_marketplace_listing',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_developer_portal',
+      to: 'product_documented_via_developer_portal',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'partner_program_has_integration_partner',
+      to: 'partner_program_includes_integration_partner',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'partner_program_has_partner_revenue_share',
+      to: 'partner_program_shares_revenue_via_partner_revenue_share',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'partner_program_has_api_ecosystem',
+      to: 'partner_program_exposes_api_ecosystem',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'partner_program_has_developer_portal',
+      to: 'partner_program_documents_developer_portal',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_data_source',
+      to: 'product_ingests_from_data_source',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_event_schema',
+      to: 'product_tracks_via_event_schema',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_dashboard',
+      to: 'product_visualised_in_dashboard',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_data_domain',
+      to: 'product_organised_into_data_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_glossary_term',
+      to: 'product_defined_by_glossary_term',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_source_has_metric_definition',
+      to: 'data_source_defines_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_source_has_data_pipeline',
+      to: 'data_source_processed_via_data_pipeline',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_source_has_data_lineage',
+      to: 'data_source_traced_via_data_lineage',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_source_has_event_schema',
+      to: 'data_source_emits_event_schema',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'metric_definition_has_data_quality_rule',
+      to: 'metric_validated_by_data_quality_rule',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_domain_has_data_product',
+      to: 'data_domain_produces_data_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_domain_has_data_source',
+      to: 'data_domain_contains_data_source',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_domain_has_glossary_term',
+      to: 'data_domain_defines_glossary_term',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_domain_has_data_model',
+      to: 'data_domain_modelled_in_data_model',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'data_domain_has_dashboard',
+      to: 'data_domain_visualised_in_dashboard',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'dashboard_has_report',
+      to: 'dashboard_contains_report',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'dashboard_has_ab_test',
+      to: 'dashboard_contains_experiment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'metric_definition_measures_kpi',
+      to: 'metric_measures_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'metric_definition_measures_nsm',
+      to: 'metric_measures_metric_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'metric_measures_input_metric',
+      to: 'metric_measures_metric_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ab_test_tests_hypothesis',
+      to: 'experiment_tests_hypothesis',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ab_test_tests_experiment',
+      to: 'experiment_tests_experiment',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'dashboard_tracks_kpi',
+      to: 'dashboard_tracks_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'organization_has_portfolio',
+      to: 'organization_invests_via_portfolio',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'organization_has_area',
+      to: 'organization_organised_into_product_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'portfolio_has_product',
+      to: 'portfolio_contains_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'area_has_product',
+      to: 'product_area_contains_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'portfolio_has_sub_portfolio',
+      to: 'portfolio_contains_portfolio',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'area_has_sub_area',
+      to: 'product_area_contains_product_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_area',
+      to: 'product_categorised_in_product_area',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'shares_persona',
+      to: 'product_shares_persona_with_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'shares_competitor',
+      to: 'product_shares_competitor_with_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'shares_metric',
+      to: 'product_shares_metric_with_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'depends_on_product',
+      to: 'product_depends_on_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'cannibalises',
+      to: 'product_cannibalises_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'succeeds',
+      to: 'product_succeeds_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_workspace',
+      to: 'product_thinks_in_workspace',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'workspace_contains_entity',
+      to: 'workspace_contains_node',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'expressed_as',
+      to: 'product_expressed_as_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'manifests_in',
+      to: 'product_manifests_in_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'enables_flow',
+      to: 'product_enables_flow_user_flow',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'surfaces_insight',
+      to: 'design_component_surfaces_insight_insight',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'specifies_for',
+      to: 'design_component_specifies_for_service',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'tokenised_as',
+      to: 'design_token_tokenised_as_service',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'requires_data_from',
+      to: 'design_component_requires_data_from_service',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'implements',
+      to: 'service_implements_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'constrains_interaction',
+      to: 'service_constrains_interaction_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'enables_pattern',
+      to: 'service_enables_pattern_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'constrains_scope',
+      to: 'service_constrains_scope_product',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'informs',
+      to: 'node_informs_node',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'constrains',
+      to: 'node_constrains_node',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'inspires',
+      to: 'node_inspires_node',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'decision_influences',
+      to: 'decision_influences_node',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'decision_constrained_by',
+      to: 'decision_constrained_by_node',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'decision_superseded_by',
+      to: 'decision_superseded_by_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'decision_produces',
+      to: 'decision_produces_node',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_design_decision',
+      to: 'product_decided_via_decision_hierarchy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'product_has_decision',
+      to: 'product_decided_via_decision_hierarchy',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_decision_affects_component',
+      to: 'decision_affects_design_component',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_decision_affects_screen',
+      to: 'decision_affects_screen',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'design_decision_informs_architecture_decision',
+      to: 'decision_informs_decision',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_validates_pain_point',
+      to: 'insight_validates_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_reveals_desired_outcome',
+      to: 'insight_reveals_desired_outcome',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_informs_jtbd',
+      to: 'insight_informs_job',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_characterises_persona',
+      to: 'insight_characterises_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_validates_user_need',
+      to: 'insight_validates_need_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'observation_reveals_pain_point',
+      to: 'observation_reveals_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'observation_relates_to_persona',
+      to: 'observation_characterises_persona',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'quote_evidences_pain_point',
+      to: 'quote_evidences_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'quote_evidences_jtbd',
+      to: 'quote_evidences_job',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'insight_validates_pain_point',
+      to: 'insight_validates_need_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_surfaces_opportunity',
+      to: 'insight_surfaces_opportunity',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_informs_solution',
+      to: 'insight_informs_solution',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_inspires_hmw',
+      to: 'insight_inspires_design_question',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'finding_inspires_concept',
+      to: 'insight_inspires_design_concept',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'observation_yields_ux_insight',
+      to: 'observation_yields_insight',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'insight_has_ux_insight',
+      to: 'insight_refines_into_insight',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'ux_insight_informs_opportunity',
+      to: 'insight_informs_opportunity_cross_domain',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'learning_validates_pain_point',
+      to: 'learning_validates_need',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'learning_validates_jtbd',
+      to: 'learning_validates_job',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'experiment_has_metric',
+      to: 'experiment_measured_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'solution_has_metric',
+      to: 'solution_measured_by_metric',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'persona_has_jtbd',
+      to: 'persona_pursues_job_semantic',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },
+    {
+      from: 'outcome_has_opportunity',
+      to: 'outcome_reveals_opportunity_causal',
+      reason: 'Key renamed to match forward_verb convention: {source}_{verb}_{target}.',
+    },

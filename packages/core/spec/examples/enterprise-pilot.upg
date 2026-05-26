@@ -1,0 +1,375 @@
+{
+  "upg_version": "0.4.0",
+  "exported_at": "2026-04-07T10:00:00Z",
+  "source": {
+    "tool": "upg-spec",
+    "tool_version": "0.2.0",
+    "workspace_id": "spec_examples"
+  },
+  "product": {
+    "id": "entopo",
+    "title": "Entopo",
+    "description": "The product creation tool. Structure your product knowledge as a typed graph — queryable, traversable, AI-readable.",
+    "stage": "mvp"
+  },
+  "nodes": [
+    {
+      "id": "persona_alex-senior-pm",
+      "type": "persona",
+      "title": "Alex the Senior PM",
+      "description": "A senior product manager leading a 12-person team at a mid-size B2B SaaS company (50-200 employees). Advanced experience. Primary persona.",
+      "status": "active",
+      "tags": [
+        "primary",
+        "enterprise"
+      ],
+      "properties": {
+        "is_primary": true,
+        "experience_level": "advanced",
+        "context": "Leads 12-person team at mid-size B2B SaaS (50-200 employees)",
+        "motivation": "Making confident, evidence-based decisions",
+        "goals": [
+          "Make confident, evidence-based product decisions",
+          "Keep the team aligned on priorities",
+          "See the full picture before committing to a direction"
+        ],
+        "frustrations": [
+          "No single source of truth for product decisions",
+          "Different teams use different tools and terminology",
+          "Can't easily show stakeholders what we've decided and why"
+        ]
+      }
+    },
+    {
+      "id": "job_keep-team-aligned",
+      "type": "jtbd",
+      "title": "Keep my team aligned on what matters",
+      "description": "When priorities shift or new information surfaces, I need everyone to see the same picture so we don't waste cycles on misaligned work.",
+      "status": "active",
+      "tags": [
+        "core-job"
+      ],
+      "properties": {
+        "job_type": "functional",
+        "importance": {
+          "value": 5,
+          "label": "Critical",
+          "scale_id": "importance_5"
+        },
+        "current_satisfaction": {
+          "value": 2,
+          "label": "Unsatisfied",
+          "scale_id": "satisfaction_5"
+        }
+      }
+    },
+    {
+      "id": "need_no-single-source-of-truth",
+      "type": "need",
+      "title": "No single source of truth for product decisions",
+      "description": "Product knowledge is scattered across Notion pages, Jira boards, Slack threads, Google Docs, and tribal memory. No single place shows what we know, what we've decided, and why.",
+      "status": "validated",
+      "tags": [
+        "high-value",
+        "core"
+      ],
+      "properties": {
+        "valence": "pain",
+        "severity": {
+          "value": 4,
+          "label": "Significant",
+          "scale_id": "severity_5"
+        },
+        "frequency": {
+          "value": 4,
+          "label": "Often",
+          "scale_id": "frequency_5"
+        },
+        "importance": {
+          "value": 5,
+          "label": "Critical",
+          "scale_id": "importance_5"
+        },
+        "motivation": "functional"
+      }
+    },
+    {
+      "id": "need_context-loss-between-sprints",
+      "type": "need",
+      "title": "Teams lose product context between sprint boundaries",
+      "description": "When a sprint ends and a new one begins, context about why decisions were made, what was learned, and what changed gets lost. Teams re-derive context instead of building on it.",
+      "status": "discovered",
+      "tags": [
+        "pilot-discovery"
+      ],
+      "properties": {
+        "valence": "pain",
+        "severity": {
+          "value": 3,
+          "label": "Moderate",
+          "scale_id": "severity_5"
+        },
+        "frequency": {
+          "value": 4,
+          "label": "Often",
+          "scale_id": "frequency_5"
+        },
+        "discovered_in": "enterprise-pilot-q2",
+        "mentioned_by": "4 of 5 pilot teams"
+      }
+    },
+    {
+      "id": "insight_tool-fragmentation",
+      "type": "insight",
+      "title": "PMs at 50+ person companies use 5+ tools with no shared context",
+      "description": "Across 8 interviews, a consistent pattern emerged: product managers at companies with 50+ employees use 5 or more tools daily (Jira, Notion, Figma, Slack, analytics) with no shared data model between them. Each tool holds a partial picture.",
+      "status": "active",
+      "tags": [
+        "research",
+        "validated"
+      ],
+      "properties": {
+        "source_study": "enterprise-pm-interviews-r1",
+        "observation_count": 8,
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "opportunity_unified-knowledge",
+      "type": "opportunity",
+      "title": "No single source of truth for product knowledge",
+      "description": "Teams lack a unified, queryable model of their product knowledge. Decisions, research, strategy, and execution live in disconnected tools. An opportunity exists to connect these into a single graph.",
+      "status": "validated",
+      "tags": [
+        "top-opportunity",
+        "core"
+      ],
+      "properties": {
+        "reach": {
+          "value": 4,
+          "label": "Most",
+          "scale_id": "reach_5",
+          "normalized": 0.75
+        },
+        "frequency": {
+          "value": 4,
+          "label": "Often",
+          "scale_id": "frequency_5",
+          "normalized": 0.75
+        },
+        "pain": {
+          "value": 4,
+          "label": "Significant",
+          "scale_id": "pain_5",
+          "normalized": 0.75
+        },
+        "opportunity_score": 0.42
+      }
+    },
+    {
+      "id": "solution_unified-product-graph",
+      "type": "solution",
+      "title": "Unified Product Graph",
+      "description": "A typed knowledge graph that models all product entities — personas, needs, opportunities, solutions, hypotheses, experiments, features, metrics — as nodes with semantic edges. Queryable, traversable, AI-readable.",
+      "status": "active",
+      "tags": [
+        "primary-solution"
+      ],
+      "properties": {
+        "timeline": "Q2 2026",
+        "reach": {
+          "value": 4,
+          "label": "Most",
+          "scale_id": "reach_5",
+          "normalized": 0.75
+        },
+        "impact": {
+          "value": 5,
+          "label": "Transformative",
+          "scale_id": "impact_5",
+          "normalized": 1
+        },
+        "confidence": {
+          "value": 3,
+          "label": "Some evidence",
+          "scale_id": "confidence_5",
+          "normalized": 0.5
+        },
+        "effort": {
+          "value": 4,
+          "label": "Significant",
+          "scale_id": "effort_5",
+          "normalized": 0.75
+        },
+        "rice_score": 0.5
+      }
+    },
+    {
+      "id": "hypothesis_structured-knowledge-reduces-planning",
+      "type": "hypothesis",
+      "title": "Structured knowledge reduces planning time by 30%",
+      "description": "We believe that a graph-based product model will reduce quarterly planning time by 30%, measured by comparing planning hours before and after adoption over 2 quarters.",
+      "status": "validated",
+      "tags": [
+        "validated",
+        "core"
+      ],
+      "properties": {
+        "we_believe": "A graph-based product model",
+        "will_result_in": "30% reduction in quarterly planning time",
+        "we_know_when": "Planning cycle time drops in the first 2 quarters",
+        "we_test_by": "Measuring planning hours before and after adoption",
+        "phase": "resolved"
+      }
+    },
+    {
+      "id": "experiment_enterprise-pilot-q2",
+      "type": "experiment",
+      "title": "Enterprise pilot Q2",
+      "description": "A controlled pilot with 5 enterprise teams over 8 weeks. Teams adopted the Unified Product Graph for their quarterly planning cycle. Planning time was measured before and after.",
+      "status": "complete",
+      "tags": [
+        "pilot",
+        "enterprise"
+      ],
+      "properties": {
+        "method": "controlled_pilot",
+        "sample_size": 5,
+        "duration": "8 weeks",
+        "expected_lift": 30,
+        "expected_lift_unit": "percentage",
+        "actual_lift": 22,
+        "phase": "done"
+      }
+    },
+    {
+      "id": "learning_planning-time-reduction",
+      "type": "learning",
+      "title": "22% reduction — below target but statistically significant",
+      "description": "Teams reduced planning time by 22% (target was 30%). 3 of 5 teams exceeded the 20% threshold. The result is statistically significant and directionally positive, strengthening confidence in the hypothesis.",
+      "status": "active",
+      "tags": [
+        "positive",
+        "validated"
+      ],
+      "properties": {
+        "result": "Teams reduced planning time by 22%. 3 of 5 teams exceeded 20% threshold.",
+        "result_direction": "positive",
+        "confidence_impact": "strengthens",
+        "teams_above_threshold": 3,
+        "teams_total": 5
+      }
+    },
+    {
+      "id": "metric_planning-time",
+      "type": "metric",
+      "title": "Quarterly planning time",
+      "description": "Hours spent per team on quarterly planning activities: prioritisation meetings, strategy alignment, roadmap construction, stakeholder reviews.",
+      "status": "active",
+      "tags": [
+        "core-metric",
+        "efficiency"
+      ],
+      "properties": {
+        "unit": "percentage_reduction",
+        "current_value": 22,
+        "target_value": 30,
+        "direction": "positive",
+        "measurement_frequency": "quarterly"
+      }
+    },
+    {
+      "id": "objective_reduce-context-switching",
+      "type": "objective",
+      "title": "Reduce context-switching for product teams",
+      "description": "Product teams should spend less time switching between tools and re-deriving context, and more time making decisions and building product.",
+      "status": "active",
+      "tags": [
+        "north-star",
+        "h2-2026"
+      ],
+      "properties": {
+        "time_horizon": "H2 2026",
+        "owner": "product"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_alex_job",
+      "source": "persona_alex-senior-pm",
+      "target": "job_keep-team-aligned",
+      "type": "persona_pursues_job"
+    },
+    {
+      "id": "e_job_need",
+      "source": "job_keep-team-aligned",
+      "target": "need_no-single-source-of-truth",
+      "type": "job_surfaces_need"
+    },
+    {
+      "id": "e_insight_opp",
+      "source": "insight_tool-fragmentation",
+      "target": "opportunity_unified-knowledge",
+      "type": "insight_informs_opportunity"
+    },
+    {
+      "id": "e_need_opp",
+      "source": "need_no-single-source-of-truth",
+      "target": "opportunity_unified-knowledge",
+      "type": "need_grounds_opportunity"
+    },
+    {
+      "id": "e_opp_sol",
+      "source": "opportunity_unified-knowledge",
+      "target": "solution_unified-product-graph",
+      "type": "opportunity_drives_solution"
+    },
+    {
+      "id": "e_sol_hyp",
+      "source": "solution_unified-product-graph",
+      "target": "hypothesis_structured-knowledge-reduces-planning",
+      "type": "solution_proposes_hypothesis"
+    },
+    {
+      "id": "e_hyp_exp",
+      "source": "hypothesis_structured-knowledge-reduces-planning",
+      "target": "experiment_enterprise-pilot-q2",
+      "type": "hypothesis_requires_experiment"
+    },
+    {
+      "id": "e_exp_learning",
+      "source": "experiment_enterprise-pilot-q2",
+      "target": "learning_planning-time-reduction",
+      "type": "experiment_produces_learning"
+    },
+    {
+      "id": "e_exp_need_discovery",
+      "source": "experiment_enterprise-pilot-q2",
+      "target": "need_context-loss-between-sprints",
+      "type": "experiment_surfaces_need",
+      "properties": {
+        "note": "Discovered during pilot — not part of original hypothesis"
+      }
+    },
+    {
+      "id": "e_sol_metric",
+      "source": "solution_unified-product-graph",
+      "target": "metric_planning-time",
+      "type": "solution_tracks_metric"
+    },
+    {
+      "id": "e_objective_metric",
+      "source": "objective_reduce-context-switching",
+      "target": "metric_planning-time",
+      "type": "objective_measures_metric"
+    }
+  ],
+  "metadata": {
+    "export_name": "Enterprise Pilot — UPG Markdown Spec Reference Graph",
+    "exported_by": "mr-data",
+    "node_count": 12,
+    "edge_count": 11,
+    "purpose": "Companion graph for UPG-MARKDOWN-v0.1.upg.md — provides resolvable entities for the spec's worked example"
+  }
+}

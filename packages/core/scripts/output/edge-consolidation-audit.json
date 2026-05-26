@@ -1,0 +1,1156 @@
+{
+  "meta": {
+    "generated_at": "2026-05-21T08:36:34.019Z",
+    "ticket": "UPG-510",
+    "catalog_total_edges": 847
+  },
+  "summary": {
+    "pairs_with_2_plus_edges": 35,
+    "near_synonym_groups": 2,
+    "exact_duplicate_groups": 5,
+    "mixed_groups": 4,
+    "different_relation_groups": 24,
+    "unclear_groups": 0,
+    "total_edges_flagged_for_consolidation": 24,
+    "live_edges_in_flagged_variants": 21
+  },
+  "migration_scope": {
+    "new_edge_migrations_needed": 12,
+    "live_graph_edges_affected": 21,
+    "catalog_edge_count_reduction": 12
+  },
+  "consolidation_groups": [
+    {
+      "pair": "metric→metric",
+      "source_type": "metric",
+      "target_type": "metric",
+      "classification": "MIXED",
+      "total_edges_in_pair": 6,
+      "total_live_edges": 18,
+      "all_edges": [
+        {
+          "key": "metric_decomposes_into_metric",
+          "forward_verb": "decomposes_into",
+          "reverse_verb": "rolls_up_to",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "metric_guards_metric",
+          "forward_verb": "guards",
+          "reverse_verb": "guarded_by",
+          "catalog_classification": "semantic",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "metric_decomposed_into_metric",
+          "forward_verb": "decomposed_into",
+          "reverse_verb": "rolls_up_to",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "metric_drives_metric",
+          "forward_verb": "drives",
+          "reverse_verb": "driven_by",
+          "catalog_classification": "causal",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "metric_measures_metric",
+          "forward_verb": "measures",
+          "reverse_verb": "measured_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "metric_measures_metric_cross_domain",
+          "forward_verb": "measures",
+          "reverse_verb": "measured_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "metric_measures_metric",
+              "verb": "measures",
+              "reason": "exact duplicate verb \"measures\""
+            },
+            {
+              "key": "metric_measures_metric_cross_domain",
+              "verb": "measures",
+              "reason": "exact duplicate verb \"measures\""
+            }
+          ],
+          "proposed_canonical": "metric_measures_metric"
+        },
+        {
+          "candidates": [
+            {
+              "key": "metric_decomposes_into_metric",
+              "verb": "decomposes_into",
+              "reason": "near-synonym: \"decomposes_into\" ≈ \"decomposed_into\" (decompose family)"
+            },
+            {
+              "key": "metric_decomposed_into_metric",
+              "verb": "decomposed_into",
+              "reason": "near-synonym: \"decomposes_into\" ≈ \"decomposed_into\" (decompose family)"
+            }
+          ],
+          "proposed_canonical": "metric_decomposes_into_metric"
+        }
+      ],
+      "notes": "exact duplicate verb: \"measures\" — metric_measures_metric ≡ metric_measures_metric_cross_domain; near-synonym cluster: decomposes_into ≈ decomposed_into; also has 2 genuinely different edge(s): metric_guards_metric, metric_drives_metric"
+    },
+    {
+      "pair": "experiment_run→metric",
+      "source_type": "experiment_run",
+      "target_type": "metric",
+      "classification": "MIXED",
+      "total_edges_in_pair": 3,
+      "total_live_edges": 12,
+      "all_edges": [
+        {
+          "key": "experiment_run_measures_metric",
+          "forward_verb": "measures",
+          "reverse_verb": "measured_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 6,
+            "total": 6
+          }
+        },
+        {
+          "key": "experiment_run_guards_metric",
+          "forward_verb": "guards",
+          "reverse_verb": "guarded_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 5,
+            "total": 5
+          }
+        },
+        {
+          "key": "experiment_run_measured_by_metric",
+          "forward_verb": "measured_by",
+          "reverse_verb": "measures",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "experiment_run_measures_metric",
+              "verb": "measures",
+              "reason": "near-synonym: active/passive: \"measures\" / \"measured_by\" — active/passive pair of \"measure\" — same relationship, inverted perspective"
+            },
+            {
+              "key": "experiment_run_measured_by_metric",
+              "verb": "measured_by",
+              "reason": "near-synonym: active/passive: \"measures\" / \"measured_by\" — active/passive pair of \"measure\" — same relationship, inverted perspective"
+            }
+          ],
+          "proposed_canonical": "experiment_run_measures_metric"
+        }
+      ],
+      "notes": "active/passive pair: measures ≈ measured_by; also has 1 genuinely different edge(s): experiment_run_guards_metric"
+    },
+    {
+      "pair": "key_result→metric",
+      "source_type": "key_result",
+      "target_type": "metric",
+      "classification": "NEAR_SYNONYM",
+      "total_edges_in_pair": 2,
+      "total_live_edges": 8,
+      "all_edges": [
+        {
+          "key": "key_result_quantified_by_metric",
+          "forward_verb": "quantified_by",
+          "reverse_verb": "quantifies",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 4,
+            "total": 4
+          }
+        },
+        {
+          "key": "key_result_tracked_by_metric",
+          "forward_verb": "tracked_by",
+          "reverse_verb": "tracks",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 4,
+            "total": 4
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "key_result_quantified_by_metric",
+              "verb": "quantified_by",
+              "reason": "near-synonym: \"quantified_by\" ≈ \"tracked_by\" (passive measurement family (measured_by / tracked_by / quantified_by))"
+            },
+            {
+              "key": "key_result_tracked_by_metric",
+              "verb": "tracked_by",
+              "reason": "near-synonym: \"quantified_by\" ≈ \"tracked_by\" (passive measurement family (measured_by / tracked_by / quantified_by))"
+            }
+          ],
+          "proposed_canonical": "key_result_quantified_by_metric"
+        }
+      ],
+      "notes": "near-synonym cluster: quantified_by ≈ tracked_by"
+    },
+    {
+      "pair": "product→decision",
+      "source_type": "product",
+      "target_type": "decision",
+      "classification": "EXACT_DUPLICATE",
+      "total_edges_in_pair": 2,
+      "total_live_edges": 7,
+      "all_edges": [
+        {
+          "key": "product_decided_via_decision",
+          "forward_verb": "decided_via",
+          "reverse_verb": "decides_for",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 3,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 6
+          }
+        },
+        {
+          "key": "product_decided_via_decision_hierarchy",
+          "forward_verb": "decided_via",
+          "reverse_verb": "decides",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "product_decided_via_decision",
+              "verb": "decided_via",
+              "reason": "exact duplicate verb \"decided_via\""
+            },
+            {
+              "key": "product_decided_via_decision_hierarchy",
+              "verb": "decided_via",
+              "reason": "exact duplicate verb \"decided_via\""
+            }
+          ],
+          "proposed_canonical": "product_decided_via_decision"
+        }
+      ],
+      "notes": "exact duplicate verb: \"decided_via\" — product_decided_via_decision ≡ product_decided_via_decision_hierarchy"
+    },
+    {
+      "pair": "outcome→metric",
+      "source_type": "outcome",
+      "target_type": "metric",
+      "classification": "NEAR_SYNONYM",
+      "total_edges_in_pair": 2,
+      "total_live_edges": 6,
+      "all_edges": [
+        {
+          "key": "outcome_measured_by_metric",
+          "forward_verb": "measured_by",
+          "reverse_verb": "measures",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "outcome_tracked_by_metric",
+          "forward_verb": "tracked_by",
+          "reverse_verb": "tracks",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "outcome_measured_by_metric",
+              "verb": "measured_by",
+              "reason": "near-synonym: \"measured_by\" ≈ \"tracked_by\" (passive measurement family (measured_by / tracked_by / quantified_by))"
+            },
+            {
+              "key": "outcome_tracked_by_metric",
+              "verb": "tracked_by",
+              "reason": "near-synonym: \"measured_by\" ≈ \"tracked_by\" (passive measurement family (measured_by / tracked_by / quantified_by))"
+            }
+          ],
+          "proposed_canonical": "outcome_measured_by_metric"
+        }
+      ],
+      "notes": "near-synonym cluster: measured_by ≈ tracked_by"
+    },
+    {
+      "pair": "product→incident",
+      "source_type": "product",
+      "target_type": "incident",
+      "classification": "EXACT_DUPLICATE",
+      "total_edges_in_pair": 2,
+      "total_live_edges": 6,
+      "all_edges": [
+        {
+          "key": "product_experiences_incident",
+          "forward_verb": "experiences",
+          "reverse_verb": "affects",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 5,
+            "total": 5
+          }
+        },
+        {
+          "key": "product_experiences_incident_hierarchy",
+          "forward_verb": "experiences",
+          "reverse_verb": "affects",
+          "catalog_classification": "hierarchy",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "product_experiences_incident",
+              "verb": "experiences",
+              "reason": "exact duplicate verb \"experiences\""
+            },
+            {
+              "key": "product_experiences_incident_hierarchy",
+              "verb": "experiences",
+              "reason": "exact duplicate verb \"experiences\""
+            }
+          ],
+          "proposed_canonical": "product_experiences_incident"
+        }
+      ],
+      "notes": "exact duplicate verb: \"experiences\" — product_experiences_incident ≡ product_experiences_incident_hierarchy"
+    },
+    {
+      "pair": "insight→need",
+      "source_type": "insight",
+      "target_type": "need",
+      "classification": "EXACT_DUPLICATE",
+      "total_edges_in_pair": 2,
+      "total_live_edges": 6,
+      "all_edges": [
+        {
+          "key": "insight_validates_need",
+          "forward_verb": "validates",
+          "reverse_verb": "validated_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 5,
+            "total": 5
+          }
+        },
+        {
+          "key": "insight_validates_need_cross_domain",
+          "forward_verb": "validates",
+          "reverse_verb": "validated_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "insight_validates_need",
+              "verb": "validates",
+              "reason": "exact duplicate verb \"validates\""
+            },
+            {
+              "key": "insight_validates_need_cross_domain",
+              "verb": "validates",
+              "reason": "exact duplicate verb \"validates\""
+            }
+          ],
+          "proposed_canonical": "insight_validates_need"
+        }
+      ],
+      "notes": "exact duplicate verb: \"validates\" — insight_validates_need ≡ insight_validates_need_cross_domain"
+    },
+    {
+      "pair": "insight→opportunity",
+      "source_type": "insight",
+      "target_type": "opportunity",
+      "classification": "MIXED",
+      "total_edges_in_pair": 3,
+      "total_live_edges": 5,
+      "all_edges": [
+        {
+          "key": "insight_informs_opportunity",
+          "forward_verb": "informs",
+          "reverse_verb": "informed_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 2,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 3
+          }
+        },
+        {
+          "key": "insight_surfaces_opportunity",
+          "forward_verb": "surfaces",
+          "reverse_verb": "surfaced_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        },
+        {
+          "key": "insight_informs_opportunity_cross_domain",
+          "forward_verb": "informs",
+          "reverse_verb": "informed_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "insight_informs_opportunity",
+              "verb": "informs",
+              "reason": "exact duplicate verb \"informs\""
+            },
+            {
+              "key": "insight_informs_opportunity_cross_domain",
+              "verb": "informs",
+              "reason": "exact duplicate verb \"informs\""
+            }
+          ],
+          "proposed_canonical": "insight_informs_opportunity"
+        }
+      ],
+      "notes": "exact duplicate verb: \"informs\" — insight_informs_opportunity ≡ insight_informs_opportunity_cross_domain; 1 genuinely different edge(s) in same pair: insight_surfaces_opportunity"
+    },
+    {
+      "pair": "revenue_stream→metric",
+      "source_type": "revenue_stream",
+      "target_type": "metric",
+      "classification": "MIXED",
+      "total_edges_in_pair": 3,
+      "total_live_edges": 5,
+      "all_edges": [
+        {
+          "key": "revenue_stream_measured_by_metric",
+          "forward_verb": "measured_by",
+          "reverse_verb": "measures",
+          "catalog_classification": "semantic",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "revenue_stream_drives_metric",
+          "forward_verb": "drives",
+          "reverse_verb": "driven_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        },
+        {
+          "key": "revenue_stream_measured_by_metric_cross_domain",
+          "forward_verb": "measured_by",
+          "reverse_verb": "measures",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "revenue_stream_measured_by_metric",
+              "verb": "measured_by",
+              "reason": "exact duplicate verb \"measured_by\""
+            },
+            {
+              "key": "revenue_stream_measured_by_metric_cross_domain",
+              "verb": "measured_by",
+              "reason": "exact duplicate verb \"measured_by\""
+            }
+          ],
+          "proposed_canonical": "revenue_stream_measured_by_metric"
+        }
+      ],
+      "notes": "exact duplicate verb: \"measured_by\" — revenue_stream_measured_by_metric ≡ revenue_stream_measured_by_metric_cross_domain; 1 genuinely different edge(s) in same pair: revenue_stream_drives_metric"
+    },
+    {
+      "pair": "value_proposition→persona",
+      "source_type": "value_proposition",
+      "target_type": "persona",
+      "classification": "EXACT_DUPLICATE",
+      "total_edges_in_pair": 2,
+      "total_live_edges": 4,
+      "all_edges": [
+        {
+          "key": "value_proposition_targets_persona",
+          "forward_verb": "targets",
+          "reverse_verb": "targeted_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 3,
+            "total": 3
+          }
+        },
+        {
+          "key": "value_proposition_targets_persona_cross_domain",
+          "forward_verb": "targets",
+          "reverse_verb": "targeted_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "value_proposition_targets_persona",
+              "verb": "targets",
+              "reason": "exact duplicate verb \"targets\""
+            },
+            {
+              "key": "value_proposition_targets_persona_cross_domain",
+              "verb": "targets",
+              "reason": "exact duplicate verb \"targets\""
+            }
+          ],
+          "proposed_canonical": "value_proposition_targets_persona"
+        }
+      ],
+      "notes": "exact duplicate verb: \"targets\" — value_proposition_targets_persona ≡ value_proposition_targets_persona_cross_domain"
+    },
+    {
+      "pair": "support_ticket→need",
+      "source_type": "support_ticket",
+      "target_type": "need",
+      "classification": "EXACT_DUPLICATE",
+      "total_edges_in_pair": 2,
+      "total_live_edges": 2,
+      "all_edges": [
+        {
+          "key": "support_ticket_reveals_need",
+          "forward_verb": "reveals",
+          "reverse_verb": "revealed_by_ticket",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        },
+        {
+          "key": "support_ticket_reveals_need_cross_domain",
+          "forward_verb": "reveals",
+          "reverse_verb": "revealed_by",
+          "catalog_classification": "cross-domain",
+          "live_usage": {
+            "entopo": 0,
+            "inkling": 0,
+            "sanity": 0,
+            "maximum-minimum": 0,
+            "notion-saturated": 1,
+            "total": 1
+          }
+        }
+      ],
+      "consolidation_sub_groups": [
+        {
+          "candidates": [
+            {
+              "key": "support_ticket_reveals_need",
+              "verb": "reveals",
+              "reason": "exact duplicate verb \"reveals\""
+            },
+            {
+              "key": "support_ticket_reveals_need_cross_domain",
+              "verb": "reveals",
+              "reason": "exact duplicate verb \"reveals\""
+            }
+          ],
+          "proposed_canonical": "support_ticket_reveals_need"
+        }
+      ],
+      "notes": "exact duplicate verb: \"reveals\" — support_ticket_reveals_need ≡ support_ticket_reveals_need_cross_domain"
+    }
+  ],
+  "different_relation_groups": [
+    {
+      "pair": "learning→hypothesis",
+      "edges": [
+        {
+          "key": "learning_updates_hypothesis",
+          "forward_verb": "updates"
+        },
+        {
+          "key": "learning_refines_hypothesis",
+          "forward_verb": "refines"
+        }
+      ],
+      "notes": "\"updates\" vs \"refines\": updates replaces the hypothesis; refines narrows it — distinct temporal semantics"
+    },
+    {
+      "pair": "persona→classification_value",
+      "edges": [
+        {
+          "key": "persona_anti_fit_for_classification_value",
+          "forward_verb": "is_anti_fit_for"
+        },
+        {
+          "key": "persona_pursues_classification_value",
+          "forward_verb": "pursues"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "classification_value→classification_value",
+      "edges": [
+        {
+          "key": "classification_value_evolves_from_classification_value",
+          "forward_verb": "evolves_from"
+        },
+        {
+          "key": "classification_value_opposite_of_classification_value",
+          "forward_verb": "opposite_of"
+        },
+        {
+          "key": "classification_value_sibling_of_classification_value",
+          "forward_verb": "sibling_of"
+        },
+        {
+          "key": "classification_value_derives_from_classification_value",
+          "forward_verb": "derives_from"
+        },
+        {
+          "key": "classification_value_compatible_with_classification_value",
+          "forward_verb": "compatible_with"
+        },
+        {
+          "key": "classification_value_incompatible_with_classification_value",
+          "forward_verb": "incompatible_with"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "product→metric",
+      "edges": [
+        {
+          "key": "product_measures_with_metric",
+          "forward_verb": "measures_with"
+        },
+        {
+          "key": "product_guided_by_metric",
+          "forward_verb": "guided_by"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "product→user_flow",
+      "edges": [
+        {
+          "key": "product_navigated_via_user_flow",
+          "forward_verb": "navigated_via"
+        },
+        {
+          "key": "product_onboards_via_user_flow",
+          "forward_verb": "onboards_via"
+        },
+        {
+          "key": "product_enables_flow_user_flow",
+          "forward_verb": "enables_flow"
+        }
+      ],
+      "notes": "\"navigated_via\" vs \"onboards_via\": navigation vs onboarding — different user intents; \"navigated_via\" vs \"enables_flow\": navigation vs structural enablement"
+    },
+    {
+      "pair": "product→design_component",
+      "edges": [
+        {
+          "key": "product_built_with_design_component",
+          "forward_verb": "built_with"
+        },
+        {
+          "key": "product_expressed_as_design_component",
+          "forward_verb": "expressed_as"
+        },
+        {
+          "key": "product_manifests_in_design_component",
+          "forward_verb": "manifests_in"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "design_component→service",
+      "edges": [
+        {
+          "key": "design_component_consumes_service",
+          "forward_verb": "consumes"
+        },
+        {
+          "key": "design_component_specifies_for_service",
+          "forward_verb": "specifies_for"
+        },
+        {
+          "key": "design_component_requires_data_from_service",
+          "forward_verb": "requires_data_from"
+        }
+      ],
+      "notes": "\"consumes\" vs \"specifies_for\": consumes = uses; specifies_for = defines contract"
+    },
+    {
+      "pair": "incident→postmortem",
+      "edges": [
+        {
+          "key": "incident_analysed_in_postmortem",
+          "forward_verb": "analysed_in"
+        },
+        {
+          "key": "incident_triggers_postmortem",
+          "forward_verb": "triggers"
+        }
+      ],
+      "notes": "\"analysed_in\" vs \"triggers\": postmortem is analysis container; triggers means fires event — unrelated"
+    },
+    {
+      "pair": "business_model→distribution_channel",
+      "edges": [
+        {
+          "key": "business_model_reaches_via_distribution_channel",
+          "forward_verb": "reaches_via"
+        },
+        {
+          "key": "business_model_distributes_via_distribution_channel",
+          "forward_verb": "distributes_via"
+        }
+      ],
+      "notes": "\"reaches_via\" vs \"distributes_via\": reaches_via = channel to customer; distributes_via = delivery mechanism"
+    },
+    {
+      "pair": "dependency→team",
+      "edges": [
+        {
+          "key": "dependency_blocks_team",
+          "forward_verb": "blocks"
+        },
+        {
+          "key": "dependency_depends_on_team",
+          "forward_verb": "depends_on"
+        }
+      ],
+      "notes": "\"blocks\" vs \"depends_on\": blocks = prevents progress; depends_on = structural prerequisite"
+    },
+    {
+      "pair": "positioning→competitor",
+      "edges": [
+        {
+          "key": "positioning_references_competitor",
+          "forward_verb": "references"
+        },
+        {
+          "key": "positioning_differentiates_from_competitor",
+          "forward_verb": "differentiates_from"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "ideal_customer_profile→behavioral_segment",
+      "edges": [
+        {
+          "key": "ideal_customer_profile_maps_to_behavioral_segment",
+          "forward_verb": "maps_to"
+        },
+        {
+          "key": "ideal_customer_profile_targets_behavioral_segment",
+          "forward_verb": "targets"
+        }
+      ],
+      "notes": "\"maps_to\" vs \"targets\": maps_to = conceptual mapping; targets = intent/goal"
+    },
+    {
+      "pair": "launch→release",
+      "edges": [
+        {
+          "key": "launch_ships_with_release",
+          "forward_verb": "ships_with"
+        },
+        {
+          "key": "launch_announces_release",
+          "forward_verb": "announces"
+        }
+      ],
+      "notes": "\"ships_with\" vs \"announces\": ships_with = co-ships; announces = communication act"
+    },
+    {
+      "pair": "product→document",
+      "edges": [
+        {
+          "key": "product_documented_in_document",
+          "forward_verb": "documented_in"
+        },
+        {
+          "key": "product_records_in_document",
+          "forward_verb": "records_in"
+        }
+      ],
+      "notes": "\"documented_in\" vs \"records_in\": documented_in = placed in doc; records_in = captures data — subtle"
+    },
+    {
+      "pair": "decision→decision",
+      "edges": [
+        {
+          "key": "decision_references_decision",
+          "forward_verb": "references"
+        },
+        {
+          "key": "decision_superseded_by_decision",
+          "forward_verb": "superseded_by"
+        },
+        {
+          "key": "decision_informs_decision",
+          "forward_verb": "informs"
+        }
+      ],
+      "notes": "\"references\" vs \"superseded_by\": references is lateral; superseded_by is causal succession; \"references\" vs \"informs\": references is weak citation; informs is active influence"
+    },
+    {
+      "pair": "milestone→release",
+      "edges": [
+        {
+          "key": "milestone_gates_release",
+          "forward_verb": "gates"
+        },
+        {
+          "key": "milestone_triggers_release",
+          "forward_verb": "triggers"
+        }
+      ],
+      "notes": "\"gates\" vs \"triggers\": gates blocks until done; triggers fires when complete — opposite temporality"
+    },
+    {
+      "pair": "product→product",
+      "edges": [
+        {
+          "key": "product_shares_persona_with_product",
+          "forward_verb": "shares_persona_with"
+        },
+        {
+          "key": "product_shares_competitor_with_product",
+          "forward_verb": "shares_competitor_with"
+        },
+        {
+          "key": "product_shares_metric_with_product",
+          "forward_verb": "shares_metric_with"
+        },
+        {
+          "key": "product_depends_on_product",
+          "forward_verb": "depends_on"
+        },
+        {
+          "key": "product_cannibalises_product",
+          "forward_verb": "cannibalises"
+        },
+        {
+          "key": "product_succeeds_product",
+          "forward_verb": "succeeds"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "quote→job",
+      "edges": [
+        {
+          "key": "quote_relates_to_job",
+          "forward_verb": "relates_to"
+        },
+        {
+          "key": "quote_evidences_job",
+          "forward_verb": "evidences"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "service→design_component",
+      "edges": [
+        {
+          "key": "service_implements_design_component",
+          "forward_verb": "implements"
+        },
+        {
+          "key": "service_constrains_interaction_design_component",
+          "forward_verb": "constrains_interaction"
+        },
+        {
+          "key": "service_enables_pattern_design_component",
+          "forward_verb": "enables_pattern"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "node→node",
+      "edges": [
+        {
+          "key": "node_informs_node",
+          "forward_verb": "informs"
+        },
+        {
+          "key": "node_constrains_node",
+          "forward_verb": "constrains"
+        },
+        {
+          "key": "node_inspires_node",
+          "forward_verb": "inspires"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "decision→node",
+      "edges": [
+        {
+          "key": "decision_influences_node",
+          "forward_verb": "influences"
+        },
+        {
+          "key": "decision_constrained_by_node",
+          "forward_verb": "constrained_by"
+        },
+        {
+          "key": "decision_produces_node",
+          "forward_verb": "produces"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "insight→persona",
+      "edges": [
+        {
+          "key": "insight_characterises_persona",
+          "forward_verb": "characterises"
+        },
+        {
+          "key": "insight_enriches_persona",
+          "forward_verb": "enriches"
+        },
+        {
+          "key": "insight_validates_persona",
+          "forward_verb": "validates"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "pair": "data_lineage→data_source",
+      "edges": [
+        {
+          "key": "data_lineage_sourced_from_data_source",
+          "forward_verb": "sourced_from"
+        },
+        {
+          "key": "data_lineage_feeds_data_source",
+          "forward_verb": "feeds"
+        }
+      ],
+      "notes": "\"sourced_from\" vs \"feeds\": sourced_from = upstream origin; feeds = active supply"
+    },
+    {
+      "pair": "data_pipeline→data_source",
+      "edges": [
+        {
+          "key": "data_pipeline_reads_from_data_source",
+          "forward_verb": "reads_from"
+        },
+        {
+          "key": "data_pipeline_writes_to_data_source",
+          "forward_verb": "writes_to"
+        }
+      ],
+      "notes": "\"reads_from\" vs \"writes_to\": read vs write — opposite directions"
+    }
+  ],
+  "unclear_groups": []
+}

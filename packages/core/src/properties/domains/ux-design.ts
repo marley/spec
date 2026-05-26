@@ -1,0 +1,361 @@
+/**
+ * UPG Property Schemas: UX Design Domain.
+ * UserJourney, JourneyStep, DesignQuestion, DesignConcept, Prototype,
+ * Wireframe, UserFlow, Screen, ScreenState, Annotation, InteractionSpec.
+ * https://unifiedproductgraph.org/spec | MIT
+ */
+
+import type { UPGAssessment, Confidence, Priority } from '../primitives.js'
+
+// ---------------------------------------------------------------------------
+// EXPERIENCE DESIGN
+// ---------------------------------------------------------------------------
+
+/** Whether a journey maps current or future state */
+export type JourneyType = 'current_state' | 'future_state' | 'day_in_the_life' | 'service_blueprint'
+
+/** User journey map.
+ *
+ * @example
+ * const properties: UserJourneyProperties = {
+ *   scope: 'Covers in-product onboarding; excludes lifecycle email.',
+ *   scenario: 'First-time user lands in an empty workspace.',
+ * }
+ */
+export interface UserJourneyProperties {
+  /** Scope (e.g. "end-to-end onboarding") */
+  scope?: string
+  /** Maps current or future state */
+  journey_type?: JourneyType
+  /** Scenario context */
+  scenario?: string
+}
+
+/** Phase within a user journey. Groups journey steps into stages.
+ *
+ * Per UPG principle P14, structural relationships are edges:
+ *   parent journey: `user_journey_contains_journey_phase`
+ *   contained steps: `journey_phase_contains_journey_step`
+ *   sequenced phase: ordering via `phase_order` here; the
+ *     `journey_phase_precedes_journey_phase` edge captures the explicit
+ *     phase-to-phase chain when it matters for branching journeys.
+ *
+ * @example
+ * const properties: JourneyPhaseProperties = {
+ *   phase_order: 1,
+ *   label: 'Onboarding',
+ *   goal: 'Cut time-to-first-value from 7 days to 2.',
+ *   emotion_arc: 'rising',
+ *   entry_trigger: 'User completes signup and lands in an empty workspace',
+ *   exit_trigger: 'User commits their first decision node',
+ *   key_questions: ['What can I do here?', 'Will this help my team?', 'How do I get started?'],
+ *   timeframe: 'days 1–3',
+ * }
+ */
+export interface JourneyPhaseProperties {
+  /** Display order within the journey (0-indexed) */
+  phase_order?: number
+  /**
+   * Short human-readable name.
+   * @example "Discovery", "Onboarding", "Activation"
+   */
+  label?: string
+  /** What the user is trying to accomplish */
+  goal?: string
+  /** Directional shape of user emotion. Spots design opportunities at dips and payoff points at peaks. */
+  emotion_arc?: 'rising' | 'steady' | 'falling' | 'mixed'
+  /** Event or signal marking entry into this phase */
+  entry_trigger?: string
+  /** Event or signal marking exit. Pairs with the next phase's `entry_trigger`. */
+  exit_trigger?: string
+  /** Open questions the user asks themselves. Fuel for design and content priorities. */
+  key_questions?: string[]
+  /**
+   * Typical time window.
+   * @example "first 30 seconds", "days 1–7", "onboarding week"
+   */
+  timeframe?: string
+}
+
+/** Single step within a user journey.
+ *
+ * @example
+ * const properties: JourneyStepProperties = {
+ *   touchpoint: 'in-product',
+ *   channel: 'in-product',
+ *   emotion_score: 4,
+ * }
+ */
+export interface JourneyStepProperties {
+  /** Interaction touchpoint */
+  touchpoint?: string
+  /** Channel (e.g. "web", "email", "in-store") */
+  channel?: string
+  /** User emotion (1 = very negative, 5 = very positive) */
+  emotion_score?: UPGAssessment
+  /** Friction (1 = effortless, 5 = very painful) */
+  friction_score?: UPGAssessment
+  /** What the user is thinking */
+  thought?: string
+  /** Responsible owner */
+  owner?: string
+}
+
+/** Discrete action at a journey step, classified by service layer.
+ * Enables service blueprint rendering and cross-domain linking.
+ *
+ * Per UPG principle P14, structural relationships are edges:
+ *   parent step: `journey_step_contains_journey_action`
+ *   performing system: `service_performs_journey_action` (the `system` property
+ *     is a display label; the canonical link is the edge when a `service` entity exists)
+ *   downstream pain: `journey_action_surfaces_need`
+ *
+ * @example
+ * const properties: JourneyActionProperties = {
+ *   layer: 'user',
+ *   action_description: 'User pastes a meeting transcript into the empty canvas',
+ *   channel: 'in-app',
+ *   pain_score: 4,
+ *   opportunity_score: 5,
+ *   evidence: 'Pasted transcript appears as a single text node',
+ *   system: 'canvas-paste-handler',
+ *   notes: 'Most users hesitate before pasting — too much trust required.',
+ * }
+ */
+export interface JourneyActionProperties {
+  /** Service layer */
+  layer: 'user' | 'frontstage' | 'backstage' | 'support'
+  /** Plain-language description. Primary content of the action. */
+  action_description?: string
+  /** Channel or surface. Keeps service-blueprint columns consistent across the journey. */
+  channel?: 'in-app' | 'email' | 'web' | 'mobile' | 'phone' | 'in-person' | 'sms' | 'social' | 'other'
+  /** Pain (1 = effortless, 5 = very painful). Drives opportunity discovery. */
+  pain_score?: UPGAssessment
+  /** Opportunity (1 = low leverage, 5 = high leverage). Pairs with `pain_score` to rank investment. */
+  opportunity_score?: UPGAssessment
+  /** Physical or digital evidence visible at this point */
+  evidence?: string
+  /** Performing system or service */
+  system?: string
+  /** Free-text notes, observations, or follow-up questions */
+  notes?: string
+}
+
+/** Design question framing an open problem.
+ *
+ * Seed of a design exploration. Sits upstream of `design_concept` (proposed
+ * solutions) and downstream of `need` and `insight` (surfacing signals).
+ * Lifecycle (open → researching → answered → parked / archived) is governed
+ * by the canonical `DISCOVERY_TEMPLATE`.
+ *
+ * Per UPG principle P14, structural relationships are edges:
+ *   upstream signal: `insight_inspires_design_question`
+ *   upstream need: `need_reframed_as_design_question`
+ *   downstream answer: `design_question_answered_by_design_concept`
+ *
+ * @example
+ * const properties: DesignQuestionProperties = {
+ *   question: 'How might we help first-time users feel productive within their first session?',
+ *   problem_context: 'Teams have rich AI output but no place to see how pieces connect.',
+ *   hypothesis: 'A guided first-canvas template will lift day-1 activation by 8pp.',
+ *   target_domain: 'ux',
+ *   framing: 'how_might_we',
+ *   priority: 'high',
+ *   confidence: 'medium',
+ *   assumptions: [
+ *     'Empty-state friction is the dominant drop-off cause',
+ *     'Users tolerate one guided template before exploring freely',
+ *   ],
+ *   validation_method: 'usability_test',
+ * }
+ */
+export interface DesignQuestionProperties {
+  /** The question itself ("How might we…?", "What if…?"). Primary content. */
+  question?: string
+  /** Context that prompted the question */
+  problem_context?: string
+  /** Working hypothesis. Captured up-front so research can confirm or disconfirm. */
+  hypothesis?: string
+  /** Target design discipline */
+  target_domain?: 'ux' | 'visual' | 'interaction' | 'content' | 'accessibility' | 'other'
+  /** Question framing template */
+  framing?: 'how_might_we' | 'what_if' | 'why_do' | 'how_do' | 'what_prevents' | 'other'
+  /** Importance against other backlog questions */
+  priority?: Priority
+  /** Confidence the question is well-framed. Distinct from confidence in any answer. */
+  confidence?: Confidence
+  /** Underlying assumptions. Surfaced explicitly so they can be challenged or validated. */
+  assumptions?: string[]
+  /** Primary validation method */
+  validation_method?: 'interview' | 'survey' | 'usability_test' | 'analytics' | 'a_b_test' | 'prototype_test' | 'literature_review' | 'other'
+}
+
+/** Design concept being explored.
+ *
+ * @example
+ * const properties: DesignConceptProperties = {
+ *   sketch_url: 'https://figma.com/file/abc/sketch',
+ *   rationale: 'Reduces support burden and lifts activation — both priorities this quarter.',
+ *   concept_status: 'exploring',
+ * }
+ */
+export interface DesignConceptProperties {
+  /** URL of the sketch or visual */
+  sketch_url?: string
+  /** Selection or rejection rationale */
+  rationale?: string
+  /** Current selection status */
+  concept_status?: 'exploring' | 'validated' | 'selected' | 'rejected'
+  /** Development stage, from rough idea to presentation-ready */
+  maturity?: 'sketch' | 'refined' | 'final'
+  /** Shepherding designer or researcher */
+  owner?: string
+}
+
+/** Prototype.
+ *
+ * @example
+ * const properties: PrototypeProperties = {
+ *   fidelity: 'low',
+ *   test_status: 'untested',
+ *   tool: 'entopo',
+ * }
+ */
+export interface PrototypeProperties {
+  /** Detail level */
+  fidelity?: 'low' | 'medium' | 'high'
+  /** User-test status */
+  test_status?: 'untested' | 'testing' | 'passed' | 'failed'
+  /** Authoring tool */
+  tool?: string
+}
+
+/** Wireframe.
+ *
+ * @example
+ * const properties: WireframeProperties = {
+ *   fidelity: 'low',
+ *   screen_name: 'OnboardingChecklist',
+ *   version: '0.3.1',
+ * }
+ */
+export interface WireframeProperties {
+  /** Detail level */
+  fidelity?: 'low' | 'medium' | 'high'
+  /** Represented screen name */
+  screen_name?: string
+  /** Version or iteration (e.g. "v2", "2026-04-B") */
+  version?: string
+  /**
+   * Authoring tool.
+   * @example "Figma", "Balsamiq", "pen and paper"
+   */
+  tool?: string
+  /** Review gate status */
+  review_status?: 'draft' | 'in_review' | 'approved' | 'rejected'
+  /** URL of the corresponding interactive prototype */
+  linked_prototype_url?: string
+}
+
+/** User flow.
+ *
+ * @example
+ * const properties: UserFlowProperties = {
+ *   steps: ['Open the workspace', 'Pick a persona', 'Commit a decision'],
+ *   trigger: 'User opens the third restricted feature in a session.',
+ *   success_state: 'Dashboard shows a populated graph with at least one committed decision.',
+ * }
+ */
+export interface UserFlowProperties {
+  /** Initiating event */
+  trigger?: string
+  /** Ordered steps */
+  steps: string[]
+  /** Successful completion */
+  success_state?: string
+  /** Failed completion */
+  failure_state?: string
+}
+
+/** Screen in the product.
+ *
+ * @example
+ * const properties: ScreenProperties = {
+ *   route: '/workspace/:slug',
+ *   viewport: 'mobile',
+ *   access_level: 'public',
+ * }
+ */
+export interface ScreenProperties {
+  /**
+   * Application route.
+   * @example "/dashboard", "/settings/billing"
+   */
+  route?: string
+  /** Primary target viewport */
+  viewport?: 'mobile' | 'tablet' | 'desktop' | 'tv' | 'watch' | 'responsive'
+  /** Reach */
+  access_level?: 'public' | 'authenticated' | 'admin' | 'internal'
+  /** Build pipeline stage */
+  screen_status?: 'draft' | 'in_design' | 'built' | 'shipped' | 'deprecated'
+  /** One-line purpose */
+  purpose?: string
+}
+
+/** Specific state of a screen.
+ *
+ * @example
+ * const properties: ScreenStateProperties = {
+ *   state_name: 'empty',
+ *   trigger: 'User opens the third restricted feature in a session.',
+ *   condition: 'personas.length > 0 && opportunities.length === 0',
+ * }
+ */
+export interface ScreenStateProperties {
+  /** State */
+  state_name: 'empty' | 'loading' | 'error' | 'populated' | 'skeleton' | 'partial'
+  /** Cause for entering this state */
+  trigger?: string
+  /** Data or environmental condition the state represents */
+  condition?: string
+  /** User-visible copy */
+  message?: string
+}
+
+/** Design annotation on a screen.
+ *
+ * @example
+ * const properties: AnnotationProperties = {
+ *   annotation_type: 'spec',
+ *   target_element: '[data-testid="onboarding-cta"]',
+ *   note: 'Rechecked on 2026-04-10 after the onboarding rewrite.',
+ * }
+ */
+export interface AnnotationProperties {
+  /** Annotation type */
+  annotation_type?: 'spec' | 'interaction' | 'content' | 'accessibility'
+  /** Annotated element */
+  target_element?: string
+  /** Note text */
+  note?: string
+}
+
+/** Interaction specification.
+ *
+ * @example
+ * const properties: InteractionSpecProperties = {
+ *   trigger: 'User opens the third restricted feature in a session.',
+ *   animation_type: 'ease-in-out 240ms',
+ *   duration_ms: 42,
+ * }
+ */
+export interface InteractionSpecProperties {
+  /** Triggering event */
+  trigger?: string
+  /** Animation or transition kind */
+  animation_type?: string
+  /** Duration in ms */
+  duration_ms?: number
+  /** Easing (e.g. "ease-in-out", "spring") */
+  easing?: string
+}

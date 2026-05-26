@@ -1,0 +1,290 @@
+{
+  "upg_version": "0.4.0",
+  "exported_at": "2026-05-11T17:00:00Z",
+  "source": {
+    "tool": "upg-spec",
+    "tool_version": "0.4.0",
+    "workspace_id": "spec_examples"
+  },
+  "product": {
+    "id": "cms-field-guide",
+    "title": "CMS Editor Paradigms — A Studio PM Field Guide",
+    "description": "Proof-of-spec fixture for the classification model. Models the CMS Field Editor Guide end-to-end using only canonical UPG entities: a single competitive_analysis dimensioned by two classification_axis children, with five classification_value children per axis, two exemplar competitor nodes classified against axis values, three empty_cells covering all rationale_kind values, and a persona with an anti_fit_for edge.",
+    "stage": "mvp"
+  },
+  "nodes": [
+    {
+      "id": "comp-analysis-cms",
+      "type": "competitive_analysis",
+      "title": "CMS Field Editor Guide",
+      "description": "Two-axis paradigm matrix: CMS Architecture × Editing Paradigm.",
+      "properties": {
+        "analysis_type": "positioning",
+        "analysis_date": "2026-05-11",
+        "empty_cells": [
+          {
+            "axis_a_value_ref": "val-composable",
+            "axis_b_value_ref": "val-wysiwyg",
+            "rationale_kind": "structural",
+            "rationale_md": "Composable rejects HTML blobs; WYSIWYG requires them. The two paradigms are structurally incompatible — you can't simultaneously commit to a typed content graph and to a free-form HTML editor."
+          },
+          {
+            "axis_a_value_ref": "val-git-based",
+            "axis_b_value_ref": "val-portable-text",
+            "rationale_kind": "opportunity",
+            "rationale_md": "No technical reason — only adoption inertia. Watching brief: anyone shipping a starter that drops .md into Portable Text JSON could change the row."
+          },
+          {
+            "axis_a_value_ref": "val-monolithic",
+            "axis_b_value_ref": "val-portable-text",
+            "rationale_kind": "ideological",
+            "rationale_md": "Monolithic CMSs treat content as page-bound HTML. Portable Text's structured-block model contradicts the page-as-unit assumption that monolithic vendors compete on."
+          }
+        ]
+      }
+    },
+
+    {
+      "id": "axis-architecture",
+      "type": "classification_axis",
+      "title": "CMS Architecture",
+      "description": "Axis 1: the structural shape of the content system.",
+      "parent_id": "comp-analysis-cms",
+      "properties": {
+        "axis_kind": "categorical"
+      }
+    },
+    {
+      "id": "axis-editing",
+      "type": "classification_axis",
+      "title": "Editing Paradigm",
+      "description": "Axis 2: the interaction model offered to content editors.",
+      "parent_id": "comp-analysis-cms",
+      "properties": {
+        "axis_kind": "categorical"
+      }
+    },
+
+    {
+      "id": "val-composable",
+      "type": "classification_value",
+      "title": "Composable Structured-Content",
+      "description": "Headless + typed content graph + real-time backend + embeddable studio.",
+      "parent_id": "axis-architecture",
+      "properties": {
+        "rationale": "Composable extends headless with three load-bearing commitments. Remove any one and you have headless, not composable.",
+        "exemplars": ["Sanity", "Contentful", "Hygraph"],
+        "commitments": [
+          {
+            "name": "Typed content graph",
+            "description": "Schemas in code; references as edges; content is structured data, not HTML blobs."
+          },
+          {
+            "name": "Real-time backend",
+            "description": "Live queries, CRDT collaboration, sub-second propagation."
+          },
+          {
+            "name": "Embeddable studio",
+            "description": "Editor is a library hosted inside the team's app, not an external SaaS portal."
+          }
+        ],
+        "capabilities": [
+          { "surface": "delivery", "bullets": ["GROQ projection-first queries", "Generated GraphQL", "REST patch-based mutations", "Live Content API push subscriptions", "Asset CDN with URL transforms", "Edge-cached reads"] },
+          { "surface": "extensibility", "bullets": ["Custom input components", "Studio plugins", "Action hooks", "Reference filters"] },
+          { "surface": "collaboration", "bullets": ["CRDT multiplayer", "Presence", "Inline comments", "Workflow states"] },
+          { "surface": "preview", "bullets": ["Visual editing overlays", "Click-to-edit deep links", "Branch-aware preview"] },
+          { "surface": "localization", "bullets": ["Document-level translations", "Field-level translations", "Releases (scheduled atomic publishes)"] },
+          { "surface": "developer_experience", "bullets": ["Schema-as-code", "Typegen from schemas", "Cli-first project setup"] }
+        ]
+      }
+    },
+    {
+      "id": "val-headless",
+      "type": "classification_value",
+      "title": "Headless API-First",
+      "description": "Decouples content storage from presentation; serves content via an API.",
+      "parent_id": "axis-architecture",
+      "properties": {
+        "rationale": "Headless without the composable extensions — APIs over content but no typed graph guarantee, often without real-time, often with hosted-only editor.",
+        "exemplars": ["Contentstack", "Storyblok", "Strapi"],
+        "commitments": [
+          { "name": "API-only delivery", "description": "No coupled rendering layer; consumers pull content via REST/GraphQL." },
+          { "name": "Hosted editor", "description": "Studio is the vendor's SaaS surface, not an embeddable library." }
+        ],
+        "capabilities": [
+          { "surface": "delivery", "bullets": ["REST", "GraphQL", "Webhook events"] },
+          { "surface": "developer_experience", "bullets": ["SDKs per language", "Web UI for schema authoring"] }
+        ]
+      }
+    },
+    {
+      "id": "val-hybrid",
+      "type": "classification_value",
+      "title": "Hybrid Architecture (DXP-flavored)",
+      "description": "API delivery plus optional coupled rendering; vendor-managed personalization layer.",
+      "parent_id": "axis-architecture",
+      "properties": {
+        "rationale": "Splits the difference between headless and monolithic — typically enterprise DXP vendors layering API delivery on top of their incumbent page-bound stack.",
+        "exemplars": ["Optimizely", "Sitecore XM Cloud"]
+      }
+    },
+    {
+      "id": "val-monolithic",
+      "type": "classification_value",
+      "title": "Monolithic Coupled",
+      "description": "Content authoring, storage, and presentation live in one runtime.",
+      "parent_id": "axis-architecture",
+      "properties": {
+        "rationale": "The legacy CMS shape: WordPress, Drupal, Joomla. One stack owns everything from DB to theme.",
+        "exemplars": ["WordPress", "Drupal"]
+      }
+    },
+    {
+      "id": "val-git-based",
+      "type": "classification_value",
+      "title": "Git-Based Repo-as-Database",
+      "description": "Content lives in a git repository as flat files; the repo is the source of truth.",
+      "parent_id": "axis-architecture",
+      "properties": {
+        "rationale": "Treats content edits as commits. Optimizes for developer audit, branching, and code-style review at the cost of editor ergonomics.",
+        "exemplars": ["Keystatic", "TinaCMS", "Decap CMS"]
+      }
+    },
+
+    {
+      "id": "val-wysiwyg",
+      "type": "classification_value",
+      "title": "WYSIWYG Page-Document Editors",
+      "description": "Editors manipulate a rendered page directly; output is HTML.",
+      "parent_id": "axis-editing",
+      "properties": {
+        "rationale": "Optimizes for marketing-team self-service; ships HTML as the source of truth.",
+        "exemplars": ["WordPress Classic Editor"]
+      }
+    },
+    {
+      "id": "val-block",
+      "type": "classification_value",
+      "title": "Block-Based Editors",
+      "description": "Pages composed from discrete blocks; each block is structured but pages remain page-shaped.",
+      "parent_id": "axis-editing",
+      "properties": {
+        "rationale": "Bridges WYSIWYG and structured editing. Each block has a typed schema but the assembly is still a page.",
+        "exemplars": ["WordPress Gutenberg", "Notion"]
+      }
+    },
+    {
+      "id": "val-form",
+      "type": "classification_value",
+      "title": "Form-Based Structured Editors",
+      "description": "Schema-driven forms; editors fill typed fields, never see rendered output inline.",
+      "parent_id": "axis-editing",
+      "properties": {
+        "rationale": "Trades preview fidelity for structure guarantees. The form is the source of truth; preview is downstream.",
+        "exemplars": ["Strapi", "Contentful classic"]
+      }
+    },
+    {
+      "id": "val-portable-text",
+      "type": "classification_value",
+      "title": "Structured Content + Portable Text",
+      "description": "Long-form content as a typed array of typed blocks; rich text without HTML.",
+      "parent_id": "axis-editing",
+      "properties": {
+        "rationale": "Sanity's signature shape — long-form authoring without surrendering type guarantees. Each paragraph/heading/quote is a typed block; embedded references are first-class.",
+        "exemplars": ["Sanity Studio"],
+        "commitments": [
+          { "name": "Typed blocks", "description": "Every paragraph, heading, list, quote is a typed JSON block with stable schema." },
+          { "name": "References as blocks", "description": "Embedded entities (images, products, callouts) are typed references, not HTML." }
+        ],
+        "capabilities": [
+          { "surface": "extensibility", "bullets": ["Custom block types", "Custom marks", "Custom annotations"] },
+          { "surface": "preview", "bullets": ["Schema-aware Portable Text renderer per platform"] }
+        ]
+      }
+    },
+    {
+      "id": "val-visual-builder",
+      "type": "classification_value",
+      "title": "Visual Page-Builder",
+      "description": "Drag-and-drop page assembly with live rendered canvas.",
+      "parent_id": "axis-editing",
+      "properties": {
+        "rationale": "Marketing-led; prioritizes visual control. Output is typically component-tree JSON or HTML.",
+        "exemplars": ["Webflow CMS", "Framer"]
+      }
+    },
+
+    {
+      "id": "competitor-sanity",
+      "type": "competitor",
+      "title": "Sanity",
+      "description": "The reference implementation of composable + Portable Text editing.",
+      "properties": {
+        "positioning": "Composable content platform with embeddable studio and real-time backend.",
+        "pricing_model": "Usage-based + per-seat",
+        "website": "https://sanity.io",
+        "strengths": [
+          "Typed content graph with GROQ query language",
+          "Real-time CRDT collaboration out of the box",
+          "Embeddable studio — owned inside the team's repo"
+        ],
+        "weaknesses": [
+          "Steeper learning curve than form-based headless CMSs",
+          "Portable Text renderers must be authored per output platform"
+        ]
+      }
+    },
+    {
+      "id": "competitor-wordpress",
+      "type": "competitor",
+      "title": "WordPress",
+      "description": "The reference monolithic + page-document CMS.",
+      "properties": {
+        "positioning": "Open-source CMS powering ~40% of the web; monolithic by default, plugin-extensible.",
+        "pricing_model": "Free + paid hosting (WP Engine, Pressable, …)",
+        "website": "https://wordpress.org",
+        "strengths": [
+          "Ubiquitous plugin and theme ecosystem",
+          "Familiar to marketing teams worldwide"
+        ],
+        "weaknesses": [
+          "HTML-blob content model resists structured reuse",
+          "Coupled architecture complicates omnichannel delivery"
+        ]
+      }
+    },
+
+    {
+      "id": "persona-small-marketing-team",
+      "type": "persona",
+      "title": "Small marketing team with no engineering capacity",
+      "description": "A 2-3 person marketing org running a brochure site. Wants a single vendor, single throat to choke, fast onboarding."
+    }
+  ],
+
+  "edges": [
+    { "id": "e-axis-arch", "type": "competitive_analysis_dimensioned_by_classification_axis", "source": "comp-analysis-cms", "target": "axis-architecture" },
+    { "id": "e-axis-edit", "type": "competitive_analysis_dimensioned_by_classification_axis", "source": "comp-analysis-cms", "target": "axis-editing" },
+
+    { "id": "e-v-composable", "type": "classification_axis_includes_classification_value", "source": "axis-architecture", "target": "val-composable" },
+    { "id": "e-v-headless",   "type": "classification_axis_includes_classification_value", "source": "axis-architecture", "target": "val-headless" },
+    { "id": "e-v-hybrid",     "type": "classification_axis_includes_classification_value", "source": "axis-architecture", "target": "val-hybrid" },
+    { "id": "e-v-monolithic", "type": "classification_axis_includes_classification_value", "source": "axis-architecture", "target": "val-monolithic" },
+    { "id": "e-v-git",        "type": "classification_axis_includes_classification_value", "source": "axis-architecture", "target": "val-git-based" },
+
+    { "id": "e-v-wysiwyg",  "type": "classification_axis_includes_classification_value", "source": "axis-editing", "target": "val-wysiwyg" },
+    { "id": "e-v-block",    "type": "classification_axis_includes_classification_value", "source": "axis-editing", "target": "val-block" },
+    { "id": "e-v-form",     "type": "classification_axis_includes_classification_value", "source": "axis-editing", "target": "val-form" },
+    { "id": "e-v-pt",       "type": "classification_axis_includes_classification_value", "source": "axis-editing", "target": "val-portable-text" },
+    { "id": "e-v-builder",  "type": "classification_axis_includes_classification_value", "source": "axis-editing", "target": "val-visual-builder" },
+
+    { "id": "e-sanity-composable", "type": "competitor_classified_as_classification_value", "source": "competitor-sanity", "target": "val-composable" },
+    { "id": "e-sanity-pt",         "type": "competitor_classified_as_classification_value", "source": "competitor-sanity", "target": "val-portable-text" },
+    { "id": "e-wp-monolithic",     "type": "competitor_classified_as_classification_value", "source": "competitor-wordpress", "target": "val-monolithic" },
+    { "id": "e-wp-wysiwyg",        "type": "competitor_classified_as_classification_value", "source": "competitor-wordpress", "target": "val-wysiwyg" },
+
+    { "id": "e-anti-fit-composable", "type": "persona_anti_fit_for_classification_value", "source": "persona-small-marketing-team", "target": "val-composable" },
+    { "id": "e-anti-fit-pt",         "type": "persona_anti_fit_for_classification_value", "source": "persona-small-marketing-team", "target": "val-portable-text" }
+  ]
+}

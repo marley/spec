@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>UPG Schema Principles v0.2</title>
+  <style>
+    @page {
+      size: A3 landscape;
+      margin: 16mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      width: 100%;
+      height: 100%;
+      padding: 28px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #d0d0d0;
+    }
+
+    header h1 {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #111;
+    }
+
+    header h1 span {
+      color: #999;
+      font-weight: 400;
+    }
+
+    header .meta {
+      font-size: 14px;
+      color: #888;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      gap: 12px;
+      height: calc(100% - 100px);
+    }
+
+    .card {
+      background: #f7f7f7;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .card-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: #999;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+      width: 28px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      line-height: 1.3;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card-test {
+      font-size: 12px;
+      color: #777;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #e0e0e0;
+      line-height: 1.4;
+    }
+
+    .card-test strong {
+      color: #555;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .grid {
+        height: calc(100vh - 80px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>Unified Product Graph Schema Principles <span>v0.2</span></h2>
+    <div class="meta">
+      unifiedproductgraph.org
+    </div>
+  </header>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P1</span>
+        <span class="card-title">Readability Over Brevity</span>
+      </div>
+      <div class="card-body">
+        Entity type names must be human-readable and self-explanatory. A person encountering the schema for the first
+        time should understand what each type represents without consulting a glossary.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can a non-specialist read the type name and understand what kind of
+        thing it represents?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P2</span>
+        <span class="card-title">Framework-Neutral Naming</span>
+      </div>
+      <div class="card-body">
+        Entity types represent universal product concepts, not framework-specific terminology. When a concept exists
+        across multiple frameworks, the canonical name is the most universal descriptor. Framework-specific names are
+        display labels.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Does this name make sense outside any single framework?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P3</span>
+        <span class="card-title">Complete Property Schemas</span>
+      </div>
+      <div class="card-body">
+        Every entity type must have a typed property interface. Property schemas define the structured knowledge each
+        entity carries. This is UPG's core value proposition: typed, validated, queryable properties.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can a tool render a meaningful form or summary without guessing what
+        fields exist?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P4</span>
+        <span class="card-title">Hierarchy Is Grammar</span>
+      </div>
+      <div class="card-body">
+        Valid parent-child relationships are a first-class concept. Every entity type declares its valid parents and
+        children. Self-nesting is explicitly allowed or denied. Vocabulary without grammar is a dictionary, not a
+        specification.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can a tool validate a .upg file's tree structure using only the
+        spec?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P5</span>
+        <span class="card-title">Edges Must Have Verbs</span>
+      </div>
+      <div class="card-body">
+        Every edge type carries a human-readable verb describing the relationship. The _has_ pattern is acceptable only
+        for strict containment. All other relationships use semantic verbs.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can a reader understand the relationship by reading the edge verb
+        alone?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P6</span>
+        <span class="card-title">Domains Are Semantic Boundaries</span>
+      </div>
+      <div class="card-body">
+        Domains represent distinct areas of product knowledge with internal coherence. Types within a domain relate more
+        to each other than to external types. Cross-domain relationships are expressed through edges.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can you explain this domain in one sentence? Do all its types
+        belong?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P7</span>
+        <span class="card-title">One Concept, One Type</span>
+      </div>
+      <div class="card-body">
+        No two entity types represent the same underlying concept. Overlapping types are consolidated into one with a
+        discriminator property. Framework-specific variants are display labels, not separate types.
+      </div>
+      <div class="card-test"><strong>Test:</strong> If you removed one of these types, would users lose the ability to
+        express something?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P8</span>
+        <span class="card-title">The Spec Is Canonical</span>
+      </div>
+      <div class="card-body">
+        The UPG specification is the single source of truth. Applications derive from it. When they conflict, the spec
+        wins. When the spec is silent, a spec decision is made first, then implemented.
+      </div>
+      <div class="card-test"><strong>Test:</strong> If you regenerated app code from the spec, would any product
+        knowledge be lost?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P9</span>
+        <span class="card-title">Naming Follows Domain Language</span>
+      </div>
+      <div class="card-body">
+        Within each domain, naming follows established practitioner vocabulary — but only when that vocabulary is
+        universal to the domain, not specific to one framework or tool.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Would a practitioner recognise this term without needing a specific
+        book?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P10</span>
+        <span class="card-title">Research Before Definition</span>
+      </div>
+      <div class="card-body">
+        No domain is defined by guessing. Properties are researched against existing tools, practitioner needs, AI
+        context utility, and queryability before being added to the spec.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can you cite a source for every property in this schema?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P11</span>
+        <span class="card-title">App Extensions Are Additive</span>
+      </div>
+      <div class="card-body">
+        Applications may extend entity types with app-specific properties but must never contradict the spec, rename a
+        property, or promote optional to required. Extensions live alongside spec fields and are preserved during
+        import/export.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Strip all app extensions — are the remaining properties still a
+        valid UPG node?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P12</span>
+        <span class="card-title">JSDoc Is Documentation</span>
+      </div>
+      <div class="card-body">
+        Every property has a JSDoc comment explaining what it is and what its values mean. The spec is self-documenting.
+        Import the types, get the docs in your editor. No separate docs page required.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can a developer understand every property without leaving their IDE?
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P13</span>
+        <span class="card-title">Shared Vocabulary Axes</span>
+      </div>
+      <div class="card-body">
+        When the same conceptual axis applies across entity types, it uses the same values and vocabulary. The axis is
+        shared, not duplicated. Field names may differ by context, but value sets are identical.
+      </div>
+      <div class="card-test"><strong>Test:</strong> If two properties accept the same values, are those values defined
+        once?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P14</span>
+        <span class="card-title">Foreign Keys Are Edges</span>
+      </div>
+      <div class="card-body">
+        Relationships between entities are expressed through edges, not foreign key properties. The spec uses edges
+        exclusively. App-level foreign keys are an optimisation, not canonical schema.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Does any property reference another entity's ID? That should be an
+        edge.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P15</span>
+        <span class="card-title">Two-Level Lifecycle</span>
+      </div>
+      <div class="card-body">
+        Lifecycles have two levels: phases (universal, fixed by the spec) and states (specific, extensible by tools
+        within phases). Round-trip fidelity is guaranteed across tools.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Export, import into another tool, re-import — zero status data loss?
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P16</span>
+        <span class="card-title">Machine-Written, Human-Readable</span>
+      </div>
+      <div class="card-body">
+        The format is produced by agents and tools, consumed by AI and rendering engines. Self-describing over compact.
+        Every value carries enough context to interpret without external definitions.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can an AI build a useful summary from this node without external
+        schema files?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P17</span>
+        <span class="card-title">Qualitative Assessments</span>
+      </div>
+      <div class="card-body">
+        Human judgments carry both a numeric value (for computation) and a qualitative label (for display). Scale
+        definitions provide mappings. Computed scores are normalized to 0-1 for cross-tool comparison.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can a UI show a label without the number? Can a formula use the
+        number without the label?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P18</span>
+        <span class="card-title">Bidirectional Edge Verbs</span>
+      </div>
+      <div class="card-body">
+        Every edge carries a forward verb (source to target) and a reverse verb (target to source). Data stores one
+        direction. Display is context-dependent. One edge row, two display labels.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Can both source and target render a natural-language description of
+        this relationship?</div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-num">P19</span>
+        <span class="card-title">Referenceable Values Are Entities</span>
+      </div>
+      <div class="card-body">
+        When a property value needs to be referenced, grouped by, or shared across multiple entities, it should be an entity type with edges — not an inline property. If two entities need to agree on a value, that value is a relationship.
+      </div>
+      <div class="card-test"><strong>Test:</strong> Could another entity need to point at this value? If yes, it's an entity.</div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
