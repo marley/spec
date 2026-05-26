@@ -79,7 +79,7 @@ export const UPG_EDGE_CATALOG = {
   // 1.3 Validation Domain
   solution_proposes_hypothesis: { forward_verb: 'proposes', reverse_verb: 'tests', classification: 'causal', source_type: 'solution', target_type: 'hypothesis' },
   solution_materialises_as_prototype: { forward_verb: 'materialises_as', reverse_verb: 'materialises', classification: 'hierarchy', source_type: 'solution', target_type: 'prototype' },
-  // v0.5.4 (UPG-513): the explicit graduation moment in Teresa Torres' Solution
+  // v0.5.4: the explicit graduation moment in Teresa Torres' Solution
   // Tree — a solution that has been validated and committed to delivery becomes
   // a feature. UPG already has `opportunity_drives_solution` and
   // `solution_proposes_hypothesis`; this edge closes the chain to the feature.
@@ -163,7 +163,7 @@ export const UPG_EDGE_CATALOG = {
   competitor_competes_for_persona: { forward_verb: 'competes_for', reverse_verb: 'contested_by', classification: 'cross-domain', source_type: 'competitor', target_type: 'persona' },
   // direct competitor → learning edge (insight surfaced without a formal research study)
   competitor_yields_learning: { forward_verb: 'yields', reverse_verb: 'yielded_by', classification: 'cross-domain', source_type: 'competitor', target_type: 'learning' },
-  // v0.5.2 (UPG-528): competitors offer capabilities, not just packaged
+  // v0.5.2: competitors offer capabilities, not just packaged
   // competitor_features. Wardley analysis tracks competitor positions across
   // the same value-chain spine the home team maps — same `capability` nodes,
   // different offerings. Cross-domain (market_intelligence → strategy) so the
@@ -267,7 +267,7 @@ export const UPG_EDGE_CATALOG = {
   strategic_pillar_delivers_value_stream: { forward_verb: 'delivers', reverse_verb: 'delivered_by', classification: 'hierarchy', source_type: 'strategic_pillar', target_type: 'value_stream' },
   strategic_pillar_decided_via_decision: { forward_verb: 'decided_via', reverse_verb: 'decided_for', classification: 'hierarchy', source_type: 'strategic_pillar', target_type: 'decision' },
   strategic_theme_pursues_initiative: { forward_verb: 'pursues', reverse_verb: 'pursued_under', classification: 'hierarchy', source_type: 'strategic_theme', target_type: 'initiative' },
-  // v0.5.4 (UPG-511): three edges that lift strategic_theme from structural
+  // v0.5.4: three edges that lift strategic_theme from structural
   // isolation to a conceptually central strategy node.
   //
   // `strategic_theme_delivers_outcome`: the causal link from a multi-quarter
@@ -291,7 +291,7 @@ export const UPG_EDGE_CATALOG = {
   initiative_assumes_assumption: { forward_verb: 'assumes', reverse_verb: 'assumed_by', classification: 'hierarchy', source_type: 'initiative', target_type: 'assumption' },
   initiative_drives_outcome: { forward_verb: 'drives', reverse_verb: 'driven_by', classification: 'cross-domain', source_type: 'initiative', target_type: 'outcome' },
   capability_enables_value_stream: { forward_verb: 'enables', reverse_verb: 'enabled_by', classification: 'cross-domain', source_type: 'capability', target_type: 'value_stream' },
-  // v0.5.2 (UPG-528): three capability-anchored edges that complete the
+  // v0.5.2: three capability-anchored edges that complete the
   // Wardley-style value chain: need → capability → capability → feature.
   // The catalog already had `strategic_pillar_enables_capability` (downward
   // from strategy) and `capability_enables_value_stream` (outward toward
@@ -305,7 +305,7 @@ export const UPG_EDGE_CATALOG = {
   // not lateral associations.
   //
   // `capability_depends_on_capability` is a same-type edge. The v0.5.0
-  // self-loop guard (UPG-520) refuses A → A; A → B between distinct
+  // self-loop guard refuses A → A; A → B between distinct
   // capabilities is the supported shape. A value chain by definition has
   // no node depending on itself, so this is correct.
   need_fulfilled_by_capability: { forward_verb: 'fulfilled_by', reverse_verb: 'fulfils', classification: 'hierarchy', source_type: 'need', target_type: 'capability' },
@@ -463,7 +463,7 @@ export const UPG_EDGE_CATALOG = {
   service_toggles_feature_flag: { forward_verb: 'toggles', reverse_verb: 'toggled_by', classification: 'hierarchy', source_type: 'service', target_type: 'feature_flag' },
   service_deployed_as_deployment: { forward_verb: 'deployed_as', reverse_verb: 'deploys', classification: 'hierarchy', source_type: 'service', target_type: 'deployment' },
   service_serves_api_endpoint: { forward_verb: 'serves', reverse_verb: 'served_by', classification: 'hierarchy', source_type: 'service', target_type: 'api_endpoint' },
-  // v0.5.1 (UPG-517 C2): api_contract and api_endpoint both anchored from
+  // v0.5.1 ( C2): api_contract and api_endpoint both anchored from
   // service as siblings, leaving the natural parent-child wiring absent. A
   // contract groups endpoints by version/protocol; endpoints belong to a
   // specific contract. Hierarchy classification is correct here — endpoints
@@ -479,7 +479,7 @@ export const UPG_EDGE_CATALOG = {
   aggregate_contains_domain_entity: { forward_verb: 'contains', reverse_verb: 'belongs_to', classification: 'hierarchy', source_type: 'aggregate', target_type: 'domain_entity' },
   aggregate_contains_value_object: { forward_verb: 'contains', reverse_verb: 'belongs_to', classification: 'hierarchy', source_type: 'aggregate', target_type: 'value_object' },
   aggregate_handles_command: { forward_verb: 'handles', reverse_verb: 'handled_by', classification: 'hierarchy', source_type: 'aggregate', target_type: 'command' },
-  // v0.5.3 (UPG-517 C1): the DDD/CQRS event-flow spine. The pre-existing edges
+  // v0.5.3 ( C1): the DDD/CQRS event-flow spine. The pre-existing edges
   // above (aggregate_contains_*, aggregate_handles_command, bounded_context_
   // modelled_as_aggregate, bounded_context_emits_domain_event) cover the
   // structural shape (who owns what). These three are the causal edges that
@@ -499,7 +499,7 @@ export const UPG_EDGE_CATALOG = {
   // are temporal cause-and-effect, not containment. The same domain_event is
   // both produced_by a command AND emitted_by an aggregate; that polysemy is
   // intentional and matches DDD/CQRS literature: a command is the trigger, the
-  // aggregate is the source. Composes cleanly with UPG-520 self-loop refusal —
+  // aggregate is the source. Composes cleanly with self-loop refusal —
   // none of these are same-type edges.
   aggregate_emits_domain_event: { forward_verb: 'emits', reverse_verb: 'emitted_by', classification: 'causal', source_type: 'aggregate', target_type: 'domain_event' },
   command_produces_domain_event: { forward_verb: 'produces', reverse_verb: 'produced_by', classification: 'causal', source_type: 'command', target_type: 'domain_event' },
@@ -564,14 +564,14 @@ export const UPG_EDGE_CATALOG = {
   ci_pipeline_deploys_service: { forward_verb: 'deploys', reverse_verb: 'deployed_by', classification: 'cross-domain', source_type: 'ci_pipeline', target_type: 'service' },
   alert_rule_triggers_runbook: { forward_verb: 'triggers', reverse_verb: 'triggered_by', classification: 'cross-domain', source_type: 'alert_rule', target_type: 'runbook' },
   runbook_mitigates_incident: { forward_verb: 'mitigates', reverse_verb: 'mitigated_by', classification: 'cross-domain', source_type: 'runbook', target_type: 'incident' },
-  // v0.5.1 (UPG-517 C3): postmortem was a pure terminal (zero outgoing
+  // v0.5.1 ( C3): postmortem was a pure terminal (zero outgoing
   // edges) despite the devops "Incident Response Chain" pattern routing
   // through it. The existing `investigation_revealed_root_cause` edge
   // anchors on `investigation`, not `postmortem`, so the documented chain
   // (monitor → symptom → incident → postmortem → root_cause) broke at hop
   // 4. Causal: postmortems analyse incidents and identify causes.
   postmortem_identifies_root_cause: { forward_verb: 'identifies', reverse_verb: 'identified_by', classification: 'causal', source_type: 'postmortem', target_type: 'root_cause' },
-  // v0.5.1 (UPG-517 C3): real ops practice — postmortems generate runbook
+  // v0.5.1 ( C3): real ops practice — postmortems generate runbook
   // updates as action items. Previously no path between the two existed in
   // the catalog. Causal: the postmortem produces (or updates) the runbook.
   postmortem_produces_runbook: { forward_verb: 'produces', reverse_verb: 'produced_by', classification: 'causal', source_type: 'postmortem', target_type: 'runbook' },
@@ -1355,7 +1355,7 @@ export const UPG_EDGE_CATALOG = {
   data_model_persisted_in_database_schema: { forward_verb: 'persisted_in', reverse_verb: 'persists', classification: 'cross-domain', source_type: 'data_model', target_type: 'database_schema' },
   read_model_projects_aggregate: { forward_verb: 'projects', reverse_verb: 'projected_as', classification: 'cross-domain', source_type: 'read_model', target_type: 'aggregate' },
 
-  // ─── v0.5.5 (UPG-528 Part 2a): business-/GTM-canvas wiring ─────────────────
+  // ─── v0.5.5: business-/GTM-canvas wiring ─────────────────
   // The Part 1 slot-connectivity audit (Agent O2) surfaced 240 missing ordered
   // pairs across 5 Tier-1 business/GTM canvases. Most are artifacts of the
   // canvas declaring too many slot types — but ~29 represent real, named
@@ -1387,7 +1387,7 @@ export const UPG_EDGE_CATALOG = {
   // MEDIUM-confidence (verb-naming): relationships and partnerships *support*
   // a VP but the "support" verb is one of several plausible choices
   // (could be 'contributes_to' or 'shapes'). REVIEW: medium-confidence;
-  // surfaced by UPG-528 Part 2a — verify naming.
+  // surfaced by — verify naming.
   customer_relationship_supports_value_proposition: { forward_verb: 'supports', reverse_verb: 'supported_by', classification: 'cross-domain', source_type: 'customer_relationship', target_type: 'value_proposition' },
   partnership_supports_value_proposition: { forward_verb: 'supports', reverse_verb: 'supported_by', classification: 'cross-domain', source_type: 'partnership', target_type: 'value_proposition' },
 
@@ -1431,12 +1431,12 @@ export const UPG_EDGE_CATALOG = {
   // *subject* of the assumption — what is the assumption about?
   // MEDIUM-confidence (verb-naming): "concerns" is one of several plausible
   // verbs (could be 'about', 'applies_to', 'targets'). REVIEW: medium-confidence;
-  // surfaced by UPG-528 Part 2a — verify naming.
+  // surfaced by — verify naming.
   assumption_concerns_need: { forward_verb: 'concerns', reverse_verb: 'has_assumption', classification: 'semantic', source_type: 'assumption', target_type: 'need' },
   assumption_concerns_persona: { forward_verb: 'concerns', reverse_verb: 'has_assumption', classification: 'semantic', source_type: 'assumption', target_type: 'persona' },
   assumption_concerns_solution: { forward_verb: 'concerns', reverse_verb: 'has_assumption', classification: 'semantic', source_type: 'assumption', target_type: 'solution' },
 
-  // ─── v0.5.6 (UPG-528 Part 2b): design/UX canvas wiring ─────────────────────
+  // ─── v0.5.6: design/UX canvas wiring ─────────────────────
   // The Part 1 audit (Agent O2) also surfaced 75 missing ordered slot pairs
   // across three Tier-1 design/UX canvases:
   //   - Lean UX Canvas (Gothelf — 8 slots, 42 pairs, 36 null)
@@ -1474,7 +1474,7 @@ export const UPG_EDGE_CATALOG = {
   // need / persona / solution). Lean UX block 7 (Assumptions) and Opportunity
   // Canvas both let assumptions concern outcomes or features. MEDIUM-confidence
   // (verb-naming): "concerns" inherits the Part 2a debate. REVIEW: medium-
-  // confidence; pattern-completion of UPG-528 Part 2a's `assumption_concerns_*`.
+  // confidence; pattern-completion of's `assumption_concerns_*`.
   assumption_concerns_outcome: { forward_verb: 'concerns', reverse_verb: 'has_assumption', classification: 'semantic', source_type: 'assumption', target_type: 'outcome' },
   assumption_concerns_feature: { forward_verb: 'concerns', reverse_verb: 'has_assumption', classification: 'semantic', source_type: 'assumption', target_type: 'feature' },
 
@@ -1536,7 +1536,7 @@ export const UPG_EDGE_CATALOG = {
   // learning_informs_decision through the synthesis layer.
   observation_informs_decision: { forward_verb: 'informs', reverse_verb: 'informed_by', classification: 'cross-domain', source_type: 'observation', target_type: 'decision' },
 
-  // ─── v0.5.7 (UPG-528 Part 2c): engineering + AI canvas wiring ──────────────
+  // ─── v0.5.7: engineering + AI canvas wiring ──────────────
   // The Part 1 audit (Agent O2) surfaced missing ordered slot pairs across
   // four Tier-1 engineering + AI canvases:
   //   - Bounded Context Canvas (Nick Tune / DDD Crew — 6 slots, 30 pairs, 24 null)
@@ -1622,7 +1622,7 @@ export const UPG_EDGE_CATALOG = {
   // `workflow_run_produces_workflow_artifact` (already in catalog) — both are
   // canonical: the artifact has a structural run-producer AND a logical
   // agent-producer. Mirrors `aggregate_emits_domain_event` +
-  // `command_produces_domain_event` polysemy (UPG-517).
+  // `command_produces_domain_event` polysemy.
   agent_definition_produces_workflow_artifact: { forward_verb: 'produces', reverse_verb: 'produced_by', classification: 'causal', source_type: 'agent_definition', target_type: 'workflow_artifact' },
   // Hooks fire during runs. The existing `agent_definition_triggered_via_agent_hook`
   // covers the hook→agent registration; this adds the hook→run runtime
@@ -1637,7 +1637,7 @@ export const UPG_EDGE_CATALOG = {
   // on this gate?" need the run-level link.
   workflow_run_passes_through_review_gate: { forward_verb: 'passes_through', reverse_verb: 'gates_run', classification: 'causal', source_type: 'workflow_run', target_type: 'review_gate' },
 
-  // ─── v0.5.8 (UPG-528 Part 2d): strategy + research + feedback canvas wiring ─
+  // ─── v0.5.8: strategy + research + feedback canvas wiring ─
   // The Part 1 audit (Agent O2) — re-run on Agent W's v0.5.7 base — surfaced
   // missing slot pairs across eight Tier-1 strategy / research / feedback
   // canvases:

@@ -1,7 +1,7 @@
 /**
- * Tier-1 Business/GTM Canvas Wiring — v0.5.5 (UPG-528 Part 2a)
+ * Tier-1 Business/GTM Canvas Wiring — v0.5.5
  *
- * The UPG-528 Part 1 slot-connectivity audit (Agent O2) enumerated 240
+ * The slot-connectivity audit (Agent O2) enumerated 240
  * missing ordered slot-pair edges across five Tier-1 business/GTM canvases:
  *
  *   - Business Model Canvas (Osterwalder)
@@ -34,7 +34,7 @@ import { UPG_FRAMEWORKS } from '../frameworks/definitions/index.js'
 
 // ─── New edges declared in v0.5.5 ────────────────────────────────────────────
 
-/** All edges added by UPG-528 Part 2a. Keep in lock-step with edge-catalog.ts. */
+/** All edges added by. Keep in lock-step with edge-catalog.ts. */
 const NEW_EDGES = {
   // Business Model Canvas — HIGH-confidence
   key_activity_delivers_value_proposition: {
@@ -166,7 +166,7 @@ const NEW_EDGES = {
 
 // ─── Shape and registry assertions ───────────────────────────────────────────
 
-describe('UPG-528 Part 2a — every new edge is registered with the declared shape', () => {
+describe(' — every new edge is registered with the declared shape', () => {
   for (const [key, expected] of Object.entries(NEW_EDGES)) {
     it(`${key}: catalog entry matches declared shape`, () => {
       const def = (UPG_EDGE_CATALOG as Record<string, unknown>)[key] as
@@ -189,7 +189,7 @@ describe('UPG-528 Part 2a — every new edge is registered with the declared sha
 
 // ─── Self-loop guard ─────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2a — no self-loops introduced', () => {
+describe(' — no self-loops introduced', () => {
   it('every new edge has distinct source and target types', () => {
     for (const [key, expected] of Object.entries(NEW_EDGES)) {
       expect(expected.source_type, `${key} source/target collision`).not.toBe(
@@ -201,7 +201,7 @@ describe('UPG-528 Part 2a — no self-loops introduced', () => {
 
 // ─── Catalog growth ──────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2a — catalog grew by exactly 29 edges over v0.5.4', () => {
+describe(' — catalog grew by exactly 29 edges over v0.5.4', () => {
   it('all 29 new edge keys are present in UPG_EDGE_CATALOG', () => {
     const keys = Object.keys(NEW_EDGES)
     expect(keys.length).toBe(29)
@@ -231,7 +231,7 @@ interface ConnectivitySnapshot {
 function computeSlotConnectivity(frameworkId: string): ConnectivitySnapshot {
   const fw = UPG_FRAMEWORKS.find((f) => f.id === frameworkId)
   if (!fw) throw new Error(`framework ${frameworkId} not found`)
-  // v0.5.8 (UPG-528 Part 2d): explicit slots guard avoids TS strict-mode
+  // v0.5.8: explicit slots guard avoids TS strict-mode
   // narrowing failure when UPGFramework.slots becomes optional. Mirrors
   // the guard pattern Agent W introduced in
   // tier-1-engineering-ai-wiring.test.ts.
@@ -251,7 +251,7 @@ function computeSlotConnectivity(frameworkId: string): ConnectivitySnapshot {
   return { connected, total, ratio: total === 0 ? 0 : connected / total }
 }
 
-describe('UPG-528 Part 2a — slot-connectivity is meaningfully higher than pre-fix baseline', () => {
+describe(' — slot-connectivity is meaningfully higher than pre-fix baseline', () => {
   // Pre-fix baselines from Part 1 audit JSON (2026-05-21).
   const BASELINES: Record<string, { connected: number; total: number; ratio: number }> = {
     'business-model-canvas': { connected: 1, total: 72, ratio: 0.0139 },

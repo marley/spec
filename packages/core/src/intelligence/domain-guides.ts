@@ -236,7 +236,7 @@ const STRATEGY_GUIDE: UPGDomainUsageGuide = {
   domain_id: 'strategy',
   anchor_entity: 'outcome',
   // creation_sequence covers every entity registered to the `strategy`
-  // domain (UPG-516 — kept in sync with `UPG_DOMAINS.strategy.types` and
+  // domain ( — kept in sync with `UPG_DOMAINS.strategy.types` and
   // enforced by `creation-sequence-matches-registry.test.ts`). Trailing
   // entries are later additions appended in chronological-introduction
   // order — placement reflects the order in which they would naturally be
@@ -266,7 +266,7 @@ const PRODUCT_SPEC_GUIDE: UPGDomainUsageGuide = {
   domain_id: 'product_spec',
   anchor_entity: 'feature',
   // story_task removed (v0.4.0 — collapsed into canonical `task`, see
-  // UPG_MIGRATIONS['0.4.0']). theme + changelog appended (UPG-516 — were
+  // UPG_MIGRATIONS['0.4.0']). theme + changelog appended ( — were
   // registered to product_spec but missing from the navigation order).
   // `changelog` lives here because it is a structural product-shipping
   // artefact; content domain references it only via cross-domain bridges.
@@ -390,7 +390,7 @@ const ENGINEERING_GUIDE: UPGDomainUsageGuide = {
   domain_id: 'engineering',
   anchor_entity: 'service',
   // creation_sequence covers every entity registered to `engineering`
-  // (UPG-516 — kept in sync with `UPG_DOMAINS.engineering.types` and
+  // ( — kept in sync with `UPG_DOMAINS.engineering.types` and
   // enforced by `creation-sequence-matches-registry.test.ts`). The trailing
   // RCA quartet — `investigation`, `root_cause`, `symptom`, `fix` — was
   // anchored to engineering at v0.2.0 (entity_meta `ent_315 → ent_318`)
@@ -432,7 +432,7 @@ const DEVOPS_GUIDE: UPGDomainUsageGuide = {
   domain_id: 'devops',
   anchor_entity: 'monitor',
   // creation_sequence covers every entity registered to `devops`
-  // (UPG-516). Previous drift removed: `deployment`, `root_cause`,
+  //. Previous drift removed: `deployment`, `root_cause`,
   // `symptom` belong to the engineering domain per the registry; they
   // remain referenced from the "Incident Response Chain" pattern below as
   // intentional cross-domain hops (the operator surface walks into
@@ -748,7 +748,7 @@ const CUSTOMER_SUCCESS_GUIDE: UPGDomainUsageGuide = {
   anchor_entity: 'customer_health_score',
   // `nps_campaign` previously appeared here but is registered to the
   // `feedback` domain. Customer success references NPS via cross-domain
-  // bridges, not direct ownership. (UPG-516)
+  // bridges, not direct ownership.
   creation_sequence: ['customer_health_score', 'playbook', 'service_level_agreement', 'support_ticket', 'customer_feedback', 'churn_reason', 'customer_journey_stage', 'touchpoint', 'success_milestone', 'service_blueprint'],
   patterns: [
     {
@@ -776,7 +776,7 @@ const CONTENT_GUIDE: UPGDomainUsageGuide = {
   // `changelog` previously appeared here but is registered to the
   // `product_spec` domain (it is a release artefact). Content references
   // it only via cross-domain links; the canonical home is product_spec.
-  // (UPG-516)
+  //
   creation_sequence: ['content_piece', 'knowledge_base_article', 'document', 'content_calendar', 'content_theme', 'documentation_template'],
   patterns: [
     {

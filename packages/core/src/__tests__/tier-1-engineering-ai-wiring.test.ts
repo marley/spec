@@ -1,7 +1,7 @@
 /**
- * Tier-1 Engineering + AI Canvas Wiring — v0.5.7 (UPG-528 Part 2c)
+ * Tier-1 Engineering + AI Canvas Wiring — v0.5.7
  *
- * The UPG-528 Part 1 slot-connectivity audit (Agent O2) — re-run on Agent V's
+ * The slot-connectivity audit (Agent O2) — re-run on Agent V's
  * v0.5.6 base — surfaced 94 missing ordered slot-pair edges across four
  * Tier-1 engineering + AI canvases:
  *
@@ -36,7 +36,7 @@ import { UPG_VALID_CHILDREN } from '../grammar/hierarchy.js'
 
 // ─── New edges declared in v0.5.7 ────────────────────────────────────────────
 
-/** All edges added by UPG-528 Part 2c. Keep in lock-step with edge-catalog.ts. */
+/** All edges added by. Keep in lock-step with edge-catalog.ts. */
 const NEW_EDGES = {
   // Bounded Context Canvas — HIGH-confidence
   bounded_context_publishes_api_contract: {
@@ -93,7 +93,7 @@ const NEW_EDGES = {
 
 // ─── Shape and registry assertions ───────────────────────────────────────────
 
-describe('UPG-528 Part 2c — every new edge is registered with the declared shape', () => {
+describe(' — every new edge is registered with the declared shape', () => {
   for (const [key, expected] of Object.entries(NEW_EDGES)) {
     it(`${key}: catalog entry matches declared shape`, () => {
       const def = (UPG_EDGE_CATALOG as Record<string, unknown>)[key] as
@@ -116,7 +116,7 @@ describe('UPG-528 Part 2c — every new edge is registered with the declared sha
 
 // ─── Self-loop guard ─────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2c — no self-loops introduced', () => {
+describe(' — no self-loops introduced', () => {
   it('every new edge has distinct source and target types', () => {
     for (const [key, expected] of Object.entries(NEW_EDGES)) {
       expect(expected.source_type, `${key} source/target collision`).not.toBe(
@@ -128,7 +128,7 @@ describe('UPG-528 Part 2c — no self-loops introduced', () => {
 
 // ─── Catalog growth ──────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2c — catalog grew by exactly 11 edges over v0.5.6', () => {
+describe(' — catalog grew by exactly 11 edges over v0.5.6', () => {
   it('all 11 new edge keys are present in UPG_EDGE_CATALOG', () => {
     const keys = Object.keys(NEW_EDGES)
     expect(keys.length).toBe(11)
@@ -140,7 +140,7 @@ describe('UPG-528 Part 2c — catalog grew by exactly 11 edges over v0.5.6', () 
 
 // ─── Hierarchy grammar extensions ────────────────────────────────────────────
 
-describe('UPG-528 Part 2c — UPG_VALID_CHILDREN reflects the two new hierarchy edges', () => {
+describe(' — UPG_VALID_CHILDREN reflects the two new hierarchy edges', () => {
   it('bounded_context.children includes api_contract', () => {
     expect(UPG_VALID_CHILDREN['bounded_context']).toContain('api_contract')
   })
@@ -187,7 +187,7 @@ function computeSlotConnectivity(frameworkId: string): ConnectivitySnapshot {
   return { connected, total, ratio: total === 0 ? 0 : connected / total }
 }
 
-describe('UPG-528 Part 2c — slot-connectivity strictly higher than pre-fix baseline', () => {
+describe(' — slot-connectivity strictly higher than pre-fix baseline', () => {
   // Pre-fix baselines from Part 1 audit re-run on v0.5.6 base (2026-05-21).
   const BASELINES: Record<string, { connected: number; total: number; ratio: number }> = {
     'bounded-context-canvas': { connected: 6, total: 30, ratio: 0.2 },

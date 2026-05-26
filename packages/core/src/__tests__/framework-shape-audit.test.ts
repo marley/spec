@@ -65,7 +65,7 @@ describe('Framework Shape Audit — sweep report', () => {
   })
 
   it('PRESENTATION_COLUMN_REFERENCES_ENTITY_TYPE is zero across all frameworks (bulk fix gate)', () => {
-    // UPG-521 bulk fix: all 212 column-drift frameworks repaired.
+    // bulk fix: all 212 column-drift frameworks repaired.
     // This category must stay at zero — any regression here is a blocker.
     const result = runFrameworkShapeAudit()
     const count = result.summary.by_kind.PRESENTATION_COLUMN_REFERENCES_ENTITY_TYPE

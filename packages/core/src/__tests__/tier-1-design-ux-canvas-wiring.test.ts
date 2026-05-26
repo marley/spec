@@ -1,7 +1,7 @@
 /**
- * Tier-1 Design/UX Canvas Wiring — v0.5.6 (UPG-528 Part 2b)
+ * Tier-1 Design/UX Canvas Wiring — v0.5.6
  *
- * The UPG-528 Part 1 slot-connectivity audit (Agent O2) enumerated 75
+ * The slot-connectivity audit (Agent O2) enumerated 75
  * missing ordered slot-pair edges across three Tier-1 design/UX canvases:
  *
  *   - Lean UX Canvas (Gothelf)
@@ -32,7 +32,7 @@ import { UPG_FRAMEWORKS } from '../frameworks/definitions/index.js'
 
 // ─── New edges declared in v0.5.6 ────────────────────────────────────────────
 
-/** All edges added by UPG-528 Part 2b. Keep in lock-step with edge-catalog.ts. */
+/** All edges added by. Keep in lock-step with edge-catalog.ts. */
 const NEW_EDGES = {
   // Lean UX Canvas — HIGH-confidence (Gothelf hypothesis template)
   hypothesis_targets_outcome: {
@@ -105,7 +105,7 @@ const NEW_EDGES = {
 
 // ─── Shape and registry assertions ───────────────────────────────────────────
 
-describe('UPG-528 Part 2b — every new edge is registered with the declared shape', () => {
+describe(' — every new edge is registered with the declared shape', () => {
   for (const [key, expected] of Object.entries(NEW_EDGES)) {
     it(`${key}: catalog entry matches declared shape`, () => {
       const def = (UPG_EDGE_CATALOG as Record<string, unknown>)[key] as
@@ -128,7 +128,7 @@ describe('UPG-528 Part 2b — every new edge is registered with the declared sha
 
 // ─── Self-loop guard ─────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2b — no self-loops introduced', () => {
+describe(' — no self-loops introduced', () => {
   it('every new edge has distinct source and target types', () => {
     for (const [key, expected] of Object.entries(NEW_EDGES)) {
       expect(expected.source_type, `${key} source/target collision`).not.toBe(
@@ -140,7 +140,7 @@ describe('UPG-528 Part 2b — no self-loops introduced', () => {
 
 // ─── Catalog growth ──────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2b — catalog grew by exactly 15 edges over v0.5.5', () => {
+describe(' — catalog grew by exactly 15 edges over v0.5.5', () => {
   it('all 15 new edge keys are present in UPG_EDGE_CATALOG', () => {
     const keys = Object.keys(NEW_EDGES)
     expect(keys.length).toBe(15)
@@ -190,7 +190,7 @@ function computeSlotConnectivity(frameworkId: string): ConnectivitySnapshot {
   return { connected, total, ratio: total === 0 ? 0 : connected / total }
 }
 
-describe('UPG-528 Part 2b — slot-connectivity strictly higher than pre-fix baseline', () => {
+describe(' — slot-connectivity strictly higher than pre-fix baseline', () => {
   // Pre-fix baselines from Part 1 audit JSON (2026-05-21).
   const BASELINES: Record<string, { connected: number; total: number; ratio: number }> = {
     'lean-ux-canvas': { connected: 6, total: 42, ratio: 0.14285714285714285 },

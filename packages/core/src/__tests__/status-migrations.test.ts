@@ -4,7 +4,7 @@
  * Three concerns:
  *
  *  1. Shape: at least 3 entity types with at least 2 mappings each (the
- *     minimum coverage bar from the UPG-527 ticket).
+ *     minimum coverage bar from the ticket).
  *  2. Helper: `migrateStatusValue` returns canonical replacement for
  *     registered legacy values, `null` for unregistered, `hasStatusMigration`
  *     excludes identity mappings, `listStatusMigrations` enumerates the full
@@ -28,7 +28,7 @@ import { getLifecycleForType } from '../grammar/lifecycles.js'
 // ─── Shape ────────────────────────────────────────────────────────────────
 
 describe('UPG_STATUS_MIGRATIONS shape', () => {
-  it('covers at least 3 entity types with 2+ mappings each (UPG-527 coverage bar)', () => {
+  it('covers at least 3 entity types with 2+ mappings each ( coverage bar)', () => {
     const qualifying = Object.entries(UPG_STATUS_MIGRATIONS).filter(
       ([, map]) => map && Object.keys(map).length >= 2,
     )

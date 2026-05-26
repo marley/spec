@@ -11,7 +11,7 @@
  * the lifecycle never had.
  *
  * Source: live drift in `.upg/entopo.upg`, `.upg/sanity.upg`, and
- * `.upg/inkling.upg` surveyed during the v0.5 launch train (UPG-527).
+ * `.upg/inkling.upg` surveyed during the v0.5 launch train.
  * Highest single drift class: 173 `service` nodes with `status: "active"`
  * against the canonical `[development, staging, production, deprecated]`
  * lifecycle.

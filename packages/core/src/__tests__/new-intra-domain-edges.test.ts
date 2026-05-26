@@ -1,5 +1,5 @@
 /**
- * New intra-domain edges — v0.5.1 (UPG-517 batches C2 + C3)
+ * New intra-domain edges — v0.5.1 ( batches C2 + C3)
  *
  * Three single-edge additions that fix documented domain-guide patterns
  * which were unwireable at one hop:
@@ -22,7 +22,7 @@ import {
   pickCanonicalEdge,
 } from '../index.js'
 
-describe('UPG-517 C2 — api_contract → api_endpoint', () => {
+describe(' C2 — api_contract → api_endpoint', () => {
   it('api_contract_contains_api_endpoint exists in UPG_EDGE_CATALOG with the right shape', () => {
     const def = UPG_EDGE_CATALOG.api_contract_contains_api_endpoint
     expect(def).toBeDefined()
@@ -46,7 +46,7 @@ describe('UPG-517 C2 — api_contract → api_endpoint', () => {
   })
 })
 
-describe('UPG-517 C3 — postmortem → root_cause', () => {
+describe(' C3 — postmortem → root_cause', () => {
   it('postmortem_identifies_root_cause exists in UPG_EDGE_CATALOG with the right shape', () => {
     const def = UPG_EDGE_CATALOG.postmortem_identifies_root_cause
     expect(def).toBeDefined()
@@ -77,7 +77,7 @@ describe('UPG-517 C3 — postmortem → root_cause', () => {
   })
 })
 
-describe('UPG-517 C3 — postmortem → runbook', () => {
+describe(' C3 — postmortem → runbook', () => {
   it('postmortem_produces_runbook exists in UPG_EDGE_CATALOG with the right shape', () => {
     const def = UPG_EDGE_CATALOG.postmortem_produces_runbook
     expect(def).toBeDefined()
@@ -101,7 +101,7 @@ describe('UPG-517 C3 — postmortem → runbook', () => {
   })
 })
 
-describe('UPG-517 — postmortem is no longer a pure terminal', () => {
+describe(' — postmortem is no longer a pure terminal', () => {
   it('postmortem has at least two outgoing canonical edges', () => {
     const outgoing = Object.entries(UPG_EDGE_CATALOG)
       .filter(([, def]) => def.source_type === 'postmortem')

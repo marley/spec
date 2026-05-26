@@ -1,5 +1,5 @@
 /**
- * Tier-1 Framework Slot-Connectivity Regression Gate — UPG-528 Part 2e.
+ * Tier-1 Framework Slot-Connectivity Regression Gate —.
  *
  * Pins the v0.5.8 (post-Tier-1-sweep) slot-pair connectivity ratio for each of
  * the 20 Tier-1 famous frameworks as a **strict minimum floor**. If any
@@ -7,9 +7,9 @@
  *
  * This is a pure test-infrastructure addition — no catalog changes, no edges
  * added, no version bump. It guards against silent regression of the 77
- * canonical Tier-1 edges shipped across UPG-528 Batches 1-4:
+ * canonical Tier-1 edges shipped across Batches 1-4:
  *
- *   - Batch 1 (UPG-528): Wardley edges + capability properties (v0.5.2)
+ *   - Batch 1: Wardley edges + capability properties (v0.5.2)
  *   - Batch 2a (Part 2a, v0.5.5): Business / GTM canvas wiring (29 edges)
  *   - Batch 2b (Part 2b, v0.5.6): Design / UX canvas wiring (15 edges)
  *   - Batch 2c (Part 2c, v0.5.7): Engineering / AI canvas wiring (11 edges)
@@ -22,7 +22,7 @@
  * A ≠ B, ask `resolveContainmentEdge(A, B)` whether a canonical edge exists.
  * `connected / total` is the framework's connectivity ratio.
  *
- * This is the **same algorithm** as the UPG-528 Part 1 audit
+ * This is the **same algorithm** as the audit
  * (`scripts/audit-framework-slot-connectivity.ts`) — the gate pins the live
  * audit metric directly so every CI run is a re-audit of the Tier-1 frameworks.
  *
@@ -45,12 +45,12 @@
  *   - Which framework regressed
  *   - The pinned floor (connected / total) and what was achieved
  *   - The remediation: either restore the missing edge(s), OR — if the
- *     reduction is intentional (e.g., edge consolidation in UPG-510 or a
+ *     reduction is intentional (e.g., edge consolidation in or a
  *     ratified deprecation) — update the floor in this file AND document the
  *     change in CHANGELOG.md.
  *
  * The floor is a contract. Lowering it requires explicit ratification
- * (Captain + Spock), not a silent edit.
+ * (the maintainers), not a silent edit.
  *
  * Run: npx vitest run src/__tests__/tier-1-connectivity-regression-gate.test.ts
  */
@@ -61,13 +61,13 @@ import { resolveContainmentEdge } from '../index.js'
 
 // ─── Floor table ──────────────────────────────────────────────────────────────
 //
-// Pinned at the v0.5.8 baseline (2026-05-21) after UPG-528 Tier-1 sweep
+// Pinned at the v0.5.8 baseline (2026-05-21) after Tier-1 sweep
 // Batches 1-4. Each `min_connected` is the achieved canonical-edge count for
 // the framework's ordered slot pairs at that baseline. `total` is the total
 // ordered slot-pair count (N * (N-1) where N is the number of unique slot
 // entity types) — invariant unless the framework definition itself changes.
 //
-// **Lowering any value here requires explicit ratification by Captain + Spock,
+// **Lowering any value here requires explicit ratification by the maintainers,
 // and must be documented in CHANGELOG.md.**
 
 interface ConnectivityFloor {
@@ -165,7 +165,7 @@ function computeSlotConnectivity(frameworkId: string): ConnectivitySnapshot {
 
 // ─── The gate ────────────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2e — Tier-1 framework connectivity regression gate', () => {
+describe(' — Tier-1 framework connectivity regression gate', () => {
   it('floor table has exactly 20 Tier-1 frameworks', () => {
     expect(TIER_1_CONNECTIVITY_FLOORS).toHaveLength(20)
   })
@@ -204,7 +204,7 @@ describe('UPG-528 Part 2e — Tier-1 framework connectivity regression gate', ()
           `out of resolution. Either:\n` +
           `  1. Restore the missing edge(s) to the catalog, OR\n` +
           `  2. If the reduction is intentional (e.g., edge consolidation in ` +
-          `UPG-510, a ratified deprecation, or catalog evolution), update the ` +
+          `, a ratified deprecation, or catalog evolution), update the ` +
           `floor in src/__tests__/tier-1-connectivity-regression-gate.test.ts ` +
           `to the new achievable count, AND document the change in CHANGELOG.md.\n\n` +
           `The floor is a contract — lowering it requires explicit ratification.\n`,

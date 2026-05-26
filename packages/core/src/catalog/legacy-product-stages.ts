@@ -1,5 +1,5 @@
 /**
- * Legacy product-stage aliases — UPG-509 Part 2.
+ * Legacy product-stage aliases —.
  *
  * Existing graphs (`entopo.upg`, `sanity.upg`, `maximum-minimum.upg`,
  * `notion-saturated.upg`, etc.) carry `product.stage` values that pre-date

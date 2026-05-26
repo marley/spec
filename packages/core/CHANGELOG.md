@@ -29,15 +29,15 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added — `UPG_STATUS_MIGRATIONS` axis
 
-- **`UPG_STATUS_MIGRATIONS` map + `migrateStatusValue` / `hasStatusMigration` / `listStatusMigrations` / `findInvalidStatusMigrationTargets` helpers** (`grammar/status-migrations.ts`) — a new migration axis parallel to `UPG_MIGRATIONS` (type renames) and `UPG_PROPERTY_MIGRATIONS` (property-shape evolution): per-entity-type maps of legacy status values to canonical lifecycle phases. Initial coverage spans the highest-volume drift observed across `entopo.upg`, `sanity.upg`, and `inkling.upg` (UPG-527): `service`, `feature`, `feature_area`, `hypothesis`, `opportunity`, `initiative`, `decision`, `deployment`, `monitor`, `incident`. The companion `migrate_status` MCP tool in `@unified-product-graph/mcp-server` consumes this map; `validate_graph` lifecycle_drift entries now carry `suggested_migration` when the map resolves.
+- **`UPG_STATUS_MIGRATIONS` map + `migrateStatusValue` / `hasStatusMigration` / `listStatusMigrations` / `findInvalidStatusMigrationTargets` helpers** (`grammar/status-migrations.ts`) — a new migration axis parallel to `UPG_MIGRATIONS` (type renames) and `UPG_PROPERTY_MIGRATIONS` (property-shape evolution): per-entity-type maps of legacy status values to canonical lifecycle phases. Initial coverage spans the highest-volume drift observed across `entopo.upg`, `sanity.upg`, and `inkling.upg`: `service`, `feature`, `feature_area`, `hypothesis`, `opportunity`, `initiative`, `decision`, `deployment`, `monitor`, `incident`. The companion `migrate_status` MCP tool in `@unified-product-graph/mcp-server` consumes this map; `validate_graph` lifecycle_drift entries now carry `suggested_migration` when the map resolves.
 
 ---
 
 ## [0.5.8] — 2026-05-21
 
-**Patch.** Three additive contributions: (1) 22 edges that close the slot-connectivity gaps in five Tier-1 strategy, research, and feedback canvas frameworks surfaced by the UPG-528 Part 1 audit (UPG-528 Part 2d); (2) five skeleton canonical playbooks promoted to rich multi-phase playbooks (UPG-523); (3) a Tier-1 connectivity regression gate that pins the v0.5.8 canonical-edge slot-pair floors for all 20 Tier-1 famous frameworks (UPG-528 Part 2e). No removals, no renames, no breaking shape changes.
+**Patch.** Three additive contributions: (1) 22 edges that close the slot-connectivity gaps in five Tier-1 strategy, research, and feedback canvas frameworks surfaced by the audit; (2) five skeleton canonical playbooks promoted to rich multi-phase playbooks; (3) a Tier-1 connectivity regression gate that pins the v0.5.8 canonical-edge slot-pair floors for all 20 Tier-1 famous frameworks. No removals, no renames, no breaking shape changes.
 
-### Added — Tier-1 strategy / research / feedback canvas wiring (22 edges, UPG-528 Part 2d)
+### Added — Tier-1 strategy / research / feedback canvas wiring (22 edges)
 
 **McKinsey 7S (4 edges)**
 
@@ -115,7 +115,7 @@ The Part 1 audit surfaced 240+ missing pairs across the five canvases; 22 are ad
 
 ---
 
-### Added — Rich playbooks for the 5 former skeletons (UPG-523)
+### Added — Rich playbooks for the 5 former skeletons
 
 **Patch.** Five of ten canonical playbooks were skeletons — single-phase `domain_guide` records that just deferred to a domain creation sequence. They are now rich multi-phase `entity_sequence` playbooks with per-phase `prompt_hint`s, matching the voice and shape of the existing five rich playbooks (`users-needs`, `discovery-research-validation`, `experience-design-brand`, `engineering-platform`, `business-gtm-growth`). Surfaced by the 2026-05-21 higher-order constructs audit (Pass 7).
 
@@ -127,26 +127,26 @@ Each playbook bumps `version` 0.1.0 → 0.2.0 and grows from one step to 6–7:
 - **`playbook:analytics-data`** — 6 phases: Data Sources → Event Schemas → Pipelines & Models → Metrics → Dashboards → Data Quality. No longer marked "skeleton playbook; content depth is in progress".
 - **`playbook:operations-quality`** — 7 phases: DevOps Backbone → Monitoring & SLOs → Incident Response → Security → Quality Gates → Compliance & Accessibility → Customer Support. No longer marked "skeleton playbook; content depth is in progress".
 
-### Helper update (UPG-523)
+### Helper update
 
 `seqStep()` helper in `playbooks/definitions/index.ts` now accepts an optional `{ next_sequence_on_gap }` parameter to support chaining between rich playbooks (mirroring `domainGuideStep`).
 
-### Audit coverage (UPG-523)
+### Audit coverage
 
 - Rich canonical playbooks: 5 → 10 (every canonical playbook is now multi-phase).
 - Skeleton playbooks remaining: 0 of 10 canonical.
 
 ---
 
-### Tests — Tier-1 connectivity regression gate (UPG-528 Part 2e)
+### Tests — Tier-1 connectivity regression gate
 
-**Additive only.** New vitest file `src/__tests__/tier-1-connectivity-regression-gate.test.ts` pins the v0.5.8 (post-Tier-1-sweep) canonical-edge slot-pair connectivity for the 20 Tier-1 famous frameworks as a strict integer floor (`min_connected / total`). If any framework's connected-pair count drops below its pinned floor — e.g. via accidental edge consolidation in UPG-510, a refactor, or a silent deprecation — CI fails with an actionable message that lists both remediation paths (restore the edge, or update the floor + document in `CHANGELOG.md`). No catalog changes, no edges added or removed, no framework definitions touched, no version bump. Locks in the 77 canonical Tier-1 edges shipped across UPG-528 Batches 1-4. Test count: 781 → 803 (+22 = 20 framework floors + 2 sanity meta-tests).
+**Additive only.** New vitest file `src/__tests__/tier-1-connectivity-regression-gate.test.ts` pins the v0.5.8 (post-Tier-1-sweep) canonical-edge slot-pair connectivity for the 20 Tier-1 famous frameworks as a strict integer floor (`min_connected / total`). If any framework's connected-pair count drops below its pinned floor — e.g. via accidental edge consolidation in, a refactor, or a silent deprecation — CI fails with an actionable message that lists both remediation paths (restore the edge, or update the floor + document in `CHANGELOG.md`). No catalog changes, no edges added or removed, no framework definitions touched, no version bump. Locks in the 77 canonical Tier-1 edges shipped across Batches 1-4. Test count: 781 → 803 (+22 = 20 framework floors + 2 sanity meta-tests).
 
 ---
 
 ## [0.5.7] — 2026-05-21
 
-**Patch.** 11 high-confidence edges that close the slot-connectivity gaps in four Tier-1 engineering + AI canvas frameworks surfaced by the UPG-528 Part 1 audit: Bounded Context Canvas (Nick Tune / DDD Crew), LLM Evaluation Framework (NLP community), API Design First (OpenAPI Initiative), and Multi-Agent Orchestration (AutoGen / CrewAI / LangGraph). Additive only — no removals, no renames, no breaking shape changes.
+**Patch.** 11 high-confidence edges that close the slot-connectivity gaps in four Tier-1 engineering + AI canvas frameworks surfaced by the audit: Bounded Context Canvas (Nick Tune / DDD Crew), LLM Evaluation Framework (NLP community), API Design First (OpenAPI Initiative), and Multi-Agent Orchestration (AutoGen / CrewAI / LangGraph). Additive only — no removals, no renames, no breaking shape changes.
 
 ### Context
 
@@ -228,7 +228,7 @@ None. All 11 edges are additive. Existing graphs and adapters are unaffected. Tw
 
 ## [0.5.6] — 2026-05-21
 
-**Patch.** 15 edges (13 high-confidence + 2 medium-confidence) that close the slot-connectivity gaps in three Tier-1 design/UX canvas frameworks surfaced by the UPG-528 Part 1 audit: Lean UX Canvas (Gothelf), Persona Canvas (Cooper/Pichler), and Design Sprint (Knapp/GV). Additive only — no removals, no renames, no breaking shape changes.
+**Patch.** 15 edges (13 high-confidence + 2 medium-confidence) that close the slot-connectivity gaps in three Tier-1 design/UX canvas frameworks surfaced by the audit: Lean UX Canvas (Gothelf), Persona Canvas (Cooper/Pichler), and Design Sprint (Knapp/GV). Additive only — no removals, no renames, no breaking shape changes.
 
 ### Context
 
@@ -243,7 +243,7 @@ Closes Gothelf's hypothesis template, which binds hypothesis → feature → per
 - **`feature_addresses_need`** (product · cross-domain) — verbs `addresses` / `addressed_by`. Parallel to `feature_addresses_job` — features address both jobs and needs (Lean UX block 5 ↔ block 1).
 - **`experiment_run_measures_outcome`** (validation · cross-domain) — verbs `measures` / `measured_by`. Parallel to `experiment_run_measures_metric` — outcomes are the higher-level business measure (Lean UX block 8 ↔ block 2).
 - **`persona_pursues_outcome`** (user · semantic) — verbs `pursues` / `pursued_by`. Lean UX block 4 (User Outcomes & Benefits) ties persona to outcome. Same verb as `persona_pursues_job` — lateral within the user domain.
-- **`assumption_concerns_outcome`** (validation · semantic) — verbs `concerns` / `has_assumption`. MEDIUM-confidence: pattern-completion of UPG-528 Part 2a's `assumption_concerns_*` family. Flagged for review.
+- **`assumption_concerns_outcome`** (validation · semantic) — verbs `concerns` / `has_assumption`. MEDIUM-confidence: pattern-completion of's `assumption_concerns_*` family. Flagged for review.
 - **`assumption_concerns_feature`** (validation · semantic) — verbs `concerns` / `has_assumption`. MEDIUM-confidence: same family, same review flag.
 
 ### Added — Persona Canvas (3 edges)
@@ -302,9 +302,9 @@ None. Additive only. Existing edge keys, classifications, and verbs are unchange
 
 ## [0.5.5] — 2026-05-21
 
-**Patch.** Two additive contributions: (1) 29 edges (24 high-confidence + 5 medium-confidence) that close the slot-connectivity gaps in five Tier-1 business/GTM canvas frameworks surfaced by the UPG-528 Part 1 audit (UPG-528 Part 2a); (2) 3 causal edges that complete the DDD/CQRS event-flow spine (UPG-517 C1). No removals, no renames, no breaking shape changes.
+**Patch.** Two additive contributions: (1) 29 edges (24 high-confidence + 5 medium-confidence) that close the slot-connectivity gaps in five Tier-1 business/GTM canvas frameworks surfaced by the audit; (2) 3 causal edges that complete the DDD/CQRS event-flow spine ( C1). No removals, no renames, no breaking shape changes.
 
-### Added — Business/GTM canvas wiring (29 edges, UPG-528 Part 2a)
+### Added — Business/GTM canvas wiring (29 edges)
 
 The Part 1 audit (Agent O2) enumerated 240 missing ordered slot-pair edges across five canvases: Business Model Canvas, Lean Canvas, GTM Playbook, Opportunity Canvas, and Test Card + Learning Card. Most are artifacts of the canvas declaring too many slot types — but ~29 represent real, named relationships from the canonical source literature (Osterwalder, Maurya, Patton, Strategyzer, GTM practice). This patch adds the canonical ones and explicitly does NOT add the artifact-only pairs.
 
@@ -384,7 +384,7 @@ The Part 1 audit surfaced 240 missing pairs; 29 are added above. The remaining ~
 
 ---
 
-### Added — DDD/CQRS event-flow spine (3 edges, UPG-517 C1)
+### Added — DDD/CQRS event-flow spine (3 edges C1)
 
 Three causal edges that complete the DDD/CQRS event-flow spine. The pre-existing structural edges (`aggregate_contains_domain_entity`, `aggregate_contains_value_object`, `aggregate_handles_command`, `bounded_context_modelled_as_aggregate`, `bounded_context_emits_domain_event`) cover who owns what; these three carry the temporal cause-and-effect that makes event-driven and CQRS architectures expressible.
 
@@ -412,15 +412,15 @@ domain_event
 
 #### Self-loop note (DDD/CQRS)
 
-None of the three are same-type edges. They compose cleanly with the UPG-520 self-loop refusal (`A → A` refused by default) — every relation is between distinct types.
+None of the three are same-type edges. They compose cleanly with the self-loop refusal (`A → A` refused by default) — every relation is between distinct types.
 
 #### Polysemy on `domain_event`
 
 A single `domain_event` instance is simultaneously `produced_by` a command and `emitted_by` an aggregate. This is the intended shape in DDD/CQRS: commands are *triggers*, aggregates are *sources*. Both views are addressable in the catalog without duplicating the event.
 
-#### Scope discipline (UPG-517 C1)
+#### Scope discipline ( C1)
 
-The UPG-517 C1 brief proposed eight edges. Five of those collided with edges already in the catalog at v0.5.1 / pre-existing:
+The C1 brief proposed eight edges. Five of those collided with edges already in the catalog at v0.5.1 / pre-existing:
 
 - `aggregate_contains_domain_entity`, `aggregate_contains_value_object`, `aggregate_handles_command` — shipped at v0.5.1.
 - `bounded_context_contains_aggregate` — overlaps with the canonical `bounded_context_modelled_as_aggregate`.
@@ -428,9 +428,9 @@ The UPG-517 C1 brief proposed eight edges. Five of those collided with edges alr
 
 The remaining three (causal event-flow) had no prior canonical edges and are the actual gap.
 
-#### Audit coverage (UPG-517 C1)
+#### Audit coverage ( C1)
 
-- Edge count: 857 → 861 (merged total with Part 2a: 857 → 890, but these three are the UPG-517 C1 contribution adding to the 0.5.4 base of 857).
+- Edge count: 857 → 861 (merged total with Part 2a: 857 → 890, but these three are the C1 contribution adding to the 0.5.4 base of 857).
 - `command` outgoing-edge count: 0 → 1 (no longer a pure terminal — `aggregate_handles_command` was incoming only).
 - `domain_event` outgoing-edge count: 0 → 1.
 - `aggregate` outgoing-edge count: 3 → 4.
@@ -439,17 +439,17 @@ The remaining three (causal event-flow) had no prior canonical edges and are the
 
 ## [0.5.4] — 2026-05-21
 
-**Patch.** Four edges across two tickets: three strategic_theme wiring edges (UPG-511) that lift `strategic_theme` from structural isolation to a conceptually central strategy node, and one solution-to-feature graduation edge (UPG-513) that closes the Teresa Torres Solution Tree chain. Additive only — no removals, no renames, no breaking shape changes.
+**Patch.** Four edges across two tickets: three strategic_theme wiring edges that lift `strategic_theme` from structural isolation to a conceptually central strategy node, and one solution-to-feature graduation edge that closes the Teresa Torres Solution Tree chain. Additive only — no removals, no renames, no breaking shape changes.
 
 ### Added
 
-**UPG-511 — strategic_theme wiring (3 causal / hierarchy edges)**
+** — strategic_theme wiring (3 causal / hierarchy edges)**
 
 - **`strategic_theme_delivers_outcome`** (strategy · causal) — verbs `delivers` / `delivered_by`. A strategic theme produces a business outcome; this causal link makes the delivery intent explicit.
 - **`strategic_theme_measured_by_key_result`** (strategy · causal) — verbs `measured_by` / `measures`. Themes are broad; key results make them measurable. Direct link means a dashboard can surface KRs next to the theme without traversing objective.
 - **`objective_rolls_up_to_strategic_theme`** (strategy · hierarchy) — verbs `rolls_up_to` / `contains_objective`. OKR containment direction — an objective is the specific quarterly bet *within* a theme. `strategic_theme` is the broader multi-quarter focus area; `objective` is subordinate. Mirrors the real-world usage and completes the strategic cascade: `strategic_pillar → strategic_theme → objective → key_result`.
 
-**UPG-513 — solution graduation (1 causal edge)**
+** — solution graduation (1 causal edge)**
 
 - **`solution_becomes_feature`** (discovery · causal) — verbs `becomes` / `evolved_from`. The explicit graduation moment in Teresa Torres' Solution Tree — a solution that has been validated and committed to delivery becomes a feature. Closes the chain: `opportunity → solution → feature`. Distinct from `capability_implemented_by_feature` (structural realisation) — this captures the *transition* from exploration to delivery commitment.
 
@@ -474,9 +474,9 @@ No duplicates introduced:
 
 ## [0.5.3] — 2026-05-21
 
-**Patch.** Framework-layer integrity sweep (UPG-521): framework shape linter + four canonical-example fixes, 66 SLOT_DATA_DRIFT warnings resolved, 212 framework column-drift corrections. No public-API or schema changes, no edge additions.
+**Patch.** Framework-layer integrity sweep: framework shape linter + four canonical-example fixes, 66 SLOT_DATA_DRIFT warnings resolved, 212 framework column-drift corrections. No public-API or schema changes, no edge additions.
 
-### Added — Framework Shape Audit (UPG-521)
+### Added — Framework Shape Audit
 
 - **Framework Shape Audit** (`src/frameworks/audit-shape.ts` + `scripts/audit-framework-shape.ts`) — linter that walks `UPG_FRAMEWORKS` and reports five issue kinds:
   - `PRESENTATION_COLUMN_REFERENCES_ENTITY_TYPE` (blocker) — table column references an entity-type name instead of a declared property.
@@ -486,20 +486,20 @@ No duplicates introduced:
   - `WHEN_TO_USE_BOILERPLATE` (warning) — `education.when_to_use` bullets >50% identical to other frameworks in the same category.
 - **CI gate** (`src/__tests__/framework-shape-audit.test.ts`) — vitest suite that fails on blocker-class issues for the four showcase frameworks (rice-scoring · kano-model · wardley-map · business-model-canvas) and reports the wider-catalog blocker count as a warn-only signal. Includes negative-test fixtures proving each detector fires.
 
-### Fixed — Framework canonical examples (UPG-521)
+### Fixed — Framework canonical examples
 
 - **`rice-scoring`** — `presentation.layout.columns` rewritten to reference the four declared scoring properties (`reach`, `impact`, `confidence`, `effort`) and the `rice_score` computed property, instead of unrelated entity-type names (`metric`, `outcome`, `assumption`, `epic`). Default sort moved to `rice_score desc` so the showcase actually surfaces priorities.
 - **`kano-model`** — (1) `functional_response` / `dysfunctional_response` now declare the standard Kano enum (`i_like_it | i_expect_it | i_am_neutral | i_can_tolerate_it | i_dislike_it`). (2) `delighter_count` / `performance_count` / `must_be_count` / `indifferent_count` declared as `number` so the `satisfaction_coefficient` and `dissatisfaction_coefficient` expressions resolve. (3) Layout changed from generic value/effort `quadrant` to Kano `matrix` (5x5 response classification). (4) `when_to_use` rewritten in Kano-specific terms.
 - **`wardley-map`** — `evolution_stage` (enum: `genesis | custom | product | commodity`) and `visibility` (number 0-1) declared on each entity type that the framework slots over (`capability`, `feature`, `competitor`, `need`). Layout changed from `flow LR` to `quadrant` with `x_axis: evolution_stage` and `y_axis: visibility`. `structure.pattern` and `tags` updated to match.
 - **`business-model-canvas`** — removed the orphan `persona` entry from `data.entity_types` (it had no corresponding slot). The framework now satisfies the slot/data consistency check.
 
-### Fixed — Slot ↔ data.entity_types alignment (UPG-521)
+### Fixed — Slot ↔ data.entity_types alignment
 
 - **65 removals** — incidental entity types removed from `data.entity_types` in frameworks where the type appeared in data but had no corresponding slot and was not referenced in `required_properties` or `computed_properties`. Affected frameworks: `story-map`, `value-proposition-canvas`, `assumption-canvas`, `four-forces-of-progress`, `channel-model-fit`, `validation-board`, `experiment-card`, `empathy-map`, `opportunity-canvas`, `goal-oriented-roadmap`, `story-map-release-slicing`, `competitive-battlecard`, `competitor-profile`, `competitive-response-matrix`, `blue-ocean-strategy`, `jobs-to-be-done-canvas`, `balanced-scorecard`, `business-model-environment`, `raci-matrix`, `retrospective`, `blameless-postmortem`, `model-card`, `agent-evaluation-matrix`, `usability-test-plan`, `mixed-methods-matrix`, `user-needs-matrix`, `jobs-atlas`, `mental-model-diagram`, `user-segmentation-matrix`, `customer-forces-canvas`, `value-proposition-fit`, `voice-of-customer-program`, `nps-analysis-framework`, `customer-advisory-board-framework`, `icp-canvas`, `account-planning`, `monetisation-strategy`, `ge-mckinsey-matrix`.
 - **1 addition** — `opportunity-scoring`: added `Scored Outcomes` slot (`entityTypeId: outcome`) to match the existing `outcome` entry in `data.entity_types` (required because `computed_properties[0].entity_type` references `outcome`).
 - **Post-fix linter baseline**: `SLOT_DATA_DRIFT` → 0 (was 66). All other category counts unchanged.
 
-### Fixed — Column drift bulk repair (UPG-521)
+### Fixed — Column drift bulk repair
 
 - **212 frameworks across 21 definition files** — `presentation.layout.columns` entries that referenced an entity-type name (e.g. `metric`, `outcome`, `epic`, `feature`, `competitor`, `hypothesis`) instead of a declared property have been corrected. Every column now references either a universal node field (`title`, `description`, `status`), a `data.required_properties` key, or a `data.computed_properties` name. The renderer will no longer receive entity instances in the wrong column slot.
   - Files touched: `accessibility.ts`, `agentic.ts`, `ai-ml.ts`, `competitive.ts`, `customer-success.ts`, `design.ts`, `devops.ts`, `discovery.ts`, `engineering.ts`, `feedback-voc.ts`, `go-to-market.ts`, `growth.ts`, `metrics.ts`, `planning.ts`, `pricing.ts`, `prioritization.ts`, `program-mgmt.ts`, `strategy.ts`, `team-process.ts`, `user-understanding.ts`, `validation.ts`.
@@ -533,7 +533,7 @@ Two optional `CapabilityProperties` fields driven by the `wardley-map` framework
 
 ### Self-loop note
 
-`capability_depends_on_capability` is a same-type edge. The v0.5.0 self-loop guard (UPG-520) refuses `A → A` by default — a value chain by definition has no node depending on itself. `A → B` between distinct capabilities is the supported and intended shape. If a future caller needs a same-node self-loop, that would require a separate opt-in.
+`capability_depends_on_capability` is a same-type edge. The v0.5.0 self-loop guard refuses `A → A` by default — a value chain by definition has no node depending on itself. `A → B` between distinct capabilities is the supported and intended shape. If a future caller needs a same-node self-loop, that would require a separate opt-in.
 
 ### Audit coverage
 
@@ -582,11 +582,11 @@ Minor bump: additive surface-area expansion (new entity type, new polymorphic ed
 - **`node_belongs_to_bounded_context` polymorphic edge** — verbs `belongs_to` / `contains`. Covers DDD building blocks (service, domain_event, domain_entity, aggregate, read_model, api_contract, value_object, command, data_model). Polymorphic count: 10 → 12.
 - **`UPG_CONTAINMENT_FREE_TYPES` set + `isContainmentFreeType()` helper** (`grammar/hierarchy.ts`) — a new grammar category parallel to `UPG_LIFECYCLE_FREE_TYPES`. Containment-free types are referenced by other nodes via edges rather than contained by structural parents. First member: `person`. The G2b hierarchy audit treats absence from `UPG_VALID_CHILDREN` as a defect unless the type is in this set.
 
-### Removed (UPG-509 spec-hygiene pass)
+### Removed ( spec-hygiene pass)
 
 Spec-hygiene pass surfaced by the 2026-05-20 v2 spec-as-observed analysis (Finding 11 — *legacy data + tools drift*) and the systematic domain-wiring audit (Failure Mode 2 — *creation_sequence drift*).
 
-**UPG-509 — Deprecation hygiene.** Every property tagged `@deprecated since="0.4.0" removeIn="0.5.0"` has been removed from `UPG_PROPERTY_SCHEMA`.
+** — Deprecation hygiene.** Every property tagged `@deprecated since="0.4.0" removeIn="0.5.0"` has been removed from `UPG_PROPERTY_SCHEMA`.
 
 Status fields lifted to `UPGBaseNode.status` per `status-convention.md` Rule 1 (12): `strategic_theme.theme_status`, `assumption.validation_status`, `service.service_status`, `api_contract.contract_status`, `technical_debt_item.debt_status`, `investigation.investigation_status`, `fix.fix_status`, `contract.contract_status`, `threat_model.threat_model_status`, `role.role_status`, `team_okr.okr_status`, `partnership.partnership_status`.
 
@@ -594,13 +594,13 @@ Free-text properties replaced by canonical edges (5): `model_comparison.winner`,
 
 Renamed-to-sibling properties (5): `root_cause.confidence → cause_confidence`, `metric.frequency → cadence` (Cadence enum), `key_activity.frequency` / `symptom.frequency` / `churn_reason.frequency` → 4-way frequency split. `MetricFrequency` type alias removed.
 
-### Added (UPG-509 + UPG-516)
+### Added ( +)
 
 - **`UPG_PROPERTY_MIGRATIONS['0.5.0']` block** — 22 migration rules: 12 `lift_property_to_top_level` + 5 `drop_props` (edge-replaced) + 5 `drop_props` (renamed-sibling).
 - **`migrateProductStage` helper + `LEGACY_PRODUCT_STAGES` map** (`catalog/legacy-product-stages.ts`) — authoritative `idea → concept` mapping, append-only, exposed from package root.
 - **`creation_sequence` ↔ registry invariant** (`creation-sequence-matches-registry.test.ts`) — asserts domain sequences cover all registered entities. `scripts/audit-creation-sequence.ts` as CI drift report.
 
-### Fixed (UPG-516 — creation_sequence drift)
+### Fixed ( — creation_sequence drift)
 
 11 domains reconciled: 22 missing entities added, 6 foreign entries removed — `strategy`, `engineering`, `devops`, `validation`, `market_intelligence`, `user_research`, `ux_design`, `product_spec`, `growth`, `content`, `customer_success`.
 

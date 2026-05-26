@@ -1,7 +1,7 @@
 /**
- * Tier-1 Strategy + Research + Feedback Canvas Wiring — v0.5.8 (UPG-528 Part 2d)
+ * Tier-1 Strategy + Research + Feedback Canvas Wiring — v0.5.8
  *
- * The UPG-528 Part 1 slot-connectivity audit (Agent O2) — re-run on Agent W's
+ * The slot-connectivity audit (Agent O2) — re-run on Agent W's
  * v0.5.7 base — surfaced ~160 missing ordered slot-pair edges across eight
  * Tier-1 strategy, research, and feedback canvases:
  *
@@ -41,7 +41,7 @@ import { UPG_VALID_CHILDREN } from '../grammar/hierarchy.js'
 
 // ─── New edges declared in v0.5.8 ────────────────────────────────────────────
 
-/** All edges added by UPG-528 Part 2d. Keep in lock-step with edge-catalog.ts. */
+/** All edges added by. Keep in lock-step with edge-catalog.ts. */
 const NEW_EDGES = {
   // McKinsey 7S — HIGH-confidence (3)
   vision_guides_strategic_theme: {
@@ -152,7 +152,7 @@ const NEW_EDGES = {
 
 // ─── Shape and registry assertions ───────────────────────────────────────────
 
-describe('UPG-528 Part 2d — every new edge is registered with the declared shape', () => {
+describe(' — every new edge is registered with the declared shape', () => {
   for (const [key, expected] of Object.entries(NEW_EDGES)) {
     it(`${key}: catalog entry matches declared shape`, () => {
       const def = (UPG_EDGE_CATALOG as Record<string, unknown>)[key] as
@@ -175,7 +175,7 @@ describe('UPG-528 Part 2d — every new edge is registered with the declared sha
 
 // ─── Self-loop guard ─────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2d — no self-loops introduced', () => {
+describe(' — no self-loops introduced', () => {
   it('every new edge has distinct source and target types', () => {
     for (const [key, expected] of Object.entries(NEW_EDGES)) {
       expect(expected.source_type, `${key} source/target collision`).not.toBe(
@@ -187,7 +187,7 @@ describe('UPG-528 Part 2d — no self-loops introduced', () => {
 
 // ─── Catalog growth ──────────────────────────────────────────────────────────
 
-describe('UPG-528 Part 2d — catalog grew by exactly 22 edges over v0.5.7', () => {
+describe(' — catalog grew by exactly 22 edges over v0.5.7', () => {
   it('all 22 new edge keys are present in UPG_EDGE_CATALOG', () => {
     const keys = Object.keys(NEW_EDGES)
     expect(keys.length).toBe(22)
@@ -199,7 +199,7 @@ describe('UPG-528 Part 2d — catalog grew by exactly 22 edges over v0.5.7', () 
 
 // ─── Hierarchy grammar extensions ────────────────────────────────────────────
 
-describe('UPG-528 Part 2d — UPG_VALID_CHILDREN reflects the three new hierarchy edges', () => {
+describe(' — UPG_VALID_CHILDREN reflects the three new hierarchy edges', () => {
   it('review_gate.children includes insight', () => {
     expect(UPG_VALID_CHILDREN['review_gate']).toContain('insight')
   })
@@ -248,7 +248,7 @@ function computeSlotConnectivity(frameworkId: string): ConnectivitySnapshot {
   return { connected, total, ratio: total === 0 ? 0 : connected / total }
 }
 
-describe('UPG-528 Part 2d — slot-connectivity strictly higher than pre-fix baseline', () => {
+describe(' — slot-connectivity strictly higher than pre-fix baseline', () => {
   // Pre-fix baselines from Part 1 audit re-run on v0.5.7 base (2026-05-21).
   const BASELINES: Record<string, { connected: number; total: number; ratio: number }> = {
     'mckinsey-7s': { connected: 1, total: 30, ratio: 0.03333333333333333 },

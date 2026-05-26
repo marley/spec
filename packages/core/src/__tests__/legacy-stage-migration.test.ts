@@ -1,5 +1,5 @@
 /**
- * UPG-509 Part 2 — Legacy product-stage migration.
+ * — Legacy product-stage migration.
  *
  * Validates the `LEGACY_PRODUCT_STAGES` map and the `migrateProductStage`
  * helper. Loaders apply this helper at the read boundary so existing
@@ -15,7 +15,7 @@ import {
 } from '../catalog/legacy-product-stages.js'
 import { UPG_PRODUCT_STAGES } from '../intelligence/benchmarks/types.js'
 
-describe('UPG-509 — migrateProductStage (idea → concept)', () => {
+describe(' — migrateProductStage (idea → concept)', () => {
   it('migrates the canonical legacy alias `idea` to `concept`', () => {
     expect(migrateProductStage('idea')).toBe('concept')
   })
@@ -42,7 +42,7 @@ describe('UPG-509 — migrateProductStage (idea → concept)', () => {
   })
 })
 
-describe('UPG-509 — LEGACY_PRODUCT_STAGES map shape', () => {
+describe(' — LEGACY_PRODUCT_STAGES map shape', () => {
   it('is frozen — append-only contract', () => {
     expect(Object.isFrozen(LEGACY_PRODUCT_STAGES)).toBe(true)
   })
@@ -57,7 +57,7 @@ describe('UPG-509 — LEGACY_PRODUCT_STAGES map shape', () => {
     }
   })
 
-  it('contains the `idea → concept` mapping (UPG-509)', () => {
+  it('contains the `idea → concept` mapping', () => {
     expect(LEGACY_PRODUCT_STAGES.idea).toBe('concept')
   })
 
@@ -68,7 +68,7 @@ describe('UPG-509 — LEGACY_PRODUCT_STAGES map shape', () => {
   })
 })
 
-describe('UPG-509 — isLegacyProductStage guard', () => {
+describe(' — isLegacyProductStage guard', () => {
   it('returns true for known legacy aliases', () => {
     expect(isLegacyProductStage('idea')).toBe(true)
   })

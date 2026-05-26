@@ -110,7 +110,7 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
   // sub-artefacts (the plan/run split is opt-in for finer granularity).
   experiment: ['experiment_plan', 'experiment_run', 'learning', 'evidence'],
   experiment_plan: ['experiment_run'],
-  // v0.5.5 (UPG-528 Part 2a): mirrors `experiment_plan_ran_as_experiment_run`
+  // v0.5.5: mirrors `experiment_plan_ran_as_experiment_run`
   // for the Strategyzer Test Card + Learning Card flow. A test plan (the
   // upfront experiment design captured on the Test Card) runs as one or more
   // experiment runs that produce evidence and learning.
@@ -128,16 +128,16 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
   vision: ['mission'],
   mission: ['strategic_pillar'],
   strategic_pillar: ['strategic_theme', 'capability', 'value_stream', 'decision'],
-  // v0.5.4 (UPG-511): objectives are the specific quarterly bets *within* a
+  // v0.5.4: objectives are the specific quarterly bets *within* a
   // strategic theme. The theme is the multi-quarter focus area; objectives are
   // subordinate. Pairs with `objective_rolls_up_to_strategic_theme` in the edge
   // catalog (hierarchy, strategic_theme → objective, reverse_verb: rolls_up_to).
   strategic_theme: ['initiative', 'objective'],
   initiative: ['assumption'],
-  // v0.5.2 (UPG-528): capability decomposes into sub-capabilities (Wardley
+  // v0.5.2: capability decomposes into sub-capabilities (Wardley
   // value-chain spine) and is realised by user-facing features. Pairs with
   // `capability_depends_on_capability` and `capability_implemented_by_feature`
-  // in the edge catalogue. The self-loop guard (UPG-520) keeps A → A refused;
+  // in the edge catalogue. The self-loop guard keeps A → A refused;
   // A → B between distinct capabilities is the supported decomposition.
   capability: ['capability', 'feature'],
 
@@ -158,7 +158,7 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
   affinity_cluster: ['insight'],
   // insight refines into insight — a raw insight can be distilled
   // into a more specific insight (refines_into chain).
-  // v0.5.8 (UPG-528 Part 2d): insights own their evidencing quotes —
+  // v0.5.8: insights own their evidencing quotes —
   // parallel to `observation: ['quote']`. Research-synthesis canon.
   // Pairs with `insight_evidenced_by_quote` in the edge catalog.
 
@@ -166,13 +166,13 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
   user_journey: ['journey_step', 'journey_phase'],
   journey_phase: ['journey_step'],
   journey_step: ['journey_action'],
-  // v0.5.8 (UPG-528 Part 2d): insights own their evidencing quotes —
+  // v0.5.8: insights own their evidencing quotes —
   // parallel to `observation: ['quote']`. Research-synthesis canon
   // (insight ← quote evidencing) extends quote's hierarchy parents to
   // both observation (raw-capture parent) and insight (synthesis parent).
   // Pairs with `insight_evidenced_by_quote` in the edge catalog.
   insight: ['design_question', 'insight', 'quote'],
-  // v0.5.2 (UPG-528): need anchors a Wardley value chain — capabilities
+  // v0.5.2: need anchors a Wardley value chain — capabilities
   // fulfil the need at the chain top. Cross-domain hierarchy (need ∈ Design,
   // capability ∈ Strategy) is intentional: Wardley analysis starts from a
   // user need and decomposes into the capabilities required to fulfil it.
@@ -206,7 +206,7 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
     'service', 'domain_event', 'decision', 'data_model', 'aggregate',
     'read_model', 'code_repository', 'integration_pattern', 'external_api',
     'data_flow',
-    // v0.5.7 (UPG-528 Part 2c): BCs publish api_contracts as their "published
+    // v0.5.7: BCs publish api_contracts as their "published
     // language" (DDD canon). api_contract has two valid hierarchy parents now —
     // service (per-service exposure) AND bounded_context (BC-level surface).
     'api_contract',
@@ -216,7 +216,7 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
     'api_endpoint', 'database_schema', 'queue_topic', 'build_artifact',
     'library_dependency',
   ],
-  // v0.5.1 (UPG-517 C2): contracts contain their endpoints. Service still
+  // v0.5.1 ( C2): contracts contain their endpoints. Service still
   // serves endpoints directly (legacy / non-contract endpoints) — both
   // parent-child paths coexist.
   api_contract: ['api_endpoint'],
@@ -372,7 +372,7 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
     'beta_program',
   ],
   feature_request: ['feedback_vote'],
-  // v0.5.8 (UPG-528 Part 2d): CABs convene as quarterly ceremonies — the
+  // v0.5.8: CABs convene as quarterly ceremonies — the
   // CAB owns its meeting cadence (Stettler, Moore CAB playbook canon).
   // Pairs with `user_advisory_board_convenes_as_ceremony` in the edge
   // catalog. ceremony now has two valid hierarchy parents (team for sprint
@@ -390,7 +390,7 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
     'hallucination_report', 'ai_guardrail', 'model_comparison',
     'ai_experiment', 'ai_dataset', 'ai_trace',
   ],
-  // v0.5.7 (UPG-528 Part 2c): benchmarks define the metric set they measure
+  // v0.5.7: benchmarks define the metric set they measure
   // (HELM, MLPerf, BIG-bench all spec a metric list). metric already has many
   // hierarchy parents (outcome, objective, key_result, solution, data_source).
   eval_benchmark: ['eval_run', 'metric'],
@@ -402,7 +402,7 @@ export const UPG_VALID_CHILDREN: Record<string, readonly string[]> = {
   workflow_template: ['workflow_run', 'review_gate', 'agent_task'],
   workflow_run: ['workflow_artifact'],
   agent_definition: ['agent_session', 'agent_skill', 'agent_hook', 'workflow_template', 'agent_task'],
-  // v0.5.8 (UPG-528 Part 2d): review gates also vet research insights
+  // v0.5.8: review gates also vet research insights
   // (ResearchOps insight-review pattern). Pairs with `review_gate_vets_insight`
   // in the edge catalog. The gate now owns two child types — approval records
   // for workflow gates, insights for research-democratisation gates.

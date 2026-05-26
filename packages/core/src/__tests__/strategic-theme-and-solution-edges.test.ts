@@ -1,7 +1,7 @@
 /**
- * strategic_theme wiring + solution graduation — v0.5.4 (UPG-511 + UPG-513)
+ * strategic_theme wiring + solution graduation — v0.5.4 ( +)
  *
- * UPG-511 adds three edges that lift strategic_theme from structural isolation
+ * adds three edges that lift strategic_theme from structural isolation
  * (1 outgoing: strategic_theme_pursues_initiative) to a conceptually central
  * strategy node with direct causal links to outcomes and key results, plus an
  * incoming hierarchy edge from objectives:
@@ -10,7 +10,7 @@
  *   - strategic_theme_measured_by_key_result   (strategy · causal)
  *   - objective_rolls_up_to_strategic_theme    (strategy · hierarchy)
  *
- * UPG-513 adds the explicit Solution Tree graduation moment:
+ * adds the explicit Solution Tree graduation moment:
  *
  *   - solution_becomes_feature                 (discovery · causal)
  *
@@ -29,9 +29,9 @@ import {
   resolveContainmentEdge,
 } from '../index.js'
 
-// ─── UPG-511: strategic_theme_delivers_outcome ───────────────────────────────
+// ───: strategic_theme_delivers_outcome ───────────────────────────────
 
-describe('UPG-511 — strategic_theme_delivers_outcome', () => {
+describe(' — strategic_theme_delivers_outcome', () => {
   it('exists in UPG_EDGE_CATALOG with correct shape', () => {
     const def = UPG_EDGE_CATALOG.strategic_theme_delivers_outcome
     expect(def).toBeDefined()
@@ -49,9 +49,9 @@ describe('UPG-511 — strategic_theme_delivers_outcome', () => {
   })
 })
 
-// ─── UPG-511: strategic_theme_measured_by_key_result ─────────────────────────
+// ───: strategic_theme_measured_by_key_result ─────────────────────────
 
-describe('UPG-511 — strategic_theme_measured_by_key_result', () => {
+describe(' — strategic_theme_measured_by_key_result', () => {
   it('exists in UPG_EDGE_CATALOG with correct shape', () => {
     const def = UPG_EDGE_CATALOG.strategic_theme_measured_by_key_result
     expect(def).toBeDefined()
@@ -69,7 +69,7 @@ describe('UPG-511 — strategic_theme_measured_by_key_result', () => {
   })
 })
 
-// ─── UPG-511: objective_rolls_up_to_strategic_theme ──────────────────────────
+// ───: objective_rolls_up_to_strategic_theme ──────────────────────────
 //
 // UPG hierarchy convention: source = parent, target = child.
 // strategic_theme is the parent; objective is the child.
@@ -77,7 +77,7 @@ describe('UPG-511 — strategic_theme_measured_by_key_result', () => {
 // The name captures the *reverse-direction* semantic (objectives roll up to
 // their theme) via the reverse_verb: 'rolls_up_to'.
 
-describe('UPG-511 — objective_rolls_up_to_strategic_theme', () => {
+describe(' — objective_rolls_up_to_strategic_theme', () => {
   it('exists in UPG_EDGE_CATALOG with correct shape', () => {
     const def = UPG_EDGE_CATALOG.objective_rolls_up_to_strategic_theme
     expect(def).toBeDefined()
@@ -103,9 +103,9 @@ describe('UPG-511 — objective_rolls_up_to_strategic_theme', () => {
   })
 })
 
-// ─── UPG-513: solution_becomes_feature ───────────────────────────────────────
+// ───: solution_becomes_feature ───────────────────────────────────────
 
-describe('UPG-513 — solution_becomes_feature', () => {
+describe(' — solution_becomes_feature', () => {
   it('exists in UPG_EDGE_CATALOG with correct shape', () => {
     const def = UPG_EDGE_CATALOG.solution_becomes_feature
     expect(def).toBeDefined()
@@ -125,7 +125,7 @@ describe('UPG-513 — solution_becomes_feature', () => {
 
 // ─── structural isolation audit ──────────────────────────────────────────────
 
-describe('UPG-511 — strategic_theme outgoing-edge count', () => {
+describe(' — strategic_theme outgoing-edge count', () => {
   it('strategic_theme now has at least 4 outgoing edges (was 1)', () => {
     // Note: `objective_rolls_up_to_strategic_theme` has source_type=strategic_theme
     // (UPG parent → child convention), so it also counts as an outgoing edge.
@@ -142,7 +142,7 @@ describe('UPG-511 — strategic_theme outgoing-edge count', () => {
   })
 })
 
-describe('UPG-513 — solution now has explicit conversion path to feature', () => {
+describe(' — solution now has explicit conversion path to feature', () => {
   it('solution has solution_becomes_feature as an outgoing edge', () => {
     const outgoing = Object.entries(UPG_EDGE_CATALOG)
       .filter(([, def]) => def.source_type === 'solution')

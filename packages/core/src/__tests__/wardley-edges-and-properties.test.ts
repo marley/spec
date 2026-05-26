@@ -1,5 +1,5 @@
 /**
- * Wardley edges and capability properties — v0.5.2 (UPG-528).
+ * Wardley edges and capability properties — v0.5.2.
  *
  * Four canonical edges complete the Wardley value-chain spine
  * `need → capability → capability → feature` and let competitors map onto
@@ -29,7 +29,7 @@ import { UPG_VALID_CHILDREN } from '../grammar/hierarchy.js'
 import { UPG_PROPERTY_SCHEMA } from '../properties/property-schema.js'
 import type { CapabilityProperties } from '../properties/domains/strategy.js'
 
-describe('UPG-528 — need → capability anchor', () => {
+describe(' — need → capability anchor', () => {
   it('need_fulfilled_by_capability exists with the right shape', () => {
     const def = UPG_EDGE_CATALOG.need_fulfilled_by_capability
     expect(def).toBeDefined()
@@ -57,7 +57,7 @@ describe('UPG-528 — need → capability anchor', () => {
   })
 })
 
-describe('UPG-528 — capability → capability value-chain spine', () => {
+describe(' — capability → capability value-chain spine', () => {
   it('capability_depends_on_capability exists with the right shape', () => {
     const def = UPG_EDGE_CATALOG.capability_depends_on_capability
     expect(def).toBeDefined()
@@ -85,7 +85,7 @@ describe('UPG-528 — capability → capability value-chain spine', () => {
   })
 })
 
-describe('UPG-528 — capability → feature implementation', () => {
+describe(' — capability → feature implementation', () => {
   it('capability_implemented_by_feature exists with the right shape', () => {
     const def = UPG_EDGE_CATALOG.capability_implemented_by_feature
     expect(def).toBeDefined()
@@ -113,7 +113,7 @@ describe('UPG-528 — capability → feature implementation', () => {
   })
 })
 
-describe('UPG-528 — competitor → capability cross-domain bridge', () => {
+describe(' — competitor → capability cross-domain bridge', () => {
   it('competitor_offers_capability exists with the right shape', () => {
     const def = UPG_EDGE_CATALOG.competitor_offers_capability
     expect(def).toBeDefined()
@@ -144,7 +144,7 @@ describe('UPG-528 — competitor → capability cross-domain bridge', () => {
   })
 })
 
-describe('UPG-528 — capability gains Wardley axes', () => {
+describe(' — capability gains Wardley axes', () => {
   it('CapabilityProperties accepts declared evolution_stage values', () => {
     const stages: Array<NonNullable<CapabilityProperties['evolution_stage']>> = [
       'genesis',
@@ -196,7 +196,7 @@ describe('UPG-528 — capability gains Wardley axes', () => {
   })
 })
 
-describe('UPG-528 — capability is no longer a structural near-terminal', () => {
+describe(' — capability is no longer a structural near-terminal', () => {
   it('capability has at least three outgoing canonical edges', () => {
     const outgoing = Object.entries(UPG_EDGE_CATALOG)
       .filter(([, def]) => def.source_type === 'capability')

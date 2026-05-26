@@ -221,12 +221,12 @@ describe('property-schema coverage', () => {
  expect(mismatches, `enum mismatches:\n ${mismatches.join('\n ')}`).toEqual([])
  })
 
-  it('captures the four UPG-448 newly-rescued properties', () => {
+  it('captures the four newly-rescued properties', () => {
     // These were silently dropped or under-emitted by the regex
     // generator. The AST migration rescues them — pin them so a future
     // regression on the generator is loud. The fourth historical pin
     // (`symptom.frequency` mixed-string union) was retired by the v0.5.0
-    // UPG-509 deprecation-hygiene pass; the remaining three still
+    // deprecation-hygiene pass; the remaining three still
     // exercise the AST rescue path.
     expect(UPG_PROPERTY_SCHEMA.job?.job_type?.enum).toEqual([
       'functional',
@@ -241,7 +241,7 @@ describe('property-schema coverage', () => {
       'functional_exploit',
       'active_exploitation',
     ])
-    // UPG-509 — symptom.frequency was removed in v0.5.0 (replaced by the
+    // — symptom.frequency was removed in v0.5.0 (replaced by the
     // canonical 4-way frequency split). Assert it's gone so future
     // regenerations don't accidentally re-introduce it.
     expect(UPG_PROPERTY_SCHEMA.symptom?.frequency).toBeUndefined()

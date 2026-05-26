@@ -1,5 +1,5 @@
 /**
- * DDD/CQRS event-flow chain — v0.5.3 (UPG-517 batch C1)
+ * DDD/CQRS event-flow chain — v0.5.3 ( batch C1)
  *
  * Three causal edges that complete the event-driven dynamics on top of the
  * existing DDD/CQRS structural shape (aggregate_contains_*, aggregate_handles_
@@ -30,7 +30,7 @@ import {
   pickCanonicalEdge,
 } from '../index.js'
 
-describe('UPG-517 C1 — command → domain_event', () => {
+describe(' C1 — command → domain_event', () => {
   it('command_produces_domain_event exists in UPG_EDGE_CATALOG with the right shape', () => {
     const def = UPG_EDGE_CATALOG.command_produces_domain_event
     expect(def).toBeDefined()
@@ -60,7 +60,7 @@ describe('UPG-517 C1 — command → domain_event', () => {
   })
 })
 
-describe('UPG-517 C1 — aggregate → domain_event', () => {
+describe(' C1 — aggregate → domain_event', () => {
   it('aggregate_emits_domain_event exists in UPG_EDGE_CATALOG with the right shape', () => {
     const def = UPG_EDGE_CATALOG.aggregate_emits_domain_event
     expect(def).toBeDefined()
@@ -84,7 +84,7 @@ describe('UPG-517 C1 — aggregate → domain_event', () => {
   })
 })
 
-describe('UPG-517 C1 — domain_event → read_model', () => {
+describe(' C1 — domain_event → read_model', () => {
   it('domain_event_projected_to_read_model exists in UPG_EDGE_CATALOG with the right shape', () => {
     const def = UPG_EDGE_CATALOG.domain_event_projected_to_read_model
     expect(def).toBeDefined()
@@ -108,7 +108,7 @@ describe('UPG-517 C1 — domain_event → read_model', () => {
   })
 })
 
-describe('UPG-517 C1 — resolveContainmentEdge contract', () => {
+describe(' C1 — resolveContainmentEdge contract', () => {
   it('resolveContainmentEdge("bounded_context","aggregate") returns the canonical hierarchy edge', () => {
     // bounded_context_modelled_as_aggregate is the existing canonical
     // containment for this pair — pre-existing, hierarchy classification.
@@ -164,7 +164,7 @@ describe('UPG-517 C1 — resolveContainmentEdge contract', () => {
   })
 })
 
-describe('UPG-517 C1 — entities are no longer pure terminals', () => {
+describe(' C1 — entities are no longer pure terminals', () => {
   it('command has at least one outgoing canonical edge', () => {
     const outgoing = Object.entries(UPG_EDGE_CATALOG)
       .filter(([, def]) => def.source_type === 'command')
@@ -184,7 +184,7 @@ describe('UPG-517 C1 — entities are no longer pure terminals', () => {
   })
 })
 
-describe('UPG-517 C1 — chain composability', () => {
+describe(' C1 — chain composability', () => {
   it('aggregate has both structural (handles) and causal (emits) connections to events', () => {
     // The CQRS shape: aggregate handles commands (structural) and emits the
     // events that result (causal). Both edges must exist for the dynamics to
@@ -218,7 +218,7 @@ describe('UPG-517 C1 — chain composability', () => {
   })
 
   it('all three new edges are between distinct types — no self-loops', () => {
-    // Composes cleanly with UPG-520 self-loop refusal. No same-type edge
+    // Composes cleanly with self-loop refusal. No same-type edge
     // should exist among the new additions.
     const newKeys = [
       'command_produces_domain_event',

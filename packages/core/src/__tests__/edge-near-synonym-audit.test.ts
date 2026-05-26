@@ -1,5 +1,5 @@
 /**
- * Smoke test for the near-synonym edge audit (UPG-510).
+ * Smoke test for the near-synonym edge audit.
  *
  * Verifies:
  * 1. The pair-grouping logic finds multi-edge pairs in the catalog.
@@ -29,7 +29,7 @@ function groupByPair(
 
 // ─── Tests ────────────────────────────────────────────────────────────────────
 
-describe('edge near-synonym audit (UPG-510)', () => {
+describe('edge near-synonym audit', () => {
   const pairMap = groupByPair(UPG_EDGE_CATALOG)
   const multiPairs = [...pairMap.entries()].filter(([, edges]) => edges.length >= 2)
 

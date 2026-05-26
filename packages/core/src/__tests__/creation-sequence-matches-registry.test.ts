@@ -1,5 +1,5 @@
 /**
- * UPG-516 — `creation_sequence` ↔ entity registry invariant.
+ * — `creation_sequence` ↔ entity registry invariant.
  *
  * Every domain's navigation `creation_sequence` (from `UPG_DOMAIN_GUIDES`)
  * must cover every entity registered to that domain in `UPG_DOMAINS[].types`,
@@ -20,7 +20,7 @@ import { describe, it, expect } from 'vitest'
 import { UPG_DOMAINS, UPG_ENTITY_TO_DOMAIN } from '../registry/domains.js'
 import { UPG_DOMAIN_GUIDES } from '../intelligence/domain-guides.js'
 
-describe('UPG-516 — creation_sequence ↔ registry invariant', () => {
+describe(' — creation_sequence ↔ registry invariant', () => {
   it('every domain has a usage guide', () => {
     for (const domain of UPG_DOMAINS) {
       const guide = UPG_DOMAIN_GUIDES.find((g) => g.domain_id === domain.id)
