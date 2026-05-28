@@ -11,6 +11,19 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.7.1] — 2026-05-28
+
+**Patch.** Metadata fix: `UPG_VERSION` was `'0.6.0'` in the published 0.7.0 — it
+should track the catalogue version (`'0.7.0'`). Corrected in source (#1827) and
+republished. Because consumers that **bundle** core (`sdk`, `mcp-server`, `cli`)
+baked the stale value, those are republished at 0.7.1 too so their bundled
+`UPG_VERSION` is correct; `cloud-server` / `adapters` / `markdown` keep core
+external and pick up the fix via resolution. No catalogue/API changes —
+`UPG_VERSION` stays `'0.7.0'` (the catalogue version, decoupled from the npm
+package version by design).
+
+---
+
 ## [0.7.0] — 2026-05-28
 
 **Minor.** Re-canonicalise the user story. `story_statement` → `user_story`.
